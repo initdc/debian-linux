@@ -5,7 +5,9 @@ image_path=/boot/@image-stem@-$version
 
 rm -f /lib/modules/$version/.fresh-install
 
-if [ "$1" != upgrade ] && command -v linux-update-symlinks >/dev/null; then
+# Remove symlinks to our kernel, if it was actually removed rather
+# than upgraded or crossgraded
+if ! [ -f $image_path ] && command -v linux-update-symlinks >/dev/null; then
     linux-update-symlinks remove $version $image_path
 fi
 
