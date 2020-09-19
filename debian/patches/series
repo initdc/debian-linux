@@ -101,6 +101,11 @@ debian/revert-objtool-fix-config_stack_validation-y-warning.patch
 bugfix/all/mt76-use-the-correct-hweight8-function.patch
 bugfix/all/rtc-s35390a-set-uie_unsupported.patch
 bugfix/all/gfs2-initialize-transaction-tr_ailX_lists-earlier.patch
+bugfix/all/lib-genalloc-add-gen_pool_dma_zalloc-for-zeroed-DMA.patch
+bugfix/all/USB-use-genalloc-for-USB-HCs-with-local-memory.patch
+bugfix/all/USB-drop-HDC_LOCAL_MEM-flag.patch
+bugfix/all/usb-dont-create-dma-pools-for-HCD.patch
+bugfix/all/usb-add-a-hcd_uses_dma-helper.patch
 
 # Miscellaneous features
 features/all/e1000e-Add-support-for-Comet-Lake.patch
