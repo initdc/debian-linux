@@ -15,9 +15,9 @@ probably discontinued 10 years ago.
 ---
 --- a/drivers/video/fbdev/Kconfig
 +++ b/drivers/video/fbdev/Kconfig
-@@ -991,101 +991,6 @@ config FB_ATMEL_STN
-	help
-	  This enables support for the AT91/AT32 LCD Controller.
+@@ -1007,101 +1007,6 @@ config FB_ATMEL
+ 	help
+ 	  This enables support for the AT91/AT32 LCD Controller.
  
 -config FB_NVIDIA
 -	tristate "nVidia Framebuffer Support"
@@ -119,7 +119,7 @@ probably discontinued 10 years ago.
  	depends on FB && PCI
 --- a/drivers/video/fbdev/Makefile
 +++ b/drivers/video/fbdev/Makefile
-@@ -22,8 +22,6 @@ obj-$(CONFIG_FB_PM3)		  += pm3fb.o
+@@ -21,8 +21,6 @@ obj-$(CONFIG_FB_PM3)		  += pm3fb.o
  
  obj-$(CONFIG_FB_I740)		  += i740fb.o
  obj-$(CONFIG_FB_MATROX)		  += matrox/
