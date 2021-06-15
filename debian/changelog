@@ -1,11 +1,15 @@
 linux-5.10 (5.10.136-1~deb10u1) UNRELEASED; urgency=medium
 
+  [ Ben Hutchings ]
   * Rebuild for buster:
     - Disable building linux-libc-dev and unversioned tools packages
     - Disable building installer udebs and remove build-dependency on
       kernel-wedge
     - Disable building linux-compiler-gcc-8-*
     - Revert "Enable BTF for amd64, arm64"
+
+  [ Bastian Blank ]
+  * Build signed template if versioned package name
 
  -- Ben Hutchings <benh@debian.org>  Thu, 28 Jul 2022 19:16:19 +0200
 
