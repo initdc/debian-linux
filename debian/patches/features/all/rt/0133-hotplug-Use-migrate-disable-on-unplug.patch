@@ -1,7 +1,7 @@
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Sun, 17 Jul 2011 19:35:29 +0200
 Subject: [PATCH 133/347] hotplug: Use migrate disable on unplug
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=288e0178f5195e9cfd20d433c6008635588bbe4f
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=4670631898de81cce77cba9f34355028d7c94e39
 
 Migration needs to be disabled accross the unplug handling to make
 sure that the unplug thread is off the unplugged cpu.

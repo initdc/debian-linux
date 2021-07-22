@@ -17,6 +17,7 @@ ignore-changes:
  mv_mbus_*
  register_cxl_calls
  register_key_type
+ shash_no_setkey
  tpm_*
  tpmm_chip_alloc
  unregister_cxl_calls

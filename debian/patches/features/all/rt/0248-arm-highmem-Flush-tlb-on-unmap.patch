@@ -1,7 +1,7 @@
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Mon, 11 Mar 2013 21:37:27 +0100
 Subject: [PATCH 248/347] arm/highmem: Flush tlb on unmap
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=e8aa070339282d465d514f02b23242f14e6a36c3
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=1ebc1e20ac771b039de4d1991ea4a2a693eb1db6
 
 The tlb should be flushed on unmap and thus make the mapping entry
 invalid. This is only done in the non-debug case which does not look

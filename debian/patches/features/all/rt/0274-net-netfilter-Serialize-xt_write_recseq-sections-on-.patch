@@ -2,7 +2,7 @@ From: Thomas Gleixner <tglx@linutronix.de>
 Date: Sun, 28 Oct 2012 11:18:08 +0100
 Subject: [PATCH 274/347] net: netfilter: Serialize xt_write_recseq sections on
  RT
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=4f86292e59219cf39bb2b159267b223da4e4c9a6
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=283de2fea20fcfe2dbee5b0cb9b979c1ca3f7aa0
 
 The netfilter code relies only on the implicit semantics of
 local_bh_disable() for serializing wt_write_recseq sections. RT breaks

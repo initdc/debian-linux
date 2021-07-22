@@ -1,7 +1,7 @@
 From: Steven Rostedt <rostedt@goodmis.org>
 Date: Tue, 4 Mar 2014 12:28:32 -0500
 Subject: [PATCH 201/347] cpu_chill: Add a UNINTERRUPTIBLE hrtimer_nanosleep
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=3efb86a04de6c37220af9c777dfd9e3c3ef65132
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=0e30d7c68d048b62089c70441ca196f110d37f7a
 
 We hit another bug that was caused by switching cpu_chill() from
 msleep() to hrtimer_nanosleep().

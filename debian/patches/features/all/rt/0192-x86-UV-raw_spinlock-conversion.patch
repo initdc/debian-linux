@@ -1,7 +1,7 @@
 From: Mike Galbraith <umgwanakikbuti@gmail.com>
 Date: Sun, 2 Nov 2014 08:31:37 +0100
 Subject: [PATCH 192/347] x86: UV: raw_spinlock conversion
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=cb0ca6d7ccb4f2c309cba6404390dea779307f17
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=203526312b37f7c5c65af24a6c5fb5e5e4b19274
 
 Shrug.  Lots of hobbyists have a beast in their basement, right?
 

@@ -105,7 +105,6 @@ bugfix/x86/mmap-remember-the-map_fixed-flag-as-vm_fixed.patch
 bugfix/x86/mmap-add-an-exception-to-the-stack-gap-for-hotspot-jvm.patch
 bugfix/all/xen-time-do-not-decrease-steal-time-after-live-migra.patch
 bugfix/all/netfilter-xt_hashlimit-fix-integer-divide-round-to-z.patch
-bugfix/all/proc-track-proc-pid-attr-opener-mm_struct.patch
 
 # Miscellaneous features
 features/all/netfilter-nft_ct-add-notrack-support.patch
@@ -325,10 +324,8 @@ bugfix/all/gup-document-and-work-around-cow-can-break-either-wa.patch
 bugfix/all/fuse-fix-bad-inode.patch
 bugfix/all/fuse-fix-live-lock-in-fuse_iget.patch
 bugfix/all/drm-ttm-nouveau-don-t-call-tt-destroy-callback-on-al.patch
-bugfix/all/can-bcm-fix-infoleak-in-struct-bcm_msg_head.patch
-bugfix/all/can-bcm-delay-release-of-struct-bcm_op-after-synchro.patch
 features/all/lib-string.c-add-multibyte-memset-functions.patch
 bugfix/arm/arm-ensure-the-signal-page-contains-defined-contents.patch
-bugfix/all/seq_file-Disallow-extremely-large-seq-buffer-allocat.patch
 
 # ABI maintenance
+debian/abi/i2c-avoid-abi0-change-in-4.9.275.patch

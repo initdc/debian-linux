@@ -1,7 +1,7 @@
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Wed, 2 Nov 2016 16:45:58 +0100
 Subject: [PATCH 026/347] rcu: update: make RCU_EXPEDITE_BOOT default
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=eb6862525fde80c8b78eac43b1bdc21d22d05122
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=0a44417f34606f93039cfbb1c3f90398510b1907
 
 RCU_EXPEDITE_BOOT should speed up the boot process by enforcing
 synchronize_rcu_expedited() instead of synchronize_rcu() during the boot

@@ -1,7 +1,7 @@
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Mon, 18 Jul 2011 17:10:12 +0200
 Subject: [PATCH 244/347] mips: Disable highmem on RT
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=f7822c0a05a7759ae119d5be8937a749df149772
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=341dc2a9e5e2a2977a39bbfd5d110d7e8ab42de1
 
 The current highmem handling on -RT is not compatible and needs fixups.
 

@@ -1,7 +1,7 @@
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Sun, 19 Jul 2009 08:44:27 -0500
 Subject: [PATCH 183/347] fs: namespace preemption fix
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=a6ef6cb6bb09eb5c3c4585b31bbef304a1868fb3
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=951f6d6006e8b5679ad136eb56efa9c5bc4f617b
 
 On RT we cannot loop with preemption disabled here as
 mnt_make_readonly() might have been preempted. We can safely enable

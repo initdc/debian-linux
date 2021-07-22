@@ -19,6 +19,8 @@ Tested-by: Steffen Trumtrar <s.trumtrar@pengutronix.de>
 Reviewed-by: Petr Mladek <pmladek@suse.com>
 Cc: Guenter Roeck <linux@roeck-us.net>
 Link: https://lkml.kernel.org/r/20190212162554.19779-1-bigeasy@linutronix.de
+[bwh: Adjust to apply after "kthread_worker: split code for canceling the
+  delayed work timer"]
 ---
  include/linux/kthread.h |  4 ++--
  kernel/kthread.c        | 42 ++++++++++++++++++++---------------------
@@ -149,19 +151,19 @@ Link: https://lkml.kernel.org/r/20190212162554.19779-1-bigeasy@linutronix.de
  
  	if (!noop)
  		wait_for_completion(&fwork.done);
-@@ -977,9 +977,9 @@ static bool __kthread_cancel_work(struct
- 		 * any queuing is blocked by setting the canceling counter.
- 		 */
- 		work->canceling++;
--		spin_unlock_irqrestore(&worker->lock, *flags);
-+		raw_spin_unlock_irqrestore(&worker->lock, *flags);
- 		del_timer_sync(&dwork->timer);
--		spin_lock_irqsave(&worker->lock, *flags);
-+		raw_spin_lock_irqsave(&worker->lock, *flags);
- 		work->canceling--;
- 	}
+@@ -972,9 +972,9 @@ static void kthread_cancel_delayed_work_
+ 	 * any queuing is blocked by setting the canceling counter.
+ 	 */
+ 	work->canceling++;
+-	spin_unlock_irqrestore(&worker->lock, *flags);
++	raw_spin_unlock_irqrestore(&worker->lock, *flags);
+ 	del_timer_sync(&dwork->timer);
+-	spin_lock_irqsave(&worker->lock, *flags);
++	raw_spin_lock_irqsave(&worker->lock, *flags);
+ 	work->canceling--;
+ }
  
-@@ -1026,7 +1026,7 @@ bool kthread_mod_delayed_work(struct kth
+@@ -1036,7 +1036,7 @@ bool kthread_mod_delayed_work(struct kth
  	unsigned long flags;
  	int ret = false;
  
@@ -170,7 +172,7 @@ Link: https://lkml.kernel.org/r/20190212162554.19779-1-bigeasy@linutronix.de
  
  	/* Do not bother with canceling when never queued. */
  	if (!work->worker)
-@@ -1043,7 +1043,7 @@ bool kthread_mod_delayed_work(struct kth
+@@ -1065,7 +1065,7 @@ bool kthread_mod_delayed_work(struct kth
  fast_queue:
  	__kthread_queue_delayed_work(worker, dwork, delay);
  out:
@@ -179,7 +181,7 @@ Link: https://lkml.kernel.org/r/20190212162554.19779-1-bigeasy@linutronix.de
  	return ret;
  }
  EXPORT_SYMBOL_GPL(kthread_mod_delayed_work);
-@@ -1057,7 +1057,7 @@ static bool __kthread_cancel_work_sync(s
+@@ -1079,7 +1079,7 @@ static bool __kthread_cancel_work_sync(s
  	if (!worker)
  		goto out;
  
@@ -188,7 +190,7 @@ Link: https://lkml.kernel.org/r/20190212162554.19779-1-bigeasy@linutronix.de
  	/* Work must not be used with >1 worker, see kthread_queue_work(). */
  	WARN_ON_ONCE(work->worker != worker);
  
-@@ -1071,13 +1071,13 @@ static bool __kthread_cancel_work_sync(s
+@@ -1096,13 +1096,13 @@ static bool __kthread_cancel_work_sync(s
  	 * In the meantime, block any queuing by setting the canceling counter.
  	 */
  	work->canceling++;

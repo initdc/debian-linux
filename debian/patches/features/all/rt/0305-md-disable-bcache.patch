@@ -4,7 +4,7 @@ Subject: [PATCH 305/347] md: disable bcache
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=eb8dfa1a59568d56098bffa98724f137c2f1f91a
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=1aa042b6d52f6034297871a2fc42e9d20653832b
 
 It uses anon semaphores
 |drivers/md/bcache/request.c: In function ‘cached_dev_write_complete’:

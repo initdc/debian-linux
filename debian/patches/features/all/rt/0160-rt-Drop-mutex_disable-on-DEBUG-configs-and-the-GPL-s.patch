@@ -2,7 +2,7 @@ From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Fri, 10 Feb 2017 18:21:04 +0100
 Subject: [PATCH 160/347] rt: Drop mutex_disable() on !DEBUG configs and the
  GPL suffix from export symbol
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=76843197573c587ee382166570021e0969a85b3a
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=b20359e85dea3ce9112983c3d5e3dc60c1029514
 
 Alex Goins reported that mutex_destroy() on RT will force a GPL only symbol
 which won't link and therefore fail on a non-GPL kernel module.

@@ -1,7 +1,7 @@
 From: Steven Rostedt <rostedt@goodmis.org>
 Date: Fri, 3 Jul 2009 08:30:00 -0500
 Subject: [PATCH 083/347] drivers/net: vortex fix locking issues
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=fad1608a07bbc2bc7d6c2145e4a60b2f4d62390e
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=b5a48f1a9236be4e3aaaf281fab97b139dff9b4b
 
 Argh, cut and paste wasn't enough...
 

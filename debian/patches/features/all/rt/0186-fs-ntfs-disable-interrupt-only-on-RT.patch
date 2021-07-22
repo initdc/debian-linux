@@ -1,7 +1,7 @@
 From: Mike Galbraith <efault@gmx.de>
 Date: Fri, 3 Jul 2009 08:44:12 -0500
 Subject: [PATCH 186/347] fs: ntfs: disable interrupt only on !RT
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=6566c9c457f0a7ecf418ceb5ab3f8c5e9362606a
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=a4fad396b0c17661b235ebad3bb27cad1798e745
 
 On Sat, 2007-10-27 at 11:44 +0200, Ingo Molnar wrote:
 > * Nick Piggin <nickpiggin@yahoo.com.au> wrote:

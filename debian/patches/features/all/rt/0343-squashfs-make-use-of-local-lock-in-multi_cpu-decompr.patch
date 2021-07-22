@@ -2,7 +2,7 @@ From: Julia Cartwright <julia@ni.com>
 Date: Mon, 7 May 2018 08:58:57 -0500
 Subject: [PATCH 343/347] squashfs: make use of local lock in multi_cpu
  decompressor
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=cea3ba3d044421e5cd5a7af668817fade020f8af
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=4cfbaf325714371101f497d27b97a073061ca151
 
 Currently, the squashfs multi_cpu decompressor makes use of
 get_cpu_ptr()/put_cpu_ptr(), which unconditionally disable preemption

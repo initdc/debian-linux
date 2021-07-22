@@ -2,7 +2,7 @@ From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Wed, 20 Jan 2016 15:39:05 +0100
 Subject: [PATCH 220/347] net: provide a way to delegate processing a softirq
  to ksoftirqd
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=c378c9be3794f920eb7d5a14730b5c97323c699c
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=a4cfee76cdd6cd1dcbe7af63c9b3012951405de5
 
 If the NET_RX uses up all of his budget it moves the following NAPI
 invocations into the `ksoftirqd`. On -RT it does not do so. Instead it

@@ -1,7 +1,7 @@
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Sun, 26 Jul 2009 19:39:56 +0200
 Subject: [PATCH 159/347] rt: Add the preempt-rt lock replacement APIs
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=03d0a1bae60c80efd1db11840a36f65721e7313c
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=0a3ba4bc3f68fb0810bd3e97c788a02998a42213
 
 Map spinlocks, rwlocks, rw_semaphores and semaphores to the rt_mutex
 based locking functions for preempt-rt.
@@ -958,7 +958,7 @@ index 000000000000..3e3d8c5f7a9a
 +
 +#endif
 diff --git a/kernel/futex.c b/kernel/futex.c
-index 70a861fced17..eba6be698687 100644
+index f06c34030d48..5859a72b88fa 100644
 --- a/kernel/futex.c
 +++ b/kernel/futex.c
 @@ -1586,6 +1586,7 @@ static int wake_futex_pi(u32 __user *uaddr, u32 uval, struct futex_pi_state *pi_

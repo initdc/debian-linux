@@ -1,7 +1,7 @@
 From: Peter Zijlstra <peterz@infradead.org>
 Date: Wed, 14 Sep 2011 11:57:04 +0200
 Subject: [PATCH 250/347] ipc/sem: Rework semaphore wakeups
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=97e13dd4fc7fff61ca6468972695a054a2109367
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=026bfd8d88f2e8c0645bbfe295ac6c201c8b2bfa
 
 Current sysv sems have a weird ass wakeup scheme that involves keeping
 preemption disabled over a potential O(n^2) loop and busy waiting on

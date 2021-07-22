@@ -2,7 +2,7 @@ From: Boqun Feng <boqun.feng@gmail.com>
 Date: Wed, 6 Jun 2018 15:31:30 +0200
 Subject: [PATCH 328/347] rtmutex: Make rt_mutex_futex_unlock() safe for
  irq-off callsites
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=d38d698ab469734fd9f4f3547f343291c37011a7
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=183cff0f73cbf374443e92201ba86f2799e09002
 
 [ Upstream commit 6b0ef92fee2a3189eba6d6b827b247cb4f6da7e9 ]
 

@@ -2,7 +2,7 @@ From: Mike Galbraith <umgwanakikbuti@gmail.com>
 Date: Tue, 24 Mar 2015 08:14:49 +0100
 Subject: [PATCH 268/347] hotplug: Use set_cpus_allowed_ptr() in
  sync_unplug_thread()
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=0e75c4dab0d4537485fe25a85c0c969afaf4a76b
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=84e803249778bc930ff264d55763163ebb8626b5
 
 do_set_cpus_allowed() is not safe vs ->sched_class change.
 

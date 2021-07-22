@@ -5,7 +5,7 @@ Subject: [PATCH 223/347] net: add back the missing serialization in
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=39f6af079737e722e43593a78ab190fcb2af81f3
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=9fba2586629127bc3b0ce6e631b6882f313a6d9d
 
 Some time ago Sami Pietikäinen reported a crash on -RT in
 ip_send_unicast_reply() which was later fixed by Nicholas Mc Guire

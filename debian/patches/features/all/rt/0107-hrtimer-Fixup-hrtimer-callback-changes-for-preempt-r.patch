@@ -2,7 +2,7 @@ From: Thomas Gleixner <tglx@linutronix.de>
 Date: Fri, 3 Jul 2009 08:44:31 -0500
 Subject: [PATCH 107/347] hrtimer: Fixup hrtimer callback changes for
  preempt-rt
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=4709597e7e2ba80d2cac6ff9305e343862ae88d7
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=95767108575795a1fc7cfdb379e4cd7d23e9771f
 
 In preempt-rt we can not call the callbacks which take sleeping locks
 from the timer interrupt context.

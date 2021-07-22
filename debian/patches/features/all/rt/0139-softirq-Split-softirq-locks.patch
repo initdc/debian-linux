@@ -1,7 +1,7 @@
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Thu, 4 Oct 2012 14:20:47 +0100
 Subject: [PATCH 139/347] softirq: Split softirq locks
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=8296345d580bb3aa6c986375d3e44ab5f277009a
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=0f3ffe906a753ca252e8ce5b3579a9c707065347
 
 The 3.x RT series removed the split softirq implementation in favour
 of pushing softirq processing into the context of the thread which
@@ -199,7 +199,7 @@ index 8061535253bc..b59e076cf088 100644
  #define PF_VCPU		0x00000010	/* I'm a virtual CPU */
  #define PF_WQ_WORKER	0x00000020	/* I'm a workqueue worker */
 diff --git a/init/main.c b/init/main.c
-index 7ad08957dd18..cb7116682308 100644
+index 9e057314a15f..be95e522fca8 100644
 --- a/init/main.c
 +++ b/init/main.c
 @@ -509,6 +509,7 @@ asmlinkage __visible void __init start_kernel(void)

@@ -1,7 +1,7 @@
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Fri, 21 Oct 2016 10:54:50 +0200
 Subject: [PATCH 025/347] rxrpc: remove unused static variables
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=e33a6cf56d576b2d345d56f1317301bac4de0a7b
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=b6e9a4530d07830d7986c3e019b7e76749835488
 
 The rxrpc_security_methods and rxrpc_security_sem user has been removed
 in 648af7fca159 ("rxrpc: Absorb the rxkad security module"). This was

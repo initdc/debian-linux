@@ -2,7 +2,7 @@ From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Wed, 21 Feb 2018 10:39:54 +0100
 Subject: [PATCH 336/347] net: use task_struct instead of CPU number as the
  queue owner on -RT
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=ca524581f11bb8de6282c8cb35431a1314ebdcd7
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=9a69e620d3e3e7084aed5564142eeda19ed2ee18
 
 In commit ("net: move xmit_recursion to per-task variable on -RT") the
 recursion level was changed to be per-task since we can get preempted in

@@ -2,7 +2,7 @@ From: Yong Zhang <yong.zhang@windriver.com>
 Date: Wed, 11 Jul 2012 22:05:21 +0000
 Subject: [PATCH 278/347] perf: Make swevent hrtimer run in irq instead of
  softirq
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=665fc560b5cdea64b9ee3ebbe291a148d70a4100
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=f783a45ec7a9f157eba65a2a10cd91f62b48519e
 
 Otherwise we get a deadlock like below:
 
@@ -58,10 +58,10 @@ Signed-off-by: Steven Rostedt <rostedt@goodmis.org>
  1 file changed, 1 insertion(+)
 
 diff --git a/kernel/events/core.c b/kernel/events/core.c
-index 9d4a71deac99..7b2eefadd494 100644
+index 7615a97a3511..c7b7ee179061 100644
 --- a/kernel/events/core.c
 +++ b/kernel/events/core.c
-@@ -8469,6 +8469,7 @@ static void perf_swevent_init_hrtimer(struct perf_event *event)
+@@ -8471,6 +8471,7 @@ static void perf_swevent_init_hrtimer(struct perf_event *event)
  
  	hrtimer_init(&hwc->hrtimer, CLOCK_MONOTONIC, HRTIMER_MODE_REL);
  	hwc->hrtimer.function = perf_swevent_hrtimer;

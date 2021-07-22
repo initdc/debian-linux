@@ -1,7 +1,7 @@
 From: Xunlei Pang <xlpang@redhat.com>
 Date: Thu, 23 Mar 2017 15:56:07 +0100
 Subject: [PATCH 005/347] rtmutex: Deboost before waking up the top waiter
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=b7d80fad5e9aabcc10fef21cc921732bd5c62cd5
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=2063277bf27ba1762981d7e9d388743f2271d510
 
 Upstream commit 2a1c6029940675abb2217b590512dbf691867ec4
 
@@ -44,7 +44,7 @@ Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
  3 files changed, 34 insertions(+), 32 deletions(-)
 
 diff --git a/kernel/futex.c b/kernel/futex.c
-index 324fb85c8904..febf74b4ae8e 100644
+index b3823736af6f..e97292992155 100644
 --- a/kernel/futex.c
 +++ b/kernel/futex.c
 @@ -1637,10 +1637,7 @@ static int wake_futex_pi(u32 __user *uaddr, u32 uval, struct futex_pi_state *pi_

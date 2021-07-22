@@ -1,7 +1,7 @@
 From: Priyanka Jain <Priyanka.Jain@freescale.com>
 Date: Thu, 17 May 2012 09:35:11 +0530
 Subject: [PATCH 271/347] net: Remove preemption disabling in netif_rx()
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=6d087e839389c5e8ccafdbaf8cdc3e97719d1b4a
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=a83b882c42b9bff983d2cf4911f91a97e2b8d946
 
 1)enqueue_to_backlog() (called from netif_rx) should be
   bind to a particluar CPU. This can be achieved by

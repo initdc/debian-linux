@@ -1,0 +1,25 @@
+From: Ben Hutchings <benh@debian.org>
+Date: Fri, 23 Jul 2021 00:28:15 +0200
+Subjet: i2c: Avoid ABI change in 4.9.275
+Forwarded: not-needed
+
+Commit e6e03a917c3d "i2c: core: Disable client irq on reboot/shutdown"
+added an #include to drivers/i2c/i2c-core.c that brings in additional
+structure definitions and thus changes the hashes of related symbols
+defined there.
+
+No real ABI change has been made, so hide this change from genksyms.
+
+---
+--- a/drivers/i2c/i2c-core.c
++++ b/drivers/i2c/i2c-core.c
+@@ -42,7 +42,9 @@
+ #include <linux/i2c.h>
+ #include <linux/idr.h>
+ #include <linux/init.h>
++#ifndef __GENKSYMS__
+ #include <linux/interrupt.h>
++#endif
+ #include <linux/irqflags.h>
+ #include <linux/jump_label.h>
+ #include <linux/kernel.h>
