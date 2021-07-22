@@ -328,4 +328,4 @@ features/all/lib-string.c-add-multibyte-memset-functions.patch
 bugfix/arm/arm-ensure-the-signal-page-contains-defined-contents.patch
 
 # ABI maintenance
-debian/abi/i2c-avoid-abi0-change-in-4.9.275.patch
+debian/abi/i2c-avoid-abi-change-in-4.9.275.patch
