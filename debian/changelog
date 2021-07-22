@@ -113,6 +113,7 @@ linux (4.9.276-1) UNRELEASED; urgency=medium
     - ntfs: fix validity check for file name attribute
     - iov_iter_fault_in_readable() should do nothing in xarray case
     - Input: joydev - prevent use of not validated data in JSIOCSBTNMAP ioctl
+      (CVE-2021-3612)
     - btrfs: clear defrag status of a root if starting transaction fails
     - ext4: fix kernel infoleak via ext4_extent_header
     - ext4: correct the cache_nr in tracepoint ext4_es_shrink_exit
@@ -215,7 +216,7 @@ linux (4.9.276-1) UNRELEASED; urgency=medium
     - Bluetooth: Fix the HCI to MGMT status conversion table
     - Bluetooth: Shutdown controller after workqueues are flushed or cancelled
     - Bluetooth: btusb: fix bt fiwmare downloading failure issue for qca btsoc.
-    - sctp: add size validation when walking chunks
+    - sctp: add size validation when walking chunks (CVE-2021-3655)
     - fuse: reject internal errno
     - can: gw: synchronize rcu operations before removing gw job entry
     - mac80211: fix memory corruption in EAPOL handling
