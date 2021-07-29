@@ -673,17 +673,16 @@ class Gencontrol(Base):
         # userland breakage (e.g. #742226, #745984).
         self.abiname_version = re.sub(r'^(\d+\.\d+)(?=-|$)', r'\1.0',
                                       self.version.linux_upstream)
+        source_basename, source_suffix = self.changelog[0].source.split('-', 1)
         self.vars = {
             'upstreamversion': self.version.linux_upstream,
             'version': self.version.linux_version,
-            'source_basename': re.sub(r'-[\d.]+$', '',
-                                      self.changelog[0].source),
+            'source_basename': source_basename,
+            'source_suffix': source_suffix,
             'source_upstream': self.version.upstream,
             'source_package': self.changelog[0].source,
             'abiname': self.abiname_version + self.abiname_part,
         }
-        self.vars['source_suffix'] = \
-            self.changelog[0].source[len(self.vars['source_basename']):]
         self.config['version', ] = {'source': self.version.complete,
                                     'upstream': self.version.linux_upstream,
                                     'abiname_base': self.abiname_version,

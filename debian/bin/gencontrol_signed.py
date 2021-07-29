@@ -33,19 +33,18 @@ class Gencontrol(Base):
                                                image_binary_version)
 
         self.abiname = config_entry['abiname']
+        source_basename, source_suffix = self.changelog[0].source.split('-', 1)
         self.vars = {
             'upstreamversion': self.version.linux_upstream,
             'version': self.version.linux_version,
-            'source_basename': re.sub(r'-[\d.]+$', '',
-                                      self.changelog[0].source),
+            'source_basename': source_basename,
+            'source_suffix': source_suffix,
             'source_upstream': self.version.upstream,
             'abiname': self.abiname,
             'imagebinaryversion': image_binary_version,
             'imagesourceversion': self.version.complete,
             'arch': arch,
         }
-        self.vars['source_suffix'] = \
-            self.changelog[0].source[len(self.vars['source_basename']):]
         self.vars['template'] = \
             'linux-image%(source_suffix)s-%(arch)s-signed-template' % self.vars
 
