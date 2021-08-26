@@ -2,6 +2,7 @@ linux-5.10 (5.10.136-1~deb10u2) UNRELEASED; urgency=high
 
   [ Bastian Blank ]
   * Fix name of linux-signed packages
+  * Fix name of signed source in changelog
 
  -- Ben Hutchings <benh@debian.org>  Sun, 28 Aug 2022 20:26:39 +0200
 
