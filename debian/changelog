@@ -1,4 +1,4 @@
-linux (4.9.276-1) UNRELEASED; urgency=medium
+linux (4.9.281-1) UNRELEASED; urgency=medium
 
   * New upstream stable update:
     https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.9.273
@@ -214,7 +214,6 @@ linux (4.9.276-1) UNRELEASED; urgency=medium
     - wireless: wext-spy: Fix out-of-bounds warning
     - RDMA/cma: Fix rdma_resolve_route() memory leak
     - Bluetooth: Fix the HCI to MGMT status conversion table
-    - Bluetooth: Shutdown controller after workqueues are flushed or cancelled
     - Bluetooth: btusb: fix bt fiwmare downloading failure issue for qca btsoc.
     - sctp: add size validation when walking chunks (CVE-2021-3655)
     - fuse: reject internal errno
@@ -266,6 +265,7 @@ linux (4.9.276-1) UNRELEASED; urgency=medium
     - [arm64] ACPI: AMBA: Fix resource name in /proc/iomem
     - virtio-blk: Fix memory leak among suspend/resume procedure
     - virtio_console: Assure used length from device is limited
+      (CVE-2021-38160)
     - PCI/sysfs: Fix dsm_label_utf16s_to_utf8s() buffer overrun
     - nfs: fix acl memory leak of posix_acl_create()
     - ubifs: Set/Clear I_LINKABLE under i_lock for whiteout inode
@@ -277,6 +277,155 @@ linux (4.9.276-1) UNRELEASED; urgency=medium
     - reset: bail if try_module_get() fails
     - [armhf] dts: am335x: align ti,pindir-d0-out-d1-in property with dt-shema
     - scsi: be2iscsi: Fix an error handling path in beiscsi_dev_probe()
+    https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.9.277
+    - [armhf] dts: rockchip: fix pinctrl sleep nodename for rk3036-kylin and
+      rk3288
+    - [armhf] dts: rockchip: Fix power-controller node names for rk3288
+    - [armhf] dts: imx6: phyFLEX: Fix UART hardware flow control
+    - [armhf] imx: pm-imx5: Fix references to imx5_cpu_suspend_info
+    - [arm64] dts: juno: Update SCPI nodes as per the YAML schema
+    - [arm64,armhf] rtc: max77686: Do not enforce (incorrect) interrupt trigger
+      type
+    - scsi: aic7xxx: Fix unintentional sign extension issue on left shift of u8
+    - sched/fair: Fix CFS bandwidth hrtimer expiry type
+    - net: ipv6: fix return value of ip6_skb_dst_mtu
+    - net: bridge: sync fdb to new unicast-filtering ports
+    - [arm64] net: qcom/emac: fix UAF in emac_remove
+    - net: ti: fix UAF in tlan_remove_one
+    - net: validate lwtstate->data before returning from skb_tunnel_info()
+    - tcp: annotate data races around tp->mtu_info
+    - ipv6: tcp: drop silly ICMPv6 packet too big messages
+    - ixgbe: Fix an error handling path in 'ixgbe_probe()'
+    - igb: Fix an error handling path in 'igb_probe()'
+    - fm10k: Fix an error handling path in 'fm10k_probe()'
+    - e1000e: Fix an error handling path in 'e1000_probe()'
+    - iavf: Fix an error handling path in 'iavf_probe()'
+    - igb: Check if num of q_vectors is smaller than max before array access
+    - perf lzma: Close lzma stream on exit
+    - perf test bpf: Free obj_buf
+    - perf probe-file: Delete namelist in del_events() on the error path
+    - net: fix uninit-value in caif_seqpkt_sendmsg
+    - [x86] net: decnet: Fix sleeping inside in af_decnet
+    - netrom: Decrease sock refcount when sock timers expire
+    - scsi: iscsi: Fix iface sysfs attr detection
+    - scsi: target: Fix protect handling in WRITE SAME(32)
+    - Revert "USB: quirks: ignore remote wake-up on Fibocom L850-GL LTE modem"
+    - proc: Avoid mixing integer types in mem_rw()
+    - [i386] ALSA: sb: Fix potential ABBA deadlock in CSP driver
+    - xhci: Fix lost USB 2 remote wake
+    - usb: hub: Disable USB 3 device initiated lpm if exit latency is too high
+    - USB: usb-storage: Add LaCie Rugged USB3-FW to IGNORE_UAS
+    - usb: max-3421: Prevent corruption of freed memory (CVE-2021-38204)
+    - USB: serial: option: add support for u-blox LARA-R6 family
+    - USB: serial: cp210x: fix comments for GE CS1000
+    - USB: serial: cp210x: add ID for CEL EM3588 USB ZigBee stick
+    - tracing: Fix bug in rb_per_cpu_empty() that might cause deadloop.
+      (CVE-2021-3679)
+    - media: ngene: Fix out-of-bounds bug in ngene_command_config_free_buf()
+    - btrfs: compression: don't try to compress if we don't have enough pages
+    https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.9.278
+    - [amd64] iommu/amd: Fix backport of
+      140456f994195b568ecd7fc2287a34eadffef3ca (regression in 4.9.261)
+    - tipc: Fix backport of b77413446408fdd256599daf00d5be72b5f3e7c6
+      (regression in 4.9.253)
+    - net: split out functions related to registering inflight socket files
+    - af_unix: fix garbage collect vs MSG_PEEK
+    - workqueue: fix UAF in pwq_unbound_release_workfn()
+    - net/802/mrp: fix memleak in mrp_request_join()
+    - net/802/garp: fix memleak in garp_request_join()
+    - sctp: move 198 addresses from unusable to private scope
+    - hfs: add missing clean-up in hfs_fill_super
+    - hfs: fix high memory mapping in hfs_bnode_read
+    - hfs: add lock nesting notation to hfs_find_init
+    - [x86] kvm: fix vcpu-id indexed array sizes
+    - ocfs2: fix zero out valid data
+    - ocfs2: issue zeroout to EOF blocks
+    - can: usb_8dev: fix memory leak
+    - can: ems_usb: fix memory leak
+    - can: esd_usb2: fix memory leak
+    - NIU: fix incorrect error return, missed in previous revert
+    - nfc: nfcsim: fix use after free during module unload
+    - cfg80211: Fix possible memory leak in function cfg80211_bss_update
+    - netfilter: conntrack: adjust stop timestamp to real expiry value
+    - netfilter: nft_nat: allow to specify layer 4 protocol NAT only
+    - tipc: fix sleeping in tipc accept routine
+    - mlx4: Fix missing error code in mlx4_load_one()
+    - net: llc: fix skb_over_panic
+    - net/mlx5: Fix flow table chaining
+    - tulip: windbond-840: Fix missing pci_disable_device() in probe and remove
+    - sis900: Fix missing pci_disable_device() in probe and remove
+    https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.9.279
+    - btrfs: mark compressed range uptodate only if all bio succeed
+    - r8152: Fix potential PM refcount imbalance
+    - net: Fix zero-copy head len calculation.
+    - can: raw: raw_setsockopt(): fix raw_rcv panic for sock UAF
+    https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.9.280
+    - ALSA: seq: Fix racy deletion of subscriber
+    - scsi: sr: Return correct event when media event code is 3
+    - media: videobuf2-core: dequeue if start_streaming fails
+    - net: natsemi: Fix missing pci_disable_device() in probe and remove
+    - bnx2x: fix an error code in bnx2x_nic_load()
+    - net: pegasus: fix uninit-value in get_interrupt_interval
+    - net: vxge: fix use-after-free in vxge_device_unregister
+    - Bluetooth: defer cleanup of resources in hci_unregister_dev()
+    - USB: usbtmc: Fix RCU stall warning
+    - USB: serial: option: add Telit FD980 composition 0x1056
+    - USB: serial: ch341: fix character loss at high transfer rates
+    - USB: serial: ftdi_sio: add device ID for Auto-M3 OP-COM v2
+    - media: rtl28xxu: fix zero-length control request
+    - pipe: increase minimum default pipe size to 2 pages
+    - serial: 8250: Mask out floating 16/32-bit bus bits
+    - [x86] pcmcia: i82092: fix a null pointer dereference bug
+    - [x86] perf/x86/amd: Don't touch the AMD64_EVENTSEL_HOSTONLY bit inside
+      the guest
+    - reiserfs: add check for root_inode in reiserfs_fill_super
+    - reiserfs: check directory items on read from disk
+    - net/qla3xxx: fix schedule while atomic in ql_wait_for_drvr_lock and
+      ql_adapter_reset
+    - [arm64] USB:ehci:fix Kunpeng920 ehci hardware problem
+    - ppp: Fix generating ppp unit id when ifname is not specified
+    - net: xilinx_emaclite: Do not print real IOMEM pointer (CVE-2021-38205)
+    - ovl: prevent private clone if bind mount is not allowed (CVE-2021-3732)
+    https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.9.281
+    - iio: adc: Fix incorrect exit of for-loop
+    - [x86] ASoC: intel: atom: Fix reference to PCM buffer address
+    - i2c: dev: zero out array used for i2c reads from userspace
+    - ACPI: NFIT: Fix support for virtual SPA ranges
+    - ppp: Fix generating ifname when empty IFLA_IFNAME is specified
+    - net: Fix memory leak in ieee802154_raw_deliver
+    - net: bridge: fix memleak in br_add_if()
+    - tcp_bbr: fix u32 wrap bug in round logic if bbr_init() called after 2B
+      packets
+    - xen/events: Fix race in set_evtchn_to_irq
+    - PCI/MSI: Enable and mask MSI-X early
+    - PCI/MSI: Do not set invalid bits in MSI mask
+    - PCI/MSI: Correct misleading comments
+    - PCI/MSI: Use msi_mask_irq() in pci_msi_shutdown()
+    - PCI/MSI: Protect msi_desc::masked for multi-MSI
+    - PCI/MSI: Mask all unused MSI-X entries
+    - PCI/MSI: Enforce that MSI-X table entry is masked for update
+    - PCI/MSI: Enforce MSI[X] entry updates to be visible
+    - mac80211: drop data frames without key on encrypted links
+    - [x86] KVM: nSVM: avoid picking up unsupported bits from L2 in int_ctl
+      (CVE-2021-3653)
+    - [x86] fpu: Make init_fpstate correct with optimized XSAVE
+    - dmaengine: of-dma: router_xlate to return -EPROBE_DEFER if controller is
+      not yet available
+    - scsi: megaraid_mm: Fix end of loop tests for list_for_each_entry()
+    - scsi: scsi_dh_rdac: Avoid crash during rdac_bus_attach()
+    - scsi: core: Avoid printing an error if target_alloc() returns -ENXIO
+    - Bluetooth: hidp: use correct wait queue when removing ctrl_wait
+    - vhost: Fix the calculation in vhost_overflow()
+    - net: 6pack: fix slab-out-of-bounds in decode_data
+    - net: qlcnic: add missed unlock in qlcnic_83xx_flash_read32
+    - [arm64,armhf] mmc: dw_mmc: call the dw_mci_prep_stop_abort() by default
+    - [arm64,armhf] mmc: dw_mmc: Fix hang on data CRC error
+    - ALSA: hda - fix the 'Capture Switch' value change notifications
+    - btrfs: prevent rename2 from exchanging a subvol with a directory from
+      different parents
+    - [x86] ASoC: intel: atom: Fix breakage for PCM buffer address setup
+    - locks: print a warning when mount fails due to lack of "mand" support
+    - fs: warn about impending deprecation of mandatory locks
 
   [ Ben Hutchings ]
   * crypto: Ignore removal of internal symbol shash_no_setkey
@@ -288,6 +437,7 @@ linux (4.9.276-1) UNRELEASED; urgency=medium
   * [rt] Resolve conflict between "kthread: Convert worker lock to raw
     spinlock" and "kthread_worker: split code for canceling the delayed work
     timer"
+  * PCI/MSI: Avoid ABI change in 4.9.281
 
  -- Ben Hutchings <benh@debian.org>  Tue, 20 Jul 2021 20:42:19 +0200
 

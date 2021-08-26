@@ -16,16 +16,15 @@ to check whether we're on a DT system.
 Signed-off-by: Timur Tabi <timur@codeaurora.org>
 Reviewed-by: Johan Hovold <johan@kernel.org>
 Signed-off-by: David S. Miller <davem@davemloft.net>
+[bwh: Adjust to apply after "net: qcom/emac: fix UAF in emac_remove"]
 ---
  drivers/net/ethernet/qualcomm/emac/emac-phy.c | 7 +++++++
  drivers/net/ethernet/qualcomm/emac/emac.c     | 6 ++----
  2 files changed, 9 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/net/ethernet/qualcomm/emac/emac-phy.c b/drivers/net/ethernet/qualcomm/emac/emac-phy.c
-index 99a14df28b96..2851b4c56570 100644
 --- a/drivers/net/ethernet/qualcomm/emac/emac-phy.c
 +++ b/drivers/net/ethernet/qualcomm/emac/emac-phy.c
-@@ -201,6 +201,13 @@ int emac_phy_config(struct platform_device *pdev, struct emac_adapter *adpt)
+@@ -201,6 +201,13 @@ int emac_phy_config(struct platform_devi
  		else
  			adpt->phydev = mdiobus_get_phy(mii_bus, phy_addr);
  
@@ -39,11 +38,9 @@ index 99a14df28b96..2851b4c56570 100644
  	} else {
  		struct device_node *phy_np;
  
-diff --git a/drivers/net/ethernet/qualcomm/emac/emac.c b/drivers/net/ethernet/qualcomm/emac/emac.c
-index 18f88765b717..541b0e5ea3c6 100644
 --- a/drivers/net/ethernet/qualcomm/emac/emac.c
 +++ b/drivers/net/ethernet/qualcomm/emac/emac.c
-@@ -732,8 +732,7 @@ static int emac_probe(struct platform_device *pdev)
+@@ -743,8 +743,7 @@ static int emac_probe(struct platform_de
  err_undo_napi:
  	netif_napi_del(&adpt->rx_q.napi);
  err_undo_mdiobus:
@@ -53,7 +50,7 @@ index 18f88765b717..541b0e5ea3c6 100644
  	mdiobus_unregister(adpt->mii_bus);
  err_undo_clocks:
  	emac_clks_teardown(adpt);
-@@ -753,8 +752,7 @@ static int emac_remove(struct platform_device *pdev)
+@@ -764,8 +763,7 @@ static int emac_remove(struct platform_d
  
  	emac_clks_teardown(adpt);
  
@@ -61,8 +58,5 @@ index 18f88765b717..541b0e5ea3c6 100644
 -		put_device(&adpt->phydev->mdio.dev);
 +	put_device(&adpt->phydev->mdio.dev);
  	mdiobus_unregister(adpt->mii_bus);
- 	free_netdev(netdev);
  
--- 
-2.11.0
-
+ 	if (adpt->phy.digital)

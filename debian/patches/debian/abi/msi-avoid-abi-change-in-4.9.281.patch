@@ -1,0 +1,71 @@
+From: Ben Hutchings <benh@debian.org>
+Date: Thu, 26 Aug 2021 20:10:57 +0200
+Subject: PCI/MSI: Avoid ABI change in 4.9.281
+Forwarded: not-needed
+
+Commit cb93b6c52bb9 "PCI/MSI: Protect msi_desc::masked for multi-MSI"
+added a raw spinlock to struct device to serialise changes to
+multi-MSI (not MSI-X) masks.  This is a far-reaching ABI change.
+
+Multi-MSI is not particularly useful or widely used, so most devices
+don't need this locking at all.  Until we have a stronger reason for
+an ABI change, replace the per-device raw spinlock with a global and
+only use it when operating on multi-MSI descriptors.  Masking and
+unmasking of a single MSI has to be serialised by the driver already.
+
+---
+--- a/drivers/base/core.c
++++ b/drivers/base/core.c
+@@ -710,7 +710,6 @@ void device_initialize(struct device *de
+ 	device_pm_init(dev);
+ 	set_dev_node(dev, -1);
+ #ifdef CONFIG_GENERIC_MSI_IRQ
+-	raw_spin_lock_init(&dev->msi_lock);
+ 	INIT_LIST_HEAD(&dev->msi_list);
+ #endif
+ }
+--- a/drivers/pci/msi.c
++++ b/drivers/pci/msi.c
+@@ -183,6 +183,8 @@ static inline __attribute_const__ u32 ms
+ 	return (1 << (1 << x)) - 1;
+ }
+ 
++static DEFINE_RAW_SPINLOCK(msi_multiple_lock);
++
+ /*
+  * PCI 2.3 does not specify mask bits for each MSI interrupt.  Attempting to
+  * mask all MSI interrupts by clearing the MSI enable bit does not work
+@@ -191,18 +193,20 @@ static inline __attribute_const__ u32 ms
+  */
+ void __pci_msi_desc_mask_irq(struct msi_desc *desc, u32 mask, u32 flag)
+ {
+-	raw_spinlock_t *lock = &desc->dev->msi_lock;
++	raw_spinlock_t *lock = &msi_multiple_lock;
+ 	unsigned long flags;
+ 
+ 	if (pci_msi_ignore_mask || !desc->msi_attrib.maskbit)
+ 		return;
+ 
+-	raw_spin_lock_irqsave(lock, flags);
++	if (desc->msi_attrib.multiple)
++		raw_spin_lock_irqsave(lock, flags);
+ 	desc->masked &= ~mask;
+ 	desc->masked |= flag;
+ 	pci_write_config_dword(msi_desc_to_pci_dev(desc), desc->mask_pos,
+ 			       desc->masked);
+-	raw_spin_unlock_irqrestore(lock, flags);
++	if (desc->msi_attrib.multiple)
++		raw_spin_unlock_irqrestore(lock, flags);
+ }
+ 
+ static void msi_mask_irq(struct msi_desc *desc, u32 mask, u32 flag)
+--- a/include/linux/device.h
++++ b/include/linux/device.h
+@@ -812,7 +812,6 @@ struct device {
+ 	struct dev_pin_info	*pins;
+ #endif
+ #ifdef CONFIG_GENERIC_MSI_IRQ
+-	raw_spinlock_t		msi_lock;
+ 	struct list_head	msi_list;
+ #endif
+ 
