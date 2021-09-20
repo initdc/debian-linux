@@ -1,7 +1,7 @@
 From: "Luis Claudio R. Goncalves" <lgoncalv@redhat.com>
-Date: Sat, 17 Jul 2021 10:55:50 -0300
-Subject: [PATCH 347/347] Linux 4.9.275-rt184 REBASE
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=2154d241b1abf318c63edabe2820a671610df311
+Date: Sun, 15 Aug 2021 14:34:05 -0300
+Subject: [PATCH 347/347] Linux 4.9.280-rt186 REBASE
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=dbbfc5d22dd17dc8219e16392a09138b9498bba7
 
 Signed-off-by: Luis Claudio R. Goncalves <lgoncalv@redhat.com>
 ---
@@ -9,9 +9,9 @@ Signed-off-by: Luis Claudio R. Goncalves <lgoncalv@redhat.com>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/localversion-rt b/localversion-rt
-index 9a218ca23053..9eda5b35d84c 100644
+index 9a218ca23053..1e1d02608c70 100644
 --- a/localversion-rt
 +++ b/localversion-rt
 @@ -1 +1 @@
 --rt23
-+-rt184
++-rt186

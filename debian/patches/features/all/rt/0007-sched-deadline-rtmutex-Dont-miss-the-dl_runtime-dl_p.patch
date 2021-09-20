@@ -2,7 +2,7 @@ From: Xunlei Pang <xlpang@redhat.com>
 Date: Thu, 23 Mar 2017 15:56:09 +0100
 Subject: [PATCH 007/347] sched/deadline/rtmutex: Dont miss the
  dl_runtime/dl_period update
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=846b6c602194e811e3925c3f14c09b43a82c7058
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=e245779ab1000f8aec6259f6cfc25f933bba6c70
 
 Upstream commit 85e2d4f992868ad78dc8bb2c077b652fcfb3661a
 

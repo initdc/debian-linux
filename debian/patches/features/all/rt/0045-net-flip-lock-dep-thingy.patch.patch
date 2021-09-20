@@ -1,7 +1,7 @@
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Tue, 28 Jun 2011 10:59:58 +0200
 Subject: [PATCH 045/347] net-flip-lock-dep-thingy.patch
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=a29d2c682a76efaa2a121e5186ba87b87cd1dd42
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=880f0fd41cefaa19449e64d1406d6b41d18de51a
 
 =======================================================
 [ INFO: possible circular locking dependency detected ]

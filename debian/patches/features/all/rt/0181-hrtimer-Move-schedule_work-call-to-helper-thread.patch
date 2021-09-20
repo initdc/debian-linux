@@ -1,7 +1,7 @@
 From: Yang Shi <yang.shi@windriver.com>
 Date: Mon, 16 Sep 2013 14:09:19 -0700
 Subject: [PATCH 181/347] hrtimer: Move schedule_work call to helper thread
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=b441540a667548c098e072b90239b7629c1375fa
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=6adc0be47d52709f9c0ac90450193b84f63d2b1e
 
 When run ltp leapsec_timer test, the following call trace is caught:
 

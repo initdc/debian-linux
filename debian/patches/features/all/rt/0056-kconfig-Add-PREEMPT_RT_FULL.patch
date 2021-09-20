@@ -1,7 +1,7 @@
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Wed, 29 Jun 2011 14:58:57 +0200
 Subject: [PATCH 056/347] kconfig: Add PREEMPT_RT_FULL
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=c7b3d85c68365ea25bded9aa3b140f8a31b3bae3
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=1b05b3715b7f1503c41e96424128f4b54db82368
 
 Introduce the final symbol for PREEMPT_RT_FULL.
 
@@ -42,7 +42,7 @@ index c669134982ec..f8a2982bdbde 100644
  
  config PREEMPT_COUNT
 diff --git a/scripts/mkcompile_h b/scripts/mkcompile_h
-index 6fdc97ef6023..523e0420d7f0 100755
+index cb73747002ed..b31448e71fbf 100755
 --- a/scripts/mkcompile_h
 +++ b/scripts/mkcompile_h
 @@ -4,7 +4,8 @@ TARGET=$1

@@ -1,7 +1,7 @@
 From: Allen Pais <allen.pais@oracle.com>
 Date: Fri, 13 Dec 2013 09:44:41 +0530
 Subject: [PATCH 031/347] sparc64: use generic rwsem spinlocks rt
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=1c4c22ffc48a06184984ad31eb1b13fc1bb74104
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=87147211fa7d882f17ef19b06b2f6ea6d211447b
 
 Signed-off-by: Allen Pais <allen.pais@oracle.com>
 Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>

@@ -2,7 +2,7 @@ From: Thomas Gleixner <tglx@linutronix.de>
 Date: Tue, 21 Jul 2009 23:06:05 +0200
 Subject: [PATCH 069/347] core: Do not disable interrupts on RT in
  kernel/users.c
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=c0b2155b99d324fb1ab3b3639d4f7c089bfa38dc
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=38819c7a70d034c17462107b47f34ac6fe862cb2
 
 Use the local_irq_*_nort variants to reduce latencies in RT. The code
 is serialized by the locks. No need to disable interrupts.

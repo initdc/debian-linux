@@ -2,7 +2,7 @@ From: Peter Zijlstra <peterz@infradead.org>
 Date: Fri, 7 Apr 2017 09:04:07 +0200
 Subject: [PATCH 013/347] futex: Fix small (and harmless looking)
  inconsistencies
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=3ad8ac0cb7bc0dc75dc3813f001916862c020e78
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=3fbd514a9e74d50e18bacc96af9aec49b6e8b0a4
 
 Upstream commit 94ffac5d847cfd790bb37b7cef1cad803743985e
 

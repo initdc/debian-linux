@@ -2,7 +2,7 @@ From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Fri, 15 Jan 2016 16:33:34 +0100
 Subject: [PATCH 273/347] net/core: protect users of napi_alloc_cache against
  reentrance
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=5c239567e579011d82c63807accd3d866ea2502b
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=91ff7f2bba035f36a17603313d6a14307463db90
 
 On -RT the code running in BH can not be moved to another CPU so CPU
 local variable remain local. However the code can be preempted
@@ -17,7 +17,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  1 file changed, 18 insertions(+), 5 deletions(-)
 
 diff --git a/net/core/skbuff.c b/net/core/skbuff.c
-index 71d1840f9915..3fdab18d7f38 100644
+index 2762aa038b77..4e192c8bd8b1 100644
 --- a/net/core/skbuff.c
 +++ b/net/core/skbuff.c
 @@ -362,6 +362,7 @@ struct napi_alloc_cache {

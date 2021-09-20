@@ -1,7 +1,7 @@
 From: Ingo Molnar <mingo@elte.hu>
 Date: Fri, 3 Jul 2009 08:29:34 -0500
 Subject: [PATCH 105/347] hrtimers: Prepare full preemption
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=117411da3ff0f4801b5705c3ee918a14d5d40d2f
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=2eba9d9963ec3417f99d4b6a0b997a5c9c33f4ff
 
 Make cancellation of a running callback in softirq context safe
 against preemption.

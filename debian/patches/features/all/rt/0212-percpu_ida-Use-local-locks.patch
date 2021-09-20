@@ -1,7 +1,7 @@
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Wed, 9 Apr 2014 11:58:17 +0200
 Subject: [PATCH 212/347] percpu_ida: Use local locks
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=7218c7f933023d768108dd94f30b860a90aafb9d
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=9752ad82f8104eff5682706ab7bea8f0195d2972
 
 the local_irq_save() + spin_lock() does not work that well on -RT
 

@@ -1,7 +1,7 @@
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Fri, 12 May 2017 15:46:17 +0200
 Subject: [PATCH 261/347] random: avoid preempt_disable()ed section
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=edd0af3def4856ed04a63cab644dc1b4b40f4d61
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=4d867134b2902a194a58bece4f114fd1784fb679
 
 extract_crng() will use sleeping locks while in a preempt_disable()
 section due to get_cpu_var().

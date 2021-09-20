@@ -1,7 +1,7 @@
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Fri, 1 Dec 2017 10:42:03 +0100
 Subject: [PATCH 333/347] arm*: disable NEON in kernel mode
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=19be9e42132405f583cc625fb179244099a66e28
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=f0061f8cccade1d5f15336853a011ebc0ff7586c
 
 NEON in kernel mode is used by the crypto algorithms and raid6 code.
 While the raid6 code looks okay, the crypto algorithms do not: NEON

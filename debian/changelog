@@ -446,13 +446,7 @@ linux (4.9.282-1) UNRELEASED; urgency=medium
   [ Ben Hutchings ]
   * crypto: Ignore removal of internal symbol shash_no_setkey
   * i2c: Avoid ABI change in 4.9.275
-  * [rt] Update to 4.9.275-rt184
-  * [rt] Drop "net: Have __napi_schedule_irqoff() disable interrupts on RT"
-    as redundant with "net: Treat __napi_schedule_irqoff() as __napi_schedule()
-    on PREEMPT_RT"
-  * [rt] Resolve conflict between "kthread: Convert worker lock to raw
-    spinlock" and "kthread_worker: split code for canceling the delayed work
-    timer"
+  * [rt] Update to 4.9.280-rt186
   * PCI/MSI: Avoid ABI change in 4.9.281
 
  -- Ben Hutchings <benh@debian.org>  Tue, 20 Jul 2021 20:42:19 +0200

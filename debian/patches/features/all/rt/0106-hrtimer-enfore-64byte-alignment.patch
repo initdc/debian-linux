@@ -1,7 +1,7 @@
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Wed, 23 Dec 2015 20:57:41 +0100
 Subject: [PATCH 106/347] hrtimer: enfore 64byte alignment
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=1f2f305707b6ca624620a6371e85e5e8811cafb6
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=321c0f96c15cf31a93120b23f5989e924705cb84
 
 The patch "hrtimer: Fixup hrtimer callback changes for preempt-rt" adds
 a list_head expired to struct hrtimer_clock_base and with it we run into

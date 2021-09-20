@@ -1,7 +1,7 @@
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Mon, 21 Aug 2017 15:09:13 +0200
 Subject: [PATCH 320/347] net: take the tcp_sk_lock lock with BH disabled
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=891186d7fb85544b64e6d1f3e5a28ad81b6fb250
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=9d73f705cd83df148dbfa2270f2e77f75af01ed6
 
 Lockdep may complain about an unsafe locking scenario:
 |      CPU0                    CPU1
@@ -26,7 +26,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  1 file changed, 4 insertions(+), 4 deletions(-)
 
 diff --git a/net/ipv4/tcp_ipv4.c b/net/ipv4/tcp_ipv4.c
-index f0f574c8e926..a48134a1e858 100644
+index f0ea12d2b9ae..cfb175e5d06d 100644
 --- a/net/ipv4/tcp_ipv4.c
 +++ b/net/ipv4/tcp_ipv4.c
 @@ -699,8 +699,8 @@ static void tcp_v4_send_reset(const struct sock *sk, struct sk_buff *skb)

@@ -2,7 +2,7 @@ From: Carsten Emde <C.Emde@osadl.org>
 Date: Tue, 5 Jan 2016 10:21:59 +0100
 Subject: [PATCH 050/347] trace/latency-hist: Consider new argument when
  probing the sched_switch tracer
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=dda938fe930bea61d1ebd1badac7971f29b59434
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=6491b82dd59711acd4e57747c25d1b9be7ef968e
 
 The sched_switch tracer has got a new argument. Fix the latency tracer
 accordingly.

@@ -1,7 +1,7 @@
 From: Josh Cartwright <joshc@ni.com>
 Date: Thu, 31 Mar 2016 00:04:25 -0500
 Subject: [PATCH 080/347] list_bl: fixup bogus lockdep warning
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=f55fbc4136f1e3015de2f6be9d058e4b94eb9994
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=241ab5c5641eddc590421e0da1f4b264b997d150
 
 At first glance, the use of 'static inline' seems appropriate for
 INIT_HLIST_BL_HEAD().

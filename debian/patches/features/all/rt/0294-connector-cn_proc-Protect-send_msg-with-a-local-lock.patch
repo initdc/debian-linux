@@ -2,7 +2,7 @@ From: Mike Galbraith <umgwanakikbuti@gmail.com>
 Date: Sun, 16 Oct 2016 05:11:54 +0200
 Subject: [PATCH 294/347] connector/cn_proc: Protect send_msg() with a local
  lock on RT
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=7014099c7f550d693b4526aeded6976f1549066e
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=0d3b41602b42fe0e69a1f188477b6f34242dda0f
 
 |BUG: sleeping function called from invalid context at kernel/locking/rtmutex.c:931
 |in_atomic(): 1, irqs_disabled(): 0, pid: 31807, name: sleep

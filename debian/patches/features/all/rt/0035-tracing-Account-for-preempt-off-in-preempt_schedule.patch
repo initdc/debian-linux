@@ -2,7 +2,7 @@ From: Steven Rostedt <rostedt@goodmis.org>
 Date: Thu, 29 Sep 2011 12:24:30 -0500
 Subject: [PATCH 035/347] tracing: Account for preempt off in
  preempt_schedule()
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=22123334a0915a5a0d7585e1b5d39ab2d7e493c1
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=b42599916a95ce1290abb84ffb41dd6e528f8187
 
 The preempt_schedule() uses the preempt_disable_notrace() version
 because it can cause infinite recursion by the function tracer as

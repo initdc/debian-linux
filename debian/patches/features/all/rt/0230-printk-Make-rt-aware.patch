@@ -1,7 +1,7 @@
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Wed, 19 Sep 2012 14:50:37 +0200
 Subject: [PATCH 230/347] printk: Make rt aware
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=a7163223ab75d689fd6711c561537106c510a00b
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=8aeb697329cab8ecbfee69590b384eb55ac96bf0
 
 Drop the lock before calling the console driver and do not disable
 interrupts while printing to a serial console.

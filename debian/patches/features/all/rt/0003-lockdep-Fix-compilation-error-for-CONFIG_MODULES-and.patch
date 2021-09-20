@@ -2,7 +2,7 @@ From: Dan Murphy <dmurphy@ti.com>
 Date: Fri, 24 Feb 2017 08:41:49 -0600
 Subject: [PATCH 003/347] lockdep: Fix compilation error for !CONFIG_MODULES
  and !CONFIG_SMP
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=adb05a64d8e76f879494cd1ecf7c1df01464f9ea
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=ac026a6147e5ce2a0ea26aebbe618b6753929177
 
 When CONFIG_MODULES is not set then it fails to compile in lockdep:
 

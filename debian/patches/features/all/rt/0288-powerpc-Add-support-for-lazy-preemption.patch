@@ -1,7 +1,7 @@
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Thu, 1 Nov 2012 10:14:11 +0100
 Subject: [PATCH 288/347] powerpc: Add support for lazy preemption
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=ec70b7bad0a4ab614e60d7ccc151102d7de9b0ce
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=c812829961ce7ecd3d8d1f9c1a89a1c1fa8b2f60
 
 Implement the powerpc pieces for lazy preempt.
 

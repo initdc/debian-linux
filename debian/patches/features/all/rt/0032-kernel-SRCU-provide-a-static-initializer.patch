@@ -1,7 +1,7 @@
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Tue, 19 Mar 2013 14:44:30 +0100
 Subject: [PATCH 032/347] kernel/SRCU: provide a static initializer
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=8466e47e86d22561e7248b82abdd6db2afee23ce
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=8917b22be043fde65d2f6c197bf72a5fdff40c2e
 
 There are macros for static initializer for the three out of four
 possible notifier types, that are:

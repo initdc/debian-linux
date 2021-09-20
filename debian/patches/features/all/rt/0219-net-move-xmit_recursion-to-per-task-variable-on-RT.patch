@@ -1,7 +1,7 @@
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Wed, 13 Jan 2016 15:55:02 +0100
 Subject: [PATCH 219/347] net: move xmit_recursion to per-task variable on -RT
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=855a84827f07288b1b5204227dcff6e1f92f07cd
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=84cad49a5b47d7ad3be097fa6861451672d1e317
 
 A softirq on -RT can be preempted. That means one task is in
 __dev_queue_xmit(), gets preempted and another task may enter
@@ -96,7 +96,7 @@ index 5a4c24990406..c8cd953d24ca 100644
  	int pagefault_disabled;
  #ifdef CONFIG_MMU
 diff --git a/net/core/dev.c b/net/core/dev.c
-index 485a96a30ab3..103f1d324869 100644
+index ff0f8ec46be6..62ba56c0fe81 100644
 --- a/net/core/dev.c
 +++ b/net/core/dev.c
 @@ -3221,8 +3221,10 @@ static void skb_update_prio(struct sk_buff *skb)

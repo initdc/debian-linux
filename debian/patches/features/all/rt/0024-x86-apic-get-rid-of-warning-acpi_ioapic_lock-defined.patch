@@ -2,7 +2,7 @@ From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Fri, 21 Oct 2016 10:29:11 +0200
 Subject: [PATCH 024/347] x86/apic: get rid of "warning: 'acpi_ioapic_lock'
  defined but not used"
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=6d3f0187625f9ca11b3d8a8eba2000964478a128
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=42c97e62dacd16e15e52d3d3c4fc092bf20eedbf
 
 kbuild test robot reported this against the -RT tree:
 

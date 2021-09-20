@@ -222,6 +222,7 @@ features/all/rt/0221-net-dev-always-take-qdisc-s-busylock-in-__dev_xmit_s.patch
 features/all/rt/0222-net-Qdisc-use-a-seqlock-instead-seqcount.patch
 features/all/rt/0223-net-add-back-the-missing-serialization-in-ip_send_un.patch
 features/all/rt/0224-net-add-a-lock-around-icmp_sk.patch
+features/all/rt/0225-net-Have-__napi_schedule_irqoff-disable-interrupts-o.patch
 features/all/rt/0226-net-sysrq-via-icmp.patch
 features/all/rt/0227-irqwork-push-most-work-into-softirq-context.patch
 features/all/rt/0228-irqwork-Move-irq-safe-work-to-irq-context.patch
@@ -343,7 +344,7 @@ features/all/rt/0343-squashfs-make-use-of-local-lock-in-multi_cpu-decompr.patch
 features/all/rt/0344-seqlock-provide-the-same-ordering-semantics-as-mainl.patch
 features/all/rt/0345-genirq-Do-not-call-cancel_work-on-old_notify-work-on.patch
 features/all/rt/0346-ptrace-fix-ptrace_unfreeze_traced-race-with-rt-lock.patch
-features/all/rt/0347-Linux-4.9.275-rt184-REBASE.patch
+features/all/rt/0347-Linux-4.9.280-rt186-REBASE.patch
 features/all/rt/kthread-convert-worker-lock-to-raw-spinlock.patch
 features/all/rt/kthread-add-a-global-worker-thread.patch
 features/all/rt/genirq-convert-affinity_notify-swork-to-kthread.patch

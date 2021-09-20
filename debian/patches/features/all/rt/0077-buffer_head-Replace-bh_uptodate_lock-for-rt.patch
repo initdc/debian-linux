@@ -1,7 +1,7 @@
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Fri, 18 Mar 2011 09:18:52 +0100
 Subject: [PATCH 077/347] buffer_head: Replace bh_uptodate_lock for -rt
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=a20e99b39037a0b684301de7b5807c95187aabd9
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=36b88eeb685a526dac46c5ce066dd8daaa35484d
 
 Wrap the bit_spin_lock calls into a separate inline and add the RT
 replacements with a real spinlock.

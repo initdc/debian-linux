@@ -1,7 +1,7 @@
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Fri, 26 Oct 2012 18:50:54 +0100
 Subject: [PATCH 284/347] sched: Add support for lazy preemption
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=f09fd747e777d39c1359cb2adba60bbb8d9cdd26
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=6e981db5897559ba19ecbc9f8e1be4b487d22061
 
 It has become an obsession to mitigate the determinism vs. throughput
 loss of RT. Looking at the mainline semantics of preemption points
@@ -368,7 +368,7 @@ index 928361cc1525..4a5d0081c1b7 100644
  	 * The idle tasks have their own, simple scheduling class:
  	 */
 diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
-index 5a349fcb634e..43cfb44e43c4 100644
+index 39b59248d9c3..baeedc5804bf 100644
 --- a/kernel/sched/fair.c
 +++ b/kernel/sched/fair.c
 @@ -3539,7 +3539,7 @@ check_preempt_tick(struct cfs_rq *cfs_rq, struct sched_entity *curr)

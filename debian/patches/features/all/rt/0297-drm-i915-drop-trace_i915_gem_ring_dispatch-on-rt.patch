@@ -1,7 +1,7 @@
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 25 Apr 2013 18:12:52 +0200
 Subject: [PATCH 297/347] drm/i915: drop trace_i915_gem_ring_dispatch on rt
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=a23622e004d2746f21df8981e07ac4fd835a7f05
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=74b3b37d1867a5c6740bf88cd11d7ea1b3ef5cce
 
 This tracepoint is responsible for:
 

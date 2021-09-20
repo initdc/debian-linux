@@ -1,7 +1,7 @@
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Wed, 25 Jan 2012 11:08:40 +0100
 Subject: [PATCH 109/347] timer-fd: Prevent live lock
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=38a0f3b2f229c12cfeef041c7bdcbbd5b901bd37
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=a9b8c9235daa08c52694e620b929fb5b7b76d5a9
 
 If hrtimer_try_to_cancel() requires a retry, then depending on the
 priority setting te retry loop might prevent timer callback completion

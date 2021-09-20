@@ -2,7 +2,7 @@ From: Thomas Gleixner <tglx@linutronix.de>
 Date: Tue, 31 Jan 2012 13:01:27 +0100
 Subject: [PATCH 142/347] genirq: Allow disabling of softirq processing in irq
  thread context
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=f84eb7bcb8f233ad2b54f0eb37f71620d2ccbdd6
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=d2db9d6734690ac80c33431abfeb2c9b50662851
 
 The processing of softirqs in irq thread context is a performance gain
 for the non-rt workloads of a system, but it's counterproductive for
