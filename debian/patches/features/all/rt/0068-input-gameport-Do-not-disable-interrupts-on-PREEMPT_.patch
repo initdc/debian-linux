@@ -2,7 +2,7 @@ From: Ingo Molnar <mingo@elte.hu>
 Date: Fri, 3 Jul 2009 08:30:16 -0500
 Subject: [PATCH 068/347] input: gameport: Do not disable interrupts on
  PREEMPT_RT
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=13b23fceff42a6c5b4a1d9c052f27ccb29f43903
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=50ddeec4aafadb9f1c71b128428245be2c9434ac
 
 Use the _nort() primitives.
 

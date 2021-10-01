@@ -2,7 +2,7 @@ From: Paul Gortmaker <paul.gortmaker@windriver.com>
 Date: Sat, 14 Feb 2015 11:01:16 -0500
 Subject: [PATCH 254/347] sas-ata/isci: dont't disable interrupts in qc_issue
  handler
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=5170098ff17f2bc4002a8862e70618336a151fef
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=aa24f55186c941f38ee5dd4dd88cde5ac6ba8a09
 
 On 3.14-rt we see the following trace on Canoe Pass for
 SCSI_ISCI "Intel(R) C600 Series Chipset SAS Controller"

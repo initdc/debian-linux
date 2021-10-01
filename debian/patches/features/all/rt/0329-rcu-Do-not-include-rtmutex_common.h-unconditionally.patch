@@ -1,7 +1,7 @@
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Mon, 9 Jul 2018 11:58:08 +0200
 Subject: [PATCH 329/347] rcu: Do not include rtmutex_common.h unconditionally
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=2f9211c6fb8b4bba0625087d88756c2d2eb19a24
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=4821b2b8a8fe3b0c616d21e6ce45bce9c7bb6131
 
 [ upstream commit b88697810d7c1d102a529990f9071b0f14cfe6df ]
 

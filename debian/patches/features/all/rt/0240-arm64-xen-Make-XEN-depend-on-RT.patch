@@ -1,7 +1,7 @@
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Mon, 12 Oct 2015 11:18:40 +0200
 Subject: [PATCH 240/347] arm64/xen: Make XEN depend on !RT
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=dddfa953db2a15af0e0e777e739b5e16a8540253
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=2935b9dd4e414e6b20348f7c0680b1ecd2e84f82
 
 It's not ready and probably never will be, unless xen folks have a
 look at it.

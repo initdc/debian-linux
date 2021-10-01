@@ -1,7 +1,7 @@
 From: Frank Rowand <frank.rowand@am.sony.com>
 Date: Mon, 19 Sep 2011 14:51:14 -0700
 Subject: [PATCH 037/347] arm: Convert arm boot_lock to raw
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=264414ec0283213fb57e6f5ea66f2f7a1fc27d65
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=0a3cc4d0613876186ccfb1bcf067a14dfea0e627
 
 The arm boot_lock is used by the secondary processor startup code.  The locking
 task is the idle thread, which has idle->sched_class == &idle_sched_class.

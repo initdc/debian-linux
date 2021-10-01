@@ -2,7 +2,7 @@ From: Ingo Molnar <mingo@elte.hu>
 Date: Tue, 29 Nov 2011 20:18:22 -0500
 Subject: [PATCH 136/347] tasklet: Prevent tasklets from going into infinite
  spin in RT
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=73976790a04b51c24f68032580aabeb7dc51da24
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=2fb111fa48538617b669082c8ed76f9c114f2ce0
 
 When CONFIG_PREEMPT_RT_FULL is enabled, tasklets run as threads,
 and spinlocks turn are mutexes. But this can cause issues with

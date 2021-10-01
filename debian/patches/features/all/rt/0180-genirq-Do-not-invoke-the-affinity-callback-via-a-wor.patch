@@ -2,7 +2,7 @@ From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Wed, 21 Aug 2013 17:48:46 +0200
 Subject: [PATCH 180/347] genirq: Do not invoke the affinity callback via a
  workqueue on RT
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=feda3d2936e03aa47e20aa56d9d6d362496b29f6
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=2bf3676abfce1922092dbbfc92f731ecd607d9da
 
 Joe Korty reported, that __irq_set_affinity_locked() schedules a
 workqueue while holding a rawlock which results in a might_sleep()

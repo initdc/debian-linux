@@ -1,7 +1,7 @@
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Wed, 9 Jan 2013 10:33:09 +0100
 Subject: [PATCH 090/347] mm: bounce: Use local_irq_save_nort
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=6697575aaf7bcd1b04b44e8fa8bcc0bd02a60a65
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=bfb611ddfc86f802af960ad175c8223105683652
 
 kmap_atomic() is preemptible on RT.
 

@@ -1,7 +1,7 @@
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Tue, 9 Jan 2018 11:02:24 +0100
 Subject: [PATCH 335/347] locking: add types.h
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=2c61a214ad9dfac2262fe053b1524c9b73c32755
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=d0d54f2efd863ec8454cafea73ec1a9bc396665b
 
 During the stable update the arm architecture did not compile anymore
 due to missing definition of u16/32.

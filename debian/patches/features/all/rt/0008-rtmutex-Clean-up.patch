@@ -1,7 +1,7 @@
 From: Peter Zijlstra <peterz@infradead.org>
 Date: Thu, 23 Mar 2017 15:56:10 +0100
 Subject: [PATCH 008/347] rtmutex: Clean up
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=d3179c65e18dbdea501a57a85e72b9045c1586f9
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=eaa97d8b158eac65ac353dfcb20c5f465dedb3ac
 
 Upstream commit aa2bfe55366552cb7e93e8709d66e698d79ccc47
 

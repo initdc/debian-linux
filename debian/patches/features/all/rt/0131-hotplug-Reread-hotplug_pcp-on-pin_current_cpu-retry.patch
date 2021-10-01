@@ -2,7 +2,7 @@ From: Yong Zhang <yong.zhang0@gmail.com>
 Date: Thu, 28 Jul 2011 11:16:00 +0800
 Subject: [PATCH 131/347] hotplug: Reread hotplug_pcp on pin_current_cpu()
  retry
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=f7bf2982d70041d5e1e4ab7cbcf443fa1aea62e0
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=4f9505b2dd2853e93da41558cba4879df541a04d
 
 When retry happens, it's likely that the task has been migrated to
 another cpu (except unplug failed), but it still derefernces the

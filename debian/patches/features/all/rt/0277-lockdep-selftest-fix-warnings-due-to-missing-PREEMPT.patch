@@ -2,7 +2,7 @@ From: Josh Cartwright <josh.cartwright@ni.com>
 Date: Wed, 28 Jan 2015 13:08:45 -0600
 Subject: [PATCH 277/347] lockdep: selftest: fix warnings due to missing
  PREEMPT_RT conditionals
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=7c3bf1adb0924909c9a2c4149739e6f0fac0af08
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=b62408b4b183f7228e7a8beee2acac215b91a1ef
 
 "lockdep: Selftest: Only do hardirq context test for raw spinlock"
 disabled the execution of certain tests with PREEMPT_RT_FULL, but did

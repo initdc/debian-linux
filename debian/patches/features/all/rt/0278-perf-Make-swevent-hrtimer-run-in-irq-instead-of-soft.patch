@@ -2,7 +2,7 @@ From: Yong Zhang <yong.zhang@windriver.com>
 Date: Wed, 11 Jul 2012 22:05:21 +0000
 Subject: [PATCH 278/347] perf: Make swevent hrtimer run in irq instead of
  softirq
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=3763a02c205712e2f2b932ce11dd8e2bdd3f3b95
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=cedab3604625a4df621245d7d1cdfe55588c8574
 
 Otherwise we get a deadlock like below:
 

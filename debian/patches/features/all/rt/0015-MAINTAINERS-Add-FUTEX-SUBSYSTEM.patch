@@ -1,7 +1,7 @@
 From: "Darren Hart (VMware)" <dvhart@infradead.org>
 Date: Fri, 14 Apr 2017 15:46:08 -0700
 Subject: [PATCH 015/347] MAINTAINERS: Add FUTEX SUBSYSTEM
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=0ebc9fe9e19edb1e87c67b7ee7e6dde6184cefe9
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=1fd5617d131f5413036c58786a6e37a5a5ee5bdd
 
 Upstream commit 59cd42c29618c45cd3c56da43402b14f611888dd
 

@@ -1,7 +1,7 @@
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Fri, 3 Jul 2009 08:29:20 -0500
 Subject: [PATCH 038/347] posix-timers: Prevent broadcast signals
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=dc71f0e32a1af52f21e59c93a9dfc52a6f0fdf96
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=b7918285715a1f423e2928735266b0c23ea8c336
 
 Posix timers should not send broadcast signals and kernel only
 signals. Prevent it.

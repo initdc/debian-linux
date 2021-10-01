@@ -4,7 +4,7 @@ Subject: [PATCH 135/347] locking: Disable spin on owner for RT
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=084654531f4ab6c457c7b177803788cdbd4048a3
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=a3314b2d52d348111c79bd62e486969510ac5982
 
 Drop spin on owner for mutex / rwsem. We are most likely not using it
 but…

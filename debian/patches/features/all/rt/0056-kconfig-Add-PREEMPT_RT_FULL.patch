@@ -1,7 +1,7 @@
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Wed, 29 Jun 2011 14:58:57 +0200
 Subject: [PATCH 056/347] kconfig: Add PREEMPT_RT_FULL
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=1b05b3715b7f1503c41e96424128f4b54db82368
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=70d7dc885c7130f5012685e57d0a902c2d510fa3
 
 Introduce the final symbol for PREEMPT_RT_FULL.
 

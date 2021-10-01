@@ -1,7 +1,7 @@
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Sun, 19 Jul 2009 08:44:27 -0500
 Subject: [PATCH 183/347] fs: namespace preemption fix
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=b7ee2079c6e28c26dca0b4fb5c747aca28c3d436
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=1daa923799c03bad727b75d608ebd3eaee5108c2
 
 On RT we cannot loop with preemption disabled here as
 mnt_make_readonly() might have been preempted. We can safely enable
@@ -14,7 +14,7 @@ Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
  1 file changed, 4 insertions(+), 1 deletion(-)
 
 diff --git a/fs/namespace.c b/fs/namespace.c
-index 9f2390c89b63..2c613ebc3735 100644
+index b9e30a385c01..89fdb79d6f7b 100644
 --- a/fs/namespace.c
 +++ b/fs/namespace.c
 @@ -357,8 +357,11 @@ int __mnt_want_write(struct vfsmount *m)

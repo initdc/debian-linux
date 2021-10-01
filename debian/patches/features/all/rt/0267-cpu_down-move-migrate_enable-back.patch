@@ -1,7 +1,7 @@
 From: Tiejun Chen <tiejun.chen@windriver.com>
 Date: Thu, 7 Nov 2013 10:06:07 +0800
 Subject: [PATCH 267/347] cpu_down: move migrate_enable() back
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=bfe72b746b59e0394e1694dffb6a808ed6f5c0fa
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=d6586d1e655c6f51e13a52d535e34313e8f6f06c
 
 Commit 08c1ab68, "hotplug-use-migrate-disable.patch", intends to
 use migrate_enable()/migrate_disable() to replace that combination

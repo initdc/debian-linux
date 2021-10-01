@@ -2,7 +2,7 @@ From: Mike Galbraith <umgwanakikbuti@gmail.com>
 Date: Wed, 18 Feb 2015 15:09:23 +0100
 Subject: [PATCH 229/347] snd/pcm: fix snd_pcm_stream_lock*() irqs_disabled()
  splats
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=61d1ee5f6956ed8d8cd9bccd1a8c077cfc703c76
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=5a16d52a035e14f143aef12ba24dd6d305555e84
 
 Locking functions previously using read_lock_irq()/read_lock_irqsave() were
 changed to local_irq_disable/save(), leading to gripes.  Use nort variants.

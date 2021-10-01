@@ -1,7 +1,7 @@
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Mon, 14 Nov 2011 23:06:09 +0100
 Subject: [PATCH 257/347] dm: Make rt aware
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=cb5210a64fb240f13a5416d06916c61ee076d370
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=d583fec11fe60abc3dcad16a4877b1a6bba084b2
 
 Use the BUG_ON_NORT variant for the irq_disabled() checks. RT has
 interrupts legitimately enabled here as we cant deadlock against the

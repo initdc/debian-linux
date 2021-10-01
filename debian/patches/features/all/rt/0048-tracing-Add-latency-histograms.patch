@@ -1,7 +1,7 @@
 From: Carsten Emde <C.Emde@osadl.org>
 Date: Tue, 19 Jul 2011 14:03:41 +0100
 Subject: [PATCH 048/347] tracing: Add latency histograms
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=0e17c125ee32eec25f3a979d9e9f263dfe50f63e
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=e3eefac21329319cb6649ec0e3d15144c4152090
 
 This patch provides a recording mechanism to store data of potential
 sources of system latencies. The recordings separately determine the

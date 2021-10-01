@@ -2,7 +2,7 @@ From: Thomas Gleixner <tglx@linutronix.de>
 Date: Fri, 17 Feb 2017 19:44:39 +0100
 Subject: [PATCH 002/347] lockdep: Handle statically initialized PER_CPU locks
  proper
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=3749dd757c8c3e73541d34f46b2f5bcec4c88f39
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=3eb7d9062a8cf30e94e7f2eca9f11c3560ca900d
 
 If a PER_CPU struct which contains a spin_lock is statically initialized
 via:

@@ -1,7 +1,7 @@
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Thu, 25 Oct 2012 10:32:35 +0100
 Subject: [PATCH 092/347] mm: Enable SLUB for RT
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=b11fcfe504c09264f66718c4ecc1e7f9604a5251
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=b00a038b906d92a5998dc4d4173393c0bea1dfc5
 
 Make SLUB RT aware by converting locks to raw and using free lists to
 move the freeing out of the lock held region.

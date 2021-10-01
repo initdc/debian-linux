@@ -1,7 +1,7 @@
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 29 Jan 2015 15:10:08 +0100
 Subject: [PATCH 198/347] block/mq: don't complete requests via IPI
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=881250d361cda13750f36e585719a4a88f91d0c8
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=6acc3f2f3ab73b5c90ba568782424befe216a69f
 
 The IPI runs in hardirq context and there are sleeping locks. This patch
 moves the completion into a workqueue.
