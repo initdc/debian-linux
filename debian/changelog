@@ -1,4 +1,4 @@
-linux (4.9.282-1) UNRELEASED; urgency=medium
+linux (4.9.284-1) UNRELEASED; urgency=medium
 
   * New upstream stable update:
     https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.9.273
@@ -322,7 +322,6 @@ linux (4.9.282-1) UNRELEASED; urgency=medium
     - tracing: Fix bug in rb_per_cpu_empty() that might cause deadloop.
       (CVE-2021-3679)
     - media: ngene: Fix out-of-bounds bug in ngene_command_config_free_buf()
-    - btrfs: compression: don't try to compress if we don't have enough pages
     https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.9.278
     - [amd64] iommu/amd: Fix backport of
       140456f994195b568ecd7fc2287a34eadffef3ca (regression in 4.9.261)
@@ -442,12 +441,163 @@ linux (4.9.282-1) UNRELEASED; urgency=medium
     - [x86] KVM: x86/mmu: Treat NX as used (not reserved) for all !TDP shadow
       MMUs
     - Revert "floppy: reintroduce O_NDELAY fix" (regression in 4.9.259)
+    https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.9.283
+    - ext4: fix race writing to an inline_data file while its xattrs are
+      changing (CVE-2021-40490)
+    - qed: Fix the VF msix vectors flow
+    - qede: Fix memset corruption
+    - [x86] perf/x86/amd/ibs: Work around erratum #1197
+    - ALSA: pcm: fix divide error in snd_pcm_lib_ioctl
+    - ath: Avoid transmitting frames unencrypted after disassociation
+      (CVE-2020-3702):
+      + ath: Use safer key clearing with key cache entries
+      + ath9k: Clear key cache explicitly on disabling hardware
+      + ath: Export ath_hw_keysetmac()
+      + ath: Modify ath_key_delete() to not need full key entry
+      + ath9k: Postpone key cache entry deletion for TXQ frames reference it
+    - media: stkwebcam: fix memory leak in stk_camera_probe
+    - igmp: Add ip_mc_list lock in ip_check_mc_rcu
+    - USB: serial: mos7720: improve OOM-handling in read_mos_reg()
+    - net/sched: cls_flower: Use mask for addr_type
+    - PM / wakeirq: Enable dedicated wakeirq for suspend
+    - nvme-pci: Fix an error handling path in 'nvme_probe()'
+    - gfs2: Don't clear SGID when inheriting ACLs
+    - ipv4/icmp: l3mdev: Perform icmp error route lookup on source device
+      routing table (v2)
+    - mm/page_alloc: speed up the iteration of max_order
+    - [x86] reboot: Limit Dell Optiplex 990 quirk to early BIOS versions
+    - PCI: Call Max Payload Size-related fixup quirks early
+    - regmap: fix the offset of register error log
+    - [armhf] crypto: omap-sham - clear dma flags only after
+      omap_sham_update_dma_stop()
+    - udf: Check LVID earlier
+    - libata: fix ata_host_start()
+    - [x86] crypto: qat - do not ignore errors from enable_vf2pf_comms()
+    - [x86] crypto: qat - handle both source of interrupt in VF ISR
+    - [x86] crypto: qat - fix reuse of completion variable
+    - [x86] crypto: qat - fix naming for init/shutdown VF to PF notifications
+    - [x86] crypto: qat - do not export adf_iov_putmsg()
+    - udf_get_extendedattr() had no boundary checks.
+    - [x86] crypto: qat - use proper type for vf_mask
+    - media: dvb-usb: fix uninit-value in dvb_usb_adapter_dvb_init
+    - media: dvb-usb: fix uninit-value in vp702x_read_mac_addr
+    - media: go7007: remove redundant initialization
+    - Bluetooth: sco: prevent information leak in sco_conn_defer_accept()
+    - tcp: seq_file: Avoid skipping sk during tcp_seek_last_pos
+    - PCI: PM: Enable PME if it can be signaled from D3cold
+    - [arm64] soc: qcom: smsm: Fix missed interrupts if state changes while
+      masked
+    - Bluetooth: increase BTNAMSIZ to 21 chars to fix potential buffer overflow
+    - Bluetooth: fix repeated calls to sco_sock_kill
+    - [arm64] drm/msm/dsi: Fix some reference counted resource leaks
+    - [armhf] usb: phy: twl6030: add IRQ checks
+    - Bluetooth: Move shutdown callback before flushing tx and rx queue
+    - Bluetooth: add timeout sanity check to hci_inquiry
+    - [armhf] i2c: s3c2410q: fix IRQ check
+    - [arm64,armhf] mmc: dw_mmc: Fix issue with uninitialized dma_slave_config
+    - CIFS: Fix a potencially linear read overflow
+    - [armel] usb: ehci-orion: Handle errors of clk_prepare_enable() in probe
+    - ath6kl: wmi: fix an error code in ath6kl_wmi_sync_point()
+    - bcma: Fix memory leak for internally-handled cores
+    - ipv4: make exception cache less predictible
+    - tty: Fix data race between tiocsti() and flush_to_ldisc()
+    - [x86] KVM: x86: Update vCPU's hv_clock before back to guest when
+      tsc_offset is adjusted
+    - [armel] clk: kirkwood: Fix a clocking boot regression
+    - fbmem: don't allow too huge resolutions
+    - PCI/MSI: Skip masking MSI-X on Xen PV
+    - [x86] xen: fix setting of max_pfn in shared_info
+    - [x86] VMCI: fix NULL pointer dereference when unmapping queue pair
+    - media: uvc: don't do DMA on stack
+    - media: rc-loopback: return number of emitters rather than error
+    - libata: add ATA_HORKAGE_NO_NCQ_TRIM for Samsung 860 and 870 SSDs
+    - [armel,armhf] 9105/1: atags_to_fdt: don't warn about stack size
+    - PCI: Restrict ASMedia ASM1062 SATA Max Payload Size Supported
+    - PCI: Return ~0 data on pciconfig_read() CAP_SYS_ADMIN failure
+    - [arm64,armhf] pinctrl: single: Fix error return code in
+      pcs_parse_bits_in_pinctrl_entry()
+    - PCI: Use pci_update_current_state() in pci_enable_device_flags()
+    - [x86] video: fbdev: kyro: fix a DoS bug by restricting user input
+    - netlink: Deal with ESRCH error in nlmsg_notify()
+    - usb: gadget: u_ether: fix a potential null pointer dereference
+    - usb: gadget: composite: Allow bMaxPower=0 if self-powered
+    - [x86] tty: serial: jsm: hold port lock when reporting modem line changes
+    - bpf/tests: Fix copy-and-paste error in double word test
+    - bpf/tests: Do not PASS tests without actually testing the result
+    - [x86] video: fbdev: kyro: Error out if 'pixclock' equals zero
+    - ipv4: ip_output.c: Fix out-of-bounds warning in ip_copy_addrs()
+    - flow_dissector: Fix out-of-bounds warnings
+    - serial: 8250: Define RX trigger levels for OxSemi 950 devices
+    - serial: 8250_pci: make setup_port() parameters explicitly unsigned
+    - Bluetooth: skip invalid hci_sync_conn_complete_evt
+    - [x86] ASoC: Intel: bytcr_rt5640: Move "Platform Clock" routes to the maps
+      for the matching in-/output
+    - [arm64] net: ethernet: stmmac: Do not use unreachable() in
+      ipq806x_gmac_probe()
+    - Bluetooth: avoid circular locks in sco_sock_connect
+    - gpu: drm: amd: amdgpu: amdgpu_i2c: fix possible uninitialized-variable
+      access in amdgpu_i2c_router_select_ddc_port()
+    - [armhf] tegra: tamonten: Fix UART pad setting
+    - rpc: fix gss_svc_init cleanup on failure
+    - gfs2: Don't call dlm after protocol is unmounted
+    - mmc: rtsx_pci: Fix long reads when clock is prescaled
+    - cifs: fix wrong release in sess_alloc_buffer() failed path
+    - Revert "USB: xhci: fix U1/U2 handling for hardware with XHCI_INTEL_HOST
+      quirk set" (regression in 4.9.251)
+    - [x86] usbip: give back URBs for unsent unlink requests during cleanup
+    - parport: remove non-zero check on count
+    - ath9k: fix OOB read ar9300_eeprom_restore_internal
+    - ath9k: fix sleeping in atomic context
+    - net: fix NULL pointer reference in cipso_v4_doi_free
+    - [x86] scsi: BusLogic: Fix missing pr_cont() use
+    - mm/hugetlb: initialize hugetlb_usage in mm_init
+    - memcg: enable accounting for pids in nested pid namespaces
+    - [x86] xen: reset legacy rtc flag for PV domU
+    - bnx2x: Fix enabling network interfaces without VFs
+    - net-caif: avoid user-triggerable WARN_ON(1)
+    - dccp: don't duplicate ccid when cloning dccp sock (4.9.284-1)
+      (regression in 4.9.108)
+    - net/l2tp: Fix reference count leak in l2tp_udp_recv_core
+    - r6040: Restore MDIO clock frequency after MAC reset
+    - tipc: increase timeout in tipc_sk_enqueue()
+    - events: Reuse value read using READ_ONCE instead of re-reading it
+    - net/af_unix: fix a data-race in unix_dgram_poll
+    - tcp: fix tp->undo_retrans accounting in tcp_sacktag_one()
+    - [x86] mm: Fix kern_addr_valid() to cope with existing but not present
+      entries
+    - [armhf] mfd: Don't use irq_create_mapping() to resolve a mapping
+    - net: usb: cdc_mbim: avoid altsetting toggling for Telit LN920
+    - ethtool: Fix an error code in cxgb2.c
+    - mtd: rawnand: cafe: Fix a resource leak in the error handling path of
+      'cafe_nand_probe()'
+    - [armhf] net: dsa: b53: Fix calculating number of switch ports
+    - qlcnic: Remove redundant unlock in qlcnic_pinit_from_rom
+    https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.9.284
+    - PM / wakeirq: Fix unbalanced IRQ enable for wakeirq
+    - sctp: validate chunk size in __rcv_asconf_lookup
+    - sctp: add param size validation for SCTP_PARAM_SET_PRIMARY
+    - dmaengine: acpi: Avoid comparison GSI with Linux vIRQ
+    - 9p/trans_virtio: Remove sysfs file on probe failure
+    - prctl: allow to setup brk for et_dyn executables
+    - profiling: fix shift-out-of-bounds bugs
+    - ceph: lockdep annotations for try_nonblocking_invalidate
+    - nilfs2: fix memory leak in nilfs_sysfs_create_device_group
+    - nilfs2: fix NULL pointer in nilfs_##name##_attr_release
+    - nilfs2: fix memory leak in nilfs_sysfs_create_##name##_group
+    - nilfs2: fix memory leak in nilfs_sysfs_delete_##name##_group
+    - nilfs2: fix memory leak in nilfs_sysfs_create_snapshot_group
+    - nilfs2: fix memory leak in nilfs_sysfs_delete_snapshot_group
+    - blk-throttle: fix UAF by deleteing timer in blk_throtl_exit()
+    - drm/nouveau/nvkm: Replace -ENOSYS with -ENODEV
+    - sctp: validate from_addr_param return
 
   [ Ben Hutchings ]
   * crypto: Ignore removal of internal symbol shash_no_setkey
   * i2c: Avoid ABI change in 4.9.275
   * [rt] Update to 4.9.282-rt187
   * PCI/MSI: Avoid ABI change in 4.9.281
+  * crypto/qat: Ignore ABI changes
+  * sctp: Ignore ABI changes
 
  -- Ben Hutchings <benh@debian.org>  Tue, 20 Jul 2021 20:42:19 +0200
 

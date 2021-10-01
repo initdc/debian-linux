@@ -24,6 +24,7 @@ ignore-changes:
  zs_*
  module:drivers/block/loop
  module:drivers/crypto/ccp/*
+ module:drivers/crypto/qat/*
  module:drivers/edac/edac_mce_amd
  module:drivers/hv/*
  module:drivers/iio/common/hid-sensors/*
@@ -60,6 +61,7 @@ ignore-changes:
  module:net/netfilter/nft_reject
  module:net/nfc/hci/hci
  module:net/l2tp/**
+ module:net/sctp/*
  module:net/vmw_vsock/*
  module:sound/firewire/snd-firewire-lib
  module:sound/pci/hda/*
