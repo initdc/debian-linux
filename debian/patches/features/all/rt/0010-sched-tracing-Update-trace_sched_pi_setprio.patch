@@ -1,7 +1,7 @@
 From: Peter Zijlstra <peterz@infradead.org>
 Date: Thu, 23 Mar 2017 15:56:12 +0100
 Subject: [PATCH 010/347] sched,tracing: Update trace_sched_pi_setprio()
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=4513ce76eb33347d0449e33f2731bf8d4c448b03
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=9015cb00b0596fefab477b620cdbbbf53676ddae
 
 Upstream commit b91473ff6e979c0028f02f90e40c844959c736d8
 

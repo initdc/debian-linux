@@ -2,7 +2,7 @@ From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Tue, 9 Feb 2016 18:18:01 +0100
 Subject: [PATCH 141/347] kernel: migrate_disable() do fastpath in atomic &
  irqs-off
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=8ca720d48f9cea7ec144d97ff304759d3fc6bab2
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=f7ef58f5c5948e03a4b3e71e9d2ec046613365cb
 
 With interrupts off it makes no sense to do the long path since we can't
 leave the CPU anyway. Also we might end up in a recursion with lockdep.

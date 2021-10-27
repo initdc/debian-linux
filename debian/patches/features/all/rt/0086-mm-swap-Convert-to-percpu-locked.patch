@@ -1,7 +1,7 @@
 From: Ingo Molnar <mingo@elte.hu>
 Date: Fri, 3 Jul 2009 08:29:51 -0500
 Subject: [PATCH 086/347] mm/swap: Convert to percpu locked
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=9242862aca716ca2094e30ad9f9f5902d9b1c8e9
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=f8173402391136ca75282048a690d38480387953
 
 Replace global locks (get_cpu + local_irq_save) with "local_locks()".
 Currently there is one of for "rotate" and one for "swap".
@@ -47,7 +47,7 @@ index 70e6bec46dc2..6678ed58b7c6 100644
  				cc->last_migrated_pfn = 0;
  			}
 diff --git a/mm/page_alloc.c b/mm/page_alloc.c
-index 7cf11fa9d7e2..423e6a2844c0 100644
+index 5453e20e8a9c..b978c5458469 100644
 --- a/mm/page_alloc.c
 +++ b/mm/page_alloc.c
 @@ -6612,7 +6612,9 @@ static int page_alloc_cpu_notify(struct notifier_block *self,

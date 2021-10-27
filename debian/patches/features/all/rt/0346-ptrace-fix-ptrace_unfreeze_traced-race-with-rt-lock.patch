@@ -2,7 +2,7 @@ From: Oleg Nesterov <oleg@redhat.com>
 Date: Tue, 3 Nov 2020 12:39:01 +0100
 Subject: [PATCH 346/347] ptrace: fix ptrace_unfreeze_traced() race with
  rt-lock
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=c2151bb0ffba541ba995686be9337aa6bb69860d
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=33c094616bd9402fc0e13c1a2efd2fea45f44f47
 
 [ Upstream commit 0fdc91971b34cf6857b4cfd8c322ae936cfc189b ]
 

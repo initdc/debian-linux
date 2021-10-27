@@ -1,7 +1,7 @@
 From: John Stultz <johnstul@us.ibm.com>
 Date: Fri, 3 Jul 2009 08:29:58 -0500
 Subject: [PATCH 112/347] posix-timers: Thread posix-cpu-timers on -rt
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=d06133b2e702b50a19e43faee6034c13d1b6f09d
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=371a59587959e16eff493092bfee1c001bc1eb49
 
 posix-cpu-timer code takes non -rt safe locks in hard irq
 context. Move it to a thread.
@@ -57,10 +57,10 @@ index 093dad666806..4fc8fead2a16 100644
  /* process credentials */
  	const struct cred __rcu *ptracer_cred; /* Tracer's credentials at attach */
 diff --git a/kernel/fork.c b/kernel/fork.c
-index cfdf5efbbdcb..e20a2cc4db8f 100644
+index a434cbefcf7f..b89c0b07ebd6 100644
 --- a/kernel/fork.c
 +++ b/kernel/fork.c
-@@ -1443,6 +1443,9 @@ static void rt_mutex_init_task(struct task_struct *p)
+@@ -1444,6 +1444,9 @@ static void rt_mutex_init_task(struct task_struct *p)
   */
  static void posix_cpu_timers_init(struct task_struct *tsk)
  {

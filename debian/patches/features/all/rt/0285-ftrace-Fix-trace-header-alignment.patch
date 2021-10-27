@@ -1,7 +1,7 @@
 From: Mike Galbraith <umgwanakikbuti@gmail.com>
 Date: Sun, 16 Oct 2016 05:08:30 +0200
 Subject: [PATCH 285/347] ftrace: Fix trace header alignment
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=a0c8f5c941d819aea2702317122a68356767d3d6
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=8140c26973fa88fdea67be141c8060d6a6c1f8c9
 
 Line up helper arrows to the right column.
 

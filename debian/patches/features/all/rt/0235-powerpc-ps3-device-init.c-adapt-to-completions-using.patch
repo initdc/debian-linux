@@ -2,7 +2,7 @@ From: Paul Gortmaker <paul.gortmaker@windriver.com>
 Date: Sun, 31 May 2015 14:44:42 -0400
 Subject: [PATCH 235/347] powerpc: ps3/device-init.c - adapt to completions
  using swait vs wait
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=6e44824e31805a9b93b688b80de7b03a3acd5902
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=3dfeb194192bae75640f744fe67f71a244f9d536
 
 To fix:
 

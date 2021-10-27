@@ -1,7 +1,7 @@
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Sat, 27 Feb 2016 10:22:23 +0100
 Subject: [PATCH 058/347] iommu/amd: Use WARN_ON_NORT in __attach_device()
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=53ec00a4ed59e95412b27034b225c34ff87dda14
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=4a301e3b00205f852bc33318eb54f076cf39544e
 
 RT does not disable interrupts here, but the protection is still
 correct. Fixup the WARN_ON so it won't yell on RT.

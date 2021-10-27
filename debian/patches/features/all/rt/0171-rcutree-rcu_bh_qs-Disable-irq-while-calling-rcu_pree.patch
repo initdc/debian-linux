@@ -2,7 +2,7 @@ From: Tiejun Chen <tiejun.chen@windriver.com>
 Date: Wed, 18 Dec 2013 17:51:49 +0800
 Subject: [PATCH 171/347] rcutree/rcu_bh_qs: Disable irq while calling
  rcu_preempt_qs()
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=a81bab021271c195365c90b6f6dd633412fa2c94
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=46fb7ed657189792ec37bd6928653822d4ed8f77
 
 Any callers to the function rcu_preempt_qs() must disable irqs in
 order to protect the assignment to ->rcu_read_unlock_special. In

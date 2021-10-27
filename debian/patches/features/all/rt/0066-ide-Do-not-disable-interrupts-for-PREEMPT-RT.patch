@@ -1,7 +1,7 @@
 From: Ingo Molnar <mingo@elte.hu>
 Date: Fri, 3 Jul 2009 08:30:16 -0500
 Subject: [PATCH 066/347] ide: Do not disable interrupts for PREEMPT-RT
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=d4e7b0b435e3e32b02ba2dd953e8e6d38034f4a7
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=08f73bb6ec5d377930bf928165dd75b73498e389
 
 Use the local_irq_*_nort variants.
 

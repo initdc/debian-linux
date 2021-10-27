@@ -4,7 +4,7 @@ Subject: [PATCH 161/347] kernel/locking: use an exclusive wait_q for sleepers
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=2ee2bd74dda44971d0f0a132658809769f99aeb7
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=15f9de45db5e9540ab78e12ae0595e1fa098feeb
 
 If a task is queued as a sleeper for a wakeup and never goes to
 schedule() (because it just obtained the lock) then it will receive a
@@ -78,7 +78,7 @@ index 2b6b8db25242..6e235dc4d758 100644
  #ifdef CONFIG_RT_MUTEXES
  	/* PI waiters blocked on a rt_mutex held by this task */
 diff --git a/kernel/fork.c b/kernel/fork.c
-index aca52a63d945..f5569dec06c4 100644
+index e0cbcf1457b8..4d134dadb584 100644
 --- a/kernel/fork.c
 +++ b/kernel/fork.c
 @@ -567,6 +567,7 @@ static struct task_struct *dup_task_struct(struct task_struct *orig, int node)

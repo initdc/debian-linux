@@ -1,7 +1,7 @@
 From: Ingo Molnar <mingo@elte.hu>
 Date: Fri, 3 Jul 2009 08:44:03 -0500
 Subject: [PATCH 091/347] mm: Allow only slub on RT
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=b00a3a665006646745f508dbdcc2be64cc570a5c
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=01fb6f79533df150c8a39d546c4d05ce7b49d356
 
 Disable SLAB and SLOB on -RT. Only SLUB is adopted to -RT needs.
 

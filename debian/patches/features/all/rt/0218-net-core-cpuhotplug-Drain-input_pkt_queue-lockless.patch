@@ -1,7 +1,7 @@
 From: Grygorii Strashko <grygorii.strashko@ti.com>
 Date: Fri, 9 Oct 2015 09:25:49 -0500
 Subject: [PATCH 218/347] net/core/cpuhotplug: Drain input_pkt_queue lockless
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=95bcade0a15302f90f6a854c3721db575b7cce04
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=7d8ed3a9704d69f99db2cd6d258c7e47cdf1d49d
 
 I can constantly see below error report with 4.1 RT-kernel on TI ARM dra7-evm
 if I'm trying to unplug cpu1:

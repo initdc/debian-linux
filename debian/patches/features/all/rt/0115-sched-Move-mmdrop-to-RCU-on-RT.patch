@@ -1,7 +1,7 @@
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Mon, 6 Jun 2011 12:20:33 +0200
 Subject: [PATCH 115/347] sched: Move mmdrop to RCU on RT
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=b8bd21f1bf46045be10c869d6eb32cdbd575669e
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=7d2225d39682ce245ccfe2a2a64e8f55436517c8
 
 Takes sleeping locks and calls into the memory allocator, so nothing
 we want to do in task switch and oder atomic contexts.
@@ -59,10 +59,10 @@ index ee414010a43e..0d09aadb80d9 100644
  {
  	struct mm_struct *mm = container_of(work, struct mm_struct, async_put_work);
 diff --git a/kernel/fork.c b/kernel/fork.c
-index 94500537dcf2..379b66a373ce 100644
+index 27b25b545238..9522c0533217 100644
 --- a/kernel/fork.c
 +++ b/kernel/fork.c
-@@ -883,6 +883,19 @@ void __mmdrop(struct mm_struct *mm)
+@@ -884,6 +884,19 @@ void __mmdrop(struct mm_struct *mm)
  }
  EXPORT_SYMBOL_GPL(__mmdrop);
  

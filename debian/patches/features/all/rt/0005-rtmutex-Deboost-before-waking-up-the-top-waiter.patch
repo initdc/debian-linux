@@ -1,7 +1,7 @@
 From: Xunlei Pang <xlpang@redhat.com>
 Date: Thu, 23 Mar 2017 15:56:07 +0100
 Subject: [PATCH 005/347] rtmutex: Deboost before waking up the top waiter
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=d2e5f1facdd98167ee8a4bc180abfbf8b3c51523
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=335638d6894cfbcccfc09115ee80e58af36e7553
 
 Upstream commit 2a1c6029940675abb2217b590512dbf691867ec4
 

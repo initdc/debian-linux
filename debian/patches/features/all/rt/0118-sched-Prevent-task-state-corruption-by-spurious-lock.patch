@@ -2,7 +2,7 @@ From: Thomas Gleixner <tglx@linutronix.de>
 Date: Tue, 6 Jun 2017 14:20:37 +0200
 Subject: [PATCH 118/347] sched: Prevent task state corruption by spurious lock
  wakeup
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=9aed6f72e17f739ac94621f5d7284aa006b9e40a
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=e58fe5f01baf62338829cbdce4be2a6352e0a890
 
 Mathias and others reported GDB failures on RT.
 

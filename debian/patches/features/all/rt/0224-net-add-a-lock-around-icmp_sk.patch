@@ -1,7 +1,7 @@
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Wed, 31 Aug 2016 17:54:09 +0200
 Subject: [PATCH 224/347] net: add a lock around icmp_sk()
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=59427a6107ccdad7f86693b1e0cdbf20197f2bf1
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=d3ab30f9e9b8e5c78598d0fef268ecb57fa7a695
 
 It looks like the this_cpu_ptr() access in icmp_sk() is protected with
 local_bh_disable(). To avoid missing serialization in -RT I am adding
@@ -14,7 +14,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  1 file changed, 8 insertions(+)
 
 diff --git a/net/ipv4/icmp.c b/net/ipv4/icmp.c
-index 27518ea7ec3c..cdfb0b05b97a 100644
+index e27ebd00bff2..5f1ca7a805e8 100644
 --- a/net/ipv4/icmp.c
 +++ b/net/ipv4/icmp.c
 @@ -77,6 +77,7 @@

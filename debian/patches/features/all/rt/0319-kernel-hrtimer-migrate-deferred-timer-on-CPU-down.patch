@@ -1,7 +1,7 @@
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Fri, 18 Aug 2017 10:09:09 +0200
 Subject: [PATCH 319/347] kernel/hrtimer: migrate deferred timer on CPU down
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=22d4223d9bed27a1b8438bb8ea9ba7315bace234
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=daf82776b8a84f466128a335af50025e3bc584b3
 
 hrtimers, which were deferred to the softirq context, and expire between
 softirq shutdown and hrtimer migration are dangling around. If the CPU

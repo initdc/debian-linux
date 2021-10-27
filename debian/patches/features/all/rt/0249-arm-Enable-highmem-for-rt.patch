@@ -1,7 +1,7 @@
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Wed, 13 Feb 2013 11:03:11 +0100
 Subject: [PATCH 249/347] arm: Enable highmem for rt
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=50a0a7017c24722de9d50202a7fe6e7e8d5a693c
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=71b0abd6efa48de144bfc5ac049a1a07362a4669
 
 fixup highmem for ARM.
 

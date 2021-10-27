@@ -702,7 +702,7 @@ linux (4.9.288-1) UNRELEASED; urgency=medium
 
   [ Ben Hutchings ]
   * crypto: Ignore removal of internal symbol shash_no_setkey
-  * [rt] Update to 4.9.282-rt187
+  * [rt] Update to 4.9.286-rt189
   * crypto/qat: Ignore ABI changes
   * sctp: Ignore ABI changes
   * Bump ABI to 17

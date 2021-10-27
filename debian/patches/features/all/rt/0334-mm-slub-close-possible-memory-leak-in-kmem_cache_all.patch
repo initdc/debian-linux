@@ -2,7 +2,7 @@ From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Wed, 13 Dec 2017 12:44:14 +0100
 Subject: [PATCH 334/347] mm/slub: close possible memory-leak in
  kmem_cache_alloc_bulk()
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=0c1c825fd8db535cef5bfc97f36ff8930dadd248
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=b9fb61f14e27ebf0a1db05a104bc6398bd33f559
 
 Under certain circumstances we could leak elements which were moved to
 the local "to_free" list. The damage is limited since I can't find

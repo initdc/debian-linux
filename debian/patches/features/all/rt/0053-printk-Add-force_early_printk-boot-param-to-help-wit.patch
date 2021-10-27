@@ -2,7 +2,7 @@ From: Peter Zijlstra <peterz@infradead.org>
 Date: Fri, 2 Sep 2011 14:41:29 +0200
 Subject: [PATCH 053/347] printk: Add "force_early_printk" boot param to help
  with debugging
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=090dc68483fac032324cd2239cf8abda813611e9
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=59c2d595792461d3f04f45924eecb4c8b6064202
 
 Gives me an option to screw printk and actually see what the machine
 says.

@@ -1,7 +1,7 @@
 From: Peter Zijlstra <peterz@infradead.org>
 Date: Wed, 7 Jun 2017 10:12:45 +0200
 Subject: [PATCH 119/347] sched: Remove TASK_ALL
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=7e2060f7a43f9d4532b80b628deaa627a5df1781
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=3f3828ae5265a72f60d6a1872e59819e444b3c32
 
 It's unused:
 

@@ -2,7 +2,7 @@ From: Mike Galbraith <efault@gmx.de>
 Date: Wed, 5 Apr 2017 10:08:27 +0200
 Subject: [PATCH 012/347] rtmutex: Plug preempt count leak in
  rt_mutex_futex_unlock()
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=577a292cbcd6cd16503f130d3bccffde5172439e
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=4e62751a4de27fb6fc903a39323785ab33c36315
 
 Upstream commit def34eaae5ce04b324e48e1bfac873091d945213
 

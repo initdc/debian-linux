@@ -2,7 +2,7 @@ From: Clark Williams <williams@redhat.com>
 Date: Tue, 26 May 2015 10:43:43 -0500
 Subject: [PATCH 298/347] i915: bogus warning from i915 when running on
  PREEMPT_RT
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=8ceac00ba3a53aa7534b544c9acc831238b5dca1
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=49724a607b56919697ea5728c9b8bac636e4f754
 
 The i915 driver has a 'WARN_ON(!in_interrupt())' in the display
 handler, which whines constanly on the RT kernel (since the interrupt

@@ -1,7 +1,7 @@
 From: Carsten Emde <C.Emde@osadl.org>
 Date: Tue, 19 Jul 2011 13:51:17 +0100
 Subject: [PATCH 226/347] net: sysrq via icmp
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=ac915ac56f1269cd282307dc5328465f23e45cdf
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=885fc3dfed6001270d5f401bf7e78e516ac6de10
 
 There are (probably rare) situations when a system crashed and the system
 console becomes unresponsive but the network icmp layer still is alive.
@@ -55,7 +55,7 @@ index af1c5e7c7e94..faf4a8cd61e6 100644
  	int sysctl_icmp_ratelimit;
  	int sysctl_icmp_ratemask;
 diff --git a/net/ipv4/icmp.c b/net/ipv4/icmp.c
-index cdfb0b05b97a..3397a4fef609 100644
+index 5f1ca7a805e8..6ec8624ed163 100644
 --- a/net/ipv4/icmp.c
 +++ b/net/ipv4/icmp.c
 @@ -69,6 +69,7 @@
@@ -66,7 +66,7 @@ index cdfb0b05b97a..3397a4fef609 100644
  #include <linux/socket.h>
  #include <linux/in.h>
  #include <linux/inet.h>
-@@ -946,6 +947,30 @@ static bool icmp_redirect(struct sk_buff *skb)
+@@ -965,6 +966,30 @@ static bool icmp_redirect(struct sk_buff *skb)
  	return true;
  }
  
@@ -97,7 +97,7 @@ index cdfb0b05b97a..3397a4fef609 100644
  /*
   *	Handle ICMP_ECHO ("ping") requests.
   *
-@@ -973,6 +998,11 @@ static bool icmp_echo(struct sk_buff *skb)
+@@ -992,6 +1017,11 @@ static bool icmp_echo(struct sk_buff *skb)
  		icmp_param.data_len	   = skb->len;
  		icmp_param.head_len	   = sizeof(struct icmphdr);
  		icmp_reply(&icmp_param, skb);

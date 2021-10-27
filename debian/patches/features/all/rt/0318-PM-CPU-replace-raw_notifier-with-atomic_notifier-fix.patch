@@ -2,7 +2,7 @@ From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 17 Aug 2017 11:38:51 +0200
 Subject: [PATCH 318/347] PM / CPU: replace raw_notifier with atomic_notifier
  (fixup)
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=1cf1a85cf6b57a75987a0739453a61268e37fd66
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=7468d94c186149fbf0c2b9a92d13af3c1e4a1643
 
 The original patch changed betwen its posting and what finally went into
 Rafael's tree so here is the delta.

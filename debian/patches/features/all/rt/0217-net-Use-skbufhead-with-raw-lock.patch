@@ -1,7 +1,7 @@
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Tue, 12 Jul 2011 15:38:34 +0200
 Subject: [PATCH 217/347] net: Use skbufhead with raw lock
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=a614a5393a72abb5f46edf1b6480fa317d7dd727
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=038ed56835967d0183a5fc540db2c35bc5ba1d68
 
 Use the rps lock as rawlock so we can keep irq-off regions. It looks low
 latency. However we can't kfree() from this context therefore we defer this
@@ -27,7 +27,7 @@ index 2aacafe2bce5..69d50e5aa690 100644
  };
  
 diff --git a/include/linux/skbuff.h b/include/linux/skbuff.h
-index 67b798b7115d..4e78fd08cc61 100644
+index dab550cf29c1..a8bfaa061f3e 100644
 --- a/include/linux/skbuff.h
 +++ b/include/linux/skbuff.h
 @@ -284,6 +284,7 @@ struct sk_buff_head {
