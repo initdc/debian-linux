@@ -98,7 +98,6 @@ features/mips/mips-loogson-make-enum-loongson_cpu_type-more-clear.patch
 bugfix/all/disable-some-marvell-phys.patch
 bugfix/all/fs-add-module_softdep-declarations-for-hard-coded-cr.patch
 bugfix/all/kbuild-do-not-use-hyphen-in-exported-variable-name.patch
-bugfix/all/partially-revert-usb-kconfig-using-select-for-usb_co.patch
 bugfix/all/kbuild-include-addtree-remove-quotes-before-matching-path.patch
 bugfix/all/mm-mmap.c-expand_downwards-don-t-require-the-gap-if-.patch
 bugfix/x86/mmap-remember-the-map_fixed-flag-as-vm_fixed.patch
@@ -320,6 +319,7 @@ bugfix/all/net-sysfs-fix-reference-count-leak-in-rx-netdev_queu.patch
 bugfix/all/net-sysfs-fix-netdev_queue_add_kobject-breakage.patch
 bugfix/all/net-sysfs-call-dev_hold-always-in-netdev_queue_add_k.patch
 bugfix/all/net-sysfs-call-dev_hold-always-in-rx_queue_add_kobje.patch
+bugfix/all/revert-gup-document-and-work-around-COW-can-break-either-wa.patch
 bugfix/all/gup-document-and-work-around-cow-can-break-either-wa.patch
 bugfix/all/fuse-fix-bad-inode.patch
 bugfix/all/fuse-fix-live-lock-in-fuse_iget.patch

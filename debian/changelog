@@ -1,4 +1,4 @@
-linux (4.9.284-1) UNRELEASED; urgency=medium
+linux (4.9.288-1) UNRELEASED; urgency=medium
 
   * New upstream stable update:
     https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.9.273
@@ -590,6 +590,115 @@ linux (4.9.284-1) UNRELEASED; urgency=medium
     - blk-throttle: fix UAF by deleteing timer in blk_throtl_exit()
     - drm/nouveau/nvkm: Replace -ENOSYS with -ENODEV
     - sctp: validate from_addr_param return
+    https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.9.285
+    - ocfs2: drop acl cache for directories too
+    - [armf] usb: musb: tusb6010: uninitialized data in
+      tusb_fifo_write_unaligned()
+    - cifs: fix incorrect check for null pointer in header_assemble
+    - [x86] xen/x86: fix PV trap handling on secondary processors
+    - usb-storage: Add quirk for ScanLogic SL11R-IDE older than 2.6c
+    - USB: serial: cp210x: add ID for GW Instek GDM-834x Digital Multimeter
+    - USB: serial: mos7840: remove duplicated 0xac24 device ID
+    - USB: serial: option: add Telit LN920 compositions
+    - USB: serial: option: remove duplicate USB device ID
+    - USB: serial: option: add device id for Foxconn T99W265
+    - [arm64] serial: mvebu-uart: fix driver's tx_empty callback
+    - net: hso: fix muxed tty registration
+    - net/mlx4_en: Don't allow aRFS for encapsulated packets
+    - scsi: iscsi: Adjust iface sysfs attr detection
+    - blktrace: Fix uaf in blk_trace access after removing by sysfs
+    - [arm64,armhf] net: stmmac: allow CSR clock of 300MHz
+    - qnx4: avoid stringop-overread errors
+    - [arm64] Mark __stack_chk_guard as __ro_after_init
+    - net: 6pack: Fix tx timeout and slot time
+    - [arm64] dts: marvell: armada-37xx: Extend PCIe MEM space
+    - qnx4: work around gcc false positive warning bug
+    - tty: Fix out-of-bound vmalloc access in imageblit
+    - cpufreq: schedutil: Use kobject release() method to free sugov_tunables
+    - cpufreq: schedutil: Destroy mutex before kobject_put() frees the memory
+    - mac80211: fix use-after-free in CCMP/GCMP RX
+    - ipvs: check that ip_vs_conn_tab_bits is between 8 and 20
+    - mac80211: limit injected vht mcs/nss in ieee80211_parse_tx_radiotap
+    - hwmon: (tmp421) fix rounding for negative values
+    - e100: fix length calculation in e100_get_regs_len
+    - e100: fix buffer overrun in e100_get_regs
+    - ext4: fix potential infinite loop in ext4_dx_readdir()
+    - net: udp: annotate data race around udp_sk(sk)->corkflag
+    - ARM: 9079/1: ftrace: Add MODULE_PLTS support
+    - [arm64] Extend workaround for erratum 1024718 to all versions of
+      Cortex-A55
+    - HID: betop: fix slab-out-of-bounds Write in betop_probe
+    - netfilter: ipset: Fix oversized kvmalloc() calls
+    - HID: usbhid: free raw_report buffers in usbhid_stop
+    - cred: allow get_cred() and put_cred() to be given NULL.
+    https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.9.286
+    - af_unix: fix races in sk_peer_pid and sk_peer_cred accesses
+    - xen-netback: correct success/error reporting for the SKB-with-fraglist
+      case
+    - scsi: sd: Free scsi_disk device via put_device()
+    - libata: Add ATA_HORKAGE_NO_NCQ_ON_ATI for Samsung 860 and 870 SSD.
+    https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.9.287
+    - USB: cdc-acm: fix racy tty buffer accesses
+    - USB: cdc-acm: fix break reporting
+    - ovl: fix missing negative dentry check in ovl_rename() (CVE-2021-20321)
+    - nfsd4: Handle the NFSv4 READDIR 'dircount' hint being zero
+    - [armhf] dts: omap3430-sdp: Fix NAND device node
+    - bpf: Fix integer overflow in prealloc_elems_and_freelist()
+      (CVE-2021-41864)
+    - phy: mdio: fix memory leak
+    - net_sched: fix NULL deref in fifo_set_limit()
+    - [x86] ptp_pch: Load module automatically if ID matches
+    - [armhf] imx6: disable the GIC CPU interface before calling stby-poweroff
+      sequence
+    - net: bridge: use nla_total_size_64bit() in br_get_linkxstats_size()
+    - netlink: annotate data races around nlk->bound
+    - drm/nouveau/debugfs: fix file release memory leak
+    - rtnetlink: fix if_nlmsg_stats_size() under estimation
+    - i40e: fix endless loop under rtnl
+    - HID: apple: Fix logical maximum and usage maximum of Magic Keyboard JIS
+    - netfilter: ip6_tables: zero-initialize fragment offset
+    - mac80211: Drop frames from invalid MAC address in ad-hoc mode
+    - scsi: ses: Fix unsigned comparison with less than zero
+    - scsi: virtio_scsi: Fix spelling mistake "Unsupport" -> "Unsupported"
+    - [x86] perf/x86: Reset destroy callback on event init failure
+    https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.9.288
+    - ALSA: seq: Fix a potential UAF by wrong private_free call order
+    - xhci: Enable trust tx length quirk for Fresco FL11 USB controller
+    - cb710: avoid NULL pointer subtraction
+    - [x86] efi/cper: use stack buffer for error record decoding
+    - efi: Change down_interruptible() in virt_efi_reset_system() to
+      down_trylock()
+    - Input: xpad - add support for another USB ID of Nacon GC-100
+    - USB: serial: qcserial: add EM9191 QDL support
+    - USB: serial: option: add Telit LE910Cx composition 0x1204
+    - ethernet: s2io: fix setting mac address during resume
+    - nfc: fix error handling of nfc_proto_register()
+    - NFC: digital: fix possible memory leak in digital_tg_listen_mdaa()
+    - NFC: digital: fix possible memory leak in digital_in_send_sdd_req()
+    - [i386] pata_legacy: fix a couple uninitialized variable bugs
+    - [arm64] drm/msm: Fix null pointer dereference on pointer edp
+    - [arm64] drm/msm/dsi: fix off by one in dsi_bus_clk_enable error handling
+    - r8152: select CRC32 and CRYPTO/CRYPTO_HASH/CRYPTO_SHA256
+    - NFSD: Keep existing listeners on portlist error
+    - netfilter: ipvs: make global sysctl readonly in non-init netns
+    - can: peak_usb: pcan_usb_fd_decode_status(): fix back to ERROR_ACTIVE
+      state notification
+    - can: peak_pci: peak_pci_remove(): fix UAF
+    - ocfs2: fix data corruption after conversion from inline format
+    - ocfs2: mount fails with buffer overflow in strlen
+    - elfcore: correct reference to CONFIG_UML
+    - vfs: check fd has read access in kernel_read_file_from_fd()
+    - ALSA: usb-audio: Provide quirk for Sennheiser GSP670 Headset
+    - ASoC: DAPM: Fix missing kctl change notifications
+    - nfc: nci: fix the UAF of rf_conn_info object (CVE-2021-3760)
+    - isdn: cpai: check ctr->cnr to avoid array index out of bound
+      (CVE-2021-3896)
+    - isdn: mISDN: Fix sleeping function called from invalid context
+    - [x86] platform/x86: intel_scu_ipc: Update timeout value in comment
+    - ALSA: hda: avoid write to STATESTS if controller is in reset
+    - net: mdiobus: Fix memory leak in __mdiobus_register
+    - tracing: Have all levels of checks prevent recursion
+    - [armel,armhf] 9122/1: select HAVE_FUTEX_CMPXCHG
 
   [ Ben Hutchings ]
   * crypto: Ignore removal of internal symbol shash_no_setkey
