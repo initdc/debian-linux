@@ -326,5 +326,3 @@ bugfix/all/fuse-fix-live-lock-in-fuse_iget.patch
 bugfix/all/drm-ttm-nouveau-don-t-call-tt-destroy-callback-on-al.patch
 
 # ABI maintenance
-debian/abi/i2c-avoid-abi-change-in-4.9.275.patch
-debian/abi/msi-avoid-abi-change-in-4.9.281.patch
