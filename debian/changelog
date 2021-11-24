@@ -1,4 +1,4 @@
-linux (4.9.288-1) UNRELEASED; urgency=medium
+linux (4.9.290-1) UNRELEASED; urgency=medium
 
   * New upstream stable update:
     https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.9.273
@@ -336,7 +336,6 @@ linux (4.9.288-1) UNRELEASED; urgency=medium
     - hfs: add missing clean-up in hfs_fill_super
     - hfs: fix high memory mapping in hfs_bnode_read
     - hfs: add lock nesting notation to hfs_find_init
-    - [x86] kvm: fix vcpu-id indexed array sizes
     - ocfs2: fix zero out valid data
     - ocfs2: issue zeroout to EOF blocks
     - can: usb_8dev: fix memory leak
@@ -696,9 +695,43 @@ linux (4.9.288-1) UNRELEASED; urgency=medium
     - isdn: mISDN: Fix sleeping function called from invalid context
     - [x86] platform/x86: intel_scu_ipc: Update timeout value in comment
     - ALSA: hda: avoid write to STATESTS if controller is in reset
-    - net: mdiobus: Fix memory leak in __mdiobus_register
     - tracing: Have all levels of checks prevent recursion
     - [armel,armhf] 9122/1: select HAVE_FUTEX_CMPXCHG
+    https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.9.289
+    - usbnet: sanity check for maxpacket
+    - usbnet: fix error return code in usbnet_probe()
+    - ata: sata_mv: Fix the error handling of mv_chip_id()
+    - nfc: port100: fix using -ERRNO as command type mask
+    - mmc: vub300: fix control-message timeouts
+    - [armhf] mmc: dw_mmc: exynos: fix the finding clock sample value
+    - mmc: sdhci: Map more voltage level to SDHCI_POWER_330
+    - net: lan78xx: fix division by zero in send path
+    - regmap: Fix possible double-free in regcache_rbtree_exit()
+    - net: batman-adv: fix error handling
+    - sctp: use init_tag from inithdr for ABORT chunk
+    - sctp: add vtag check in sctp_sf_violation
+    https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.9.290
+    - scsi: core: Put LLD module refcnt after SCSI device is released
+    - mm/zsmalloc: Prepare to variable MAX_PHYSMEM_BITS
+    - arch: pgtable: define MAX_POSSIBLE_PHYSMEM_BITS where needed
+    - net: hso: register netdev later to avoid a race condition
+    - usb: hso: fix error handling code of hso_create_net_device
+      (CVE-2021-37159)
+    - IB/qib: Use struct_size() helper
+    - IB/qib: Protect from buffer overflow in struct qib_user_sdma_pkt fields
+    - [armhf] usb: musb: Balance list entry in musb_gadget_queue
+    - usb-storage: Add compatibility quirk flags for iODD 2531/2541
+    - printk/console: Allow to disable console output by using console="" or
+      console=null (regression in 4.9.238)
+    - isofs: Fix out of bound access for corrupted isofs image
+    - [x86] comedi: dt9812: fix DMA buffers on stack
+    - [x86] comedi: ni_usb6501: fix NULL-deref in command paths
+    - [x86] comedi: vmk80xx: fix transfer-buffer overflows
+    - [x86] comedi: vmk80xx: fix bulk-buffer overflow
+    - [x86] comedi: vmk80xx: fix bulk and interrupt message timeouts
+    - staging: r8712u: fix control-message timeout
+    - [x86] staging: rtl8192u: fix control-message timeouts
+    - rsi: fix control-message timeout
 
   [ Ben Hutchings ]
   * crypto: Ignore removal of internal symbol shash_no_setkey
