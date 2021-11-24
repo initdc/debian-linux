@@ -414,7 +414,7 @@ linux (4.9.288-1) UNRELEASED; urgency=medium
     - scsi: core: Avoid printing an error if target_alloc() returns -ENXIO
     - Bluetooth: hidp: use correct wait queue when removing ctrl_wait
     - vhost: Fix the calculation in vhost_overflow()
-    - net: 6pack: fix slab-out-of-bounds in decode_data
+    - net: 6pack: fix slab-out-of-bounds in decode_data (CVE-2021-42008)
     - net: qlcnic: add missed unlock in qlcnic_83xx_flash_read32
     - [arm64,armhf] mmc: dw_mmc: call the dw_mci_prep_stop_abort() by default
     - [arm64,armhf] mmc: dw_mmc: Fix hang on data CRC error
@@ -555,7 +555,7 @@ linux (4.9.288-1) UNRELEASED; urgency=medium
     - [x86] xen: reset legacy rtc flag for PV domU
     - bnx2x: Fix enabling network interfaces without VFs
     - net-caif: avoid user-triggerable WARN_ON(1)
-    - dccp: don't duplicate ccid when cloning dccp sock (4.9.284-1)
+    - dccp: don't duplicate ccid when cloning dccp sock (CVE-2020-16119)
       (regression in 4.9.108)
     - net/l2tp: Fix reference count leak in l2tp_udp_recv_core
     - r6040: Restore MDIO clock frequency after MAC reset
@@ -692,7 +692,7 @@ linux (4.9.288-1) UNRELEASED; urgency=medium
     - ASoC: DAPM: Fix missing kctl change notifications
     - nfc: nci: fix the UAF of rf_conn_info object (CVE-2021-3760)
     - isdn: cpai: check ctr->cnr to avoid array index out of bound
-      (CVE-2021-3896)
+      (CVE-2021-43389)
     - isdn: mISDN: Fix sleeping function called from invalid context
     - [x86] platform/x86: intel_scu_ipc: Update timeout value in comment
     - ALSA: hda: avoid write to STATESTS if controller is in reset
