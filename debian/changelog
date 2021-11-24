@@ -758,6 +758,11 @@ linux (4.9.290-1) UNRELEASED; urgency=medium
     - KVM: Use kvm_pfn_t for local PFN variable in hva_to_pfn_remapped()
     - KVM: do not allow mapping valid but non-reference-counted pages
       (CVE-2021-22543)
+  * [x86] KVM: Fix bugs in shadow page table management:
+    - KVM: nVMX: fix EPT permissions as reported in exit qualification
+    - KVM: MMU: drop vcpu param in gpte_access
+    - KVM: X86: MMU: Use the correct inherited permissions to get shadow
+      page (CVE-2021-38198)
 
  -- Ben Hutchings <benh@debian.org>  Tue, 20 Jul 2021 20:42:19 +0200
 

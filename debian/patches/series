@@ -339,5 +339,8 @@ bugfix/all/mm-add-follow_pte_pmd.patch
 bugfix/all/kvm-do-not-assume-pte-is-writable-after-follow_pfn.patch
 bugfix/all/kvm-use-kvm_pfn_t-for-local-pfn-variable-in-hva_to_p.patch
 bugfix/all/kvm-do-not-allow-mapping-valid-but-non-reference-cou.patch
+bugfix/x86/kvm-nvmx-fix-ept-permissions-as-reported-in-exit-qua.patch
+bugfix/x86/kvm-mmu-drop-vcpu-param-in-gpte_access.patch
+bugfix/x86/kvm-x86-mmu-use-the-correct-inherited-permissions-to.patch
 
 # ABI maintenance
