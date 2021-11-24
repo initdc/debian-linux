@@ -748,6 +748,10 @@ linux (4.9.290-1) UNRELEASED; urgency=medium
     - bpf: interpreter support for JMP32
     - [amd64,arm64] bpf: implement jitting of JMP32
     - bpf: Fix 32 bit src register truncation on div/mod
+  * timerqueue: Fix potential timer tree corruption and system hang
+    (CVE-2021-20317):
+    - rbtree: cache leftmost node internally
+    - lib/timerqueue: Rely on rbtree semantics for next timer
 
  -- Ben Hutchings <benh@debian.org>  Tue, 20 Jul 2021 20:42:19 +0200
 
