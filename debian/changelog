@@ -328,7 +328,7 @@ linux (4.9.288-1) UNRELEASED; urgency=medium
     - tipc: Fix backport of b77413446408fdd256599daf00d5be72b5f3e7c6
       (regression in 4.9.253)
     - net: split out functions related to registering inflight socket files
-    - af_unix: fix garbage collect vs MSG_PEEK
+    - af_unix: fix garbage collect vs MSG_PEEK (CVE-2021-0920)
     - workqueue: fix UAF in pwq_unbound_release_workfn()
     - net/802/mrp: fix memleak in mrp_request_join()
     - net/802/garp: fix memleak in garp_request_join()
@@ -499,7 +499,7 @@ linux (4.9.288-1) UNRELEASED; urgency=medium
     - [armel] usb: ehci-orion: Handle errors of clk_prepare_enable() in probe
     - ath6kl: wmi: fix an error code in ath6kl_wmi_sync_point()
     - bcma: Fix memory leak for internally-handled cores
-    - ipv4: make exception cache less predictible
+    - ipv4: make exception cache less predictible (CVE-2021-20322)
     - tty: Fix data race between tiocsti() and flush_to_ldisc()
     - [x86] KVM: x86: Update vCPU's hv_clock before back to guest when
       tsc_offset is adjusted
