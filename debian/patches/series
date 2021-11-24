@@ -343,5 +343,6 @@ bugfix/x86/kvm-nvmx-fix-ept-permissions-as-reported-in-exit-qua.patch
 bugfix/x86/kvm-mmu-drop-vcpu-param-in-gpte_access.patch
 bugfix/x86/kvm-x86-mmu-use-the-correct-inherited-permissions-to.patch
 bugfix/all/nfsv4-initialise-connection-to-the-server-in-nfs4_al.patch
+bugfix/all/media-firewire-firedtv-avc-fix-a-buffer-overflow-in-.patch
 
 # ABI maintenance
