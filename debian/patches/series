@@ -342,5 +342,6 @@ bugfix/all/kvm-do-not-allow-mapping-valid-but-non-reference-cou.patch
 bugfix/x86/kvm-nvmx-fix-ept-permissions-as-reported-in-exit-qua.patch
 bugfix/x86/kvm-mmu-drop-vcpu-param-in-gpte_access.patch
 bugfix/x86/kvm-x86-mmu-use-the-correct-inherited-permissions-to.patch
+bugfix/all/nfsv4-initialise-connection-to-the-server-in-nfs4_al.patch
 
 # ABI maintenance
