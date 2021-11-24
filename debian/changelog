@@ -739,6 +739,15 @@ linux (4.9.290-1) UNRELEASED; urgency=medium
   * crypto/qat: Ignore ABI changes
   * sctp: Ignore ABI changes
   * Bump ABI to 17
+  * bpf: Fix verifier bypass through truncation in divide-by-zero check
+    (CVE-2021-3600):
+    - bpf: fix subprog verifier bypass by div/mod by 0 exception
+    - [amd64,arm64] bpf: remove obsolete exception handling from div/mod
+    - bpf: allocate 0x06 to new eBPF instruction class JMP32
+    - bpf: disassembler support JMP32
+    - bpf: interpreter support for JMP32
+    - [amd64,arm64] bpf: implement jitting of JMP32
+    - bpf: Fix 32 bit src register truncation on div/mod
 
  -- Ben Hutchings <benh@debian.org>  Tue, 20 Jul 2021 20:42:19 +0200
 

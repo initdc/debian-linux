@@ -324,5 +324,14 @@ bugfix/all/gup-document-and-work-around-cow-can-break-either-wa.patch
 bugfix/all/fuse-fix-bad-inode.patch
 bugfix/all/fuse-fix-live-lock-in-fuse_iget.patch
 bugfix/all/drm-ttm-nouveau-don-t-call-tt-destroy-callback-on-al.patch
+bugfix/all/bpf-fix-subprog-verifier-bypass-by-div-mod-by-0-exce.patch
+bugfix/all/bpf-x86_64-remove-obsolete-exception-handling-from-d.patch
+bugfix/all/bpf-arm64-remove-obsolete-exception-handling-from-di.patch
+bugfix/all/bpf-allocate-0x06-to-new-ebpf-instruction-class-jmp3.patch
+bugfix/all/bpf-disassembler-support-jmp32.patch
+bugfix/all/bpf-interpreter-support-for-jmp32.patch
+bugfix/all/x86_64-bpf-implement-jitting-of-jmp32.patch
+bugfix/all/arm64-bpf-implement-jitting-of-jmp32.patch
+bugfix/all/bpf-fix-32-bit-src-register-truncation-on-div-mod.patch
 
 # ABI maintenance

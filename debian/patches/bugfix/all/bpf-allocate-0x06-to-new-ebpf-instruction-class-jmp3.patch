@@ -1,0 +1,84 @@
+From: Jiong Wang <jiong.wang@netronome.com>
+Date: Sat, 26 Jan 2019 12:25:59 -0500
+Subject: bpf: allocate 0x06 to new eBPF instruction class JMP32
+Origin: https://git.kernel.org/linus/d405c7407a5468d4fc11724d76063e0647d80106
+
+The new eBPF instruction class JMP32 uses the reserved class number 0x6.
+Kernel BPF ISA documentation updated accordingly.
+
+Reviewed-by: Jakub Kicinski <jakub.kicinski@netronome.com>
+Signed-off-by: Jiong Wang <jiong.wang@netronome.com>
+Signed-off-by: Alexei Starovoitov <ast@kernel.org>
+[bwh: Backported to 4.9: adjust context]
+---
+ Documentation/networking/filter.txt | 15 ++++++++-------
+ include/uapi/linux/bpf.h            |  1 +
+ tools/include/uapi/linux/bpf.h      |  1 +
+ 3 files changed, 10 insertions(+), 7 deletions(-)
+
+--- a/Documentation/networking/filter.txt
++++ b/Documentation/networking/filter.txt
+@@ -858,7 +858,7 @@ Three LSB bits store instruction class w
+   BPF_STX   0x03          BPF_STX   0x03
+   BPF_ALU   0x04          BPF_ALU   0x04
+   BPF_JMP   0x05          BPF_JMP   0x05
+-  BPF_RET   0x06          [ class 6 unused, for future if needed ]
++  BPF_RET   0x06          BPF_JMP32 0x06
+   BPF_MISC  0x07          BPF_ALU64 0x07
+ 
+ When BPF_CLASS(code) == BPF_ALU or BPF_JMP, 4th bit encodes source operand ...
+@@ -895,9 +895,9 @@ If BPF_CLASS(code) == BPF_ALU or BPF_ALU
+   BPF_ARSH  0xc0  /* eBPF only: sign extending shift right */
+   BPF_END   0xd0  /* eBPF only: endianness conversion */
+ 
+-If BPF_CLASS(code) == BPF_JMP, BPF_OP(code) is one of:
++If BPF_CLASS(code) == BPF_JMP or BPF_JMP32 [ in eBPF ], BPF_OP(code) is one of:
+ 
+-  BPF_JA    0x00
++  BPF_JA    0x00  /* BPF_JMP only */
+   BPF_JEQ   0x10
+   BPF_JGT   0x20
+   BPF_JGE   0x30
+@@ -905,8 +905,8 @@ If BPF_CLASS(code) == BPF_JMP, BPF_OP(co
+   BPF_JNE   0x50  /* eBPF only: jump != */
+   BPF_JSGT  0x60  /* eBPF only: signed '>' */
+   BPF_JSGE  0x70  /* eBPF only: signed '>=' */
+-  BPF_CALL  0x80  /* eBPF only: function call */
+-  BPF_EXIT  0x90  /* eBPF only: function return */
++  BPF_CALL  0x80  /* eBPF BPF_JMP only: function call */
++  BPF_EXIT  0x90  /* eBPF BPF_JMP only: function return */
+ 
+ So BPF_ADD | BPF_X | BPF_ALU means 32-bit addition in both classic BPF
+ and eBPF. There are only two registers in classic BPF, so it means A += X.
+@@ -925,8 +925,9 @@ Classic BPF wastes the whole BPF_RET cla
+ operation. Classic BPF_RET | BPF_K means copy imm32 into return register
+ and perform function exit. eBPF is modeled to match CPU, so BPF_JMP | BPF_EXIT
+ in eBPF means function exit only. The eBPF program needs to store return
+-value into register R0 before doing a BPF_EXIT. Class 6 in eBPF is currently
+-unused and reserved for future use.
++value into register R0 before doing a BPF_EXIT. Class 6 in eBPF is used as
++BPF_JMP32 to mean exactly the same operations as BPF_JMP, but with 32-bit wide
++operands for the comparisons instead.
+ 
+ For load and store instructions the 8-bit 'code' field is divided as:
+ 
+--- a/include/uapi/linux/bpf.h
++++ b/include/uapi/linux/bpf.h
+@@ -13,6 +13,7 @@
+ /* Extended instruction set based on top of classic BPF */
+ 
+ /* instruction classes */
++#define BPF_JMP32	0x06	/* jmp mode in word width */
+ #define BPF_ALU64	0x07	/* alu mode in double word width */
+ 
+ /* ld/ldx fields */
+--- a/tools/include/uapi/linux/bpf.h
++++ b/tools/include/uapi/linux/bpf.h
+@@ -13,6 +13,7 @@
+ /* Extended instruction set based on top of classic BPF */
+ 
+ /* instruction classes */
++#define BPF_JMP32	0x06	/* jmp mode in word width */
+ #define BPF_ALU64	0x07	/* alu mode in double word width */
+ 
+ /* ld/ldx fields */
