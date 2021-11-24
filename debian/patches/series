@@ -335,5 +335,9 @@ bugfix/all/arm64-bpf-implement-jitting-of-jmp32.patch
 bugfix/all/bpf-fix-32-bit-src-register-truncation-on-div-mod.patch
 bugfix/all/rbtree-cache-leftmost-node-internally.patch
 bugfix/all/lib-timerqueue-rely-on-rbtree-semantics-for-next-tim.patch
+bugfix/all/mm-add-follow_pte_pmd.patch
+bugfix/all/kvm-do-not-assume-pte-is-writable-after-follow_pfn.patch
+bugfix/all/kvm-use-kvm_pfn_t-for-local-pfn-variable-in-hva_to_p.patch
+bugfix/all/kvm-do-not-allow-mapping-valid-but-non-reference-cou.patch
 
 # ABI maintenance

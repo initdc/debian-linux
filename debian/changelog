@@ -752,6 +752,12 @@ linux (4.9.290-1) UNRELEASED; urgency=medium
     (CVE-2021-20317):
     - rbtree: cache leftmost node internally
     - lib/timerqueue: Rely on rbtree semantics for next timer
+  * KVM: Fix bugs in hva_to_pfn_remapped():
+    - mm: add follow_pte_pmd()
+    - KVM: do not assume PTE is writable after follow_pfn
+    - KVM: Use kvm_pfn_t for local PFN variable in hva_to_pfn_remapped()
+    - KVM: do not allow mapping valid but non-reference-counted pages
+      (CVE-2021-22543)
 
  -- Ben Hutchings <benh@debian.org>  Tue, 20 Jul 2021 20:42:19 +0200
 
