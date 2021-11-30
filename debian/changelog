@@ -742,6 +742,7 @@ linux (4.9.290-1) UNRELEASED; urgency=medium
   * bpf: Fix verifier bypass through truncation in divide-by-zero check
     (CVE-2021-3600):
     - bpf: fix subprog verifier bypass by div/mod by 0 exception
+    - bpf, tests: Change divide-by-zero test case
     - [amd64,arm64] bpf: remove obsolete exception handling from div/mod
     - bpf: allocate 0x06 to new eBPF instruction class JMP32
     - bpf: disassembler support JMP32
