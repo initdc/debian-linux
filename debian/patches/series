@@ -342,6 +342,16 @@ bugfix/x86/kvm-mmu-drop-vcpu-param-in-gpte_access.patch
 bugfix/x86/kvm-x86-mmu-use-the-correct-inherited-permissions-to.patch
 bugfix/all/nfsv4-initialise-connection-to-the-server-in-nfs4_al.patch
 bugfix/all/media-firewire-firedtv-avc-fix-a-buffer-overflow-in-.patch
+bugfix/all/bpf-fix-subprog-verifier-bypass-by-div-mod-by-0-exce.patch
+bugfix/all/bpf-tests-change-divide-by-zero-test-case.patch
+bugfix/all/bpf-x86_64-remove-obsolete-exception-handling-from-d.patch
+bugfix/all/bpf-arm64-remove-obsolete-exception-handling-from-di.patch
+bugfix/all/bpf-allocate-0x06-to-new-ebpf-instruction-class-jmp3.patch
+bugfix/all/bpf-disassembler-support-jmp32.patch
+bugfix/all/bpf-interpreter-support-for-jmp32.patch
+bugfix/all/x86_64-bpf-implement-jitting-of-jmp32.patch
+bugfix/all/arm64-bpf-implement-jitting-of-jmp32.patch
+bugfix/all/bpf-fix-32-bit-src-register-truncation-on-div-mod.patch
 
 # ABI maintenance
 debian/abi/bpf-avoid-abi-change-for-bpf_prog_test_run.patch

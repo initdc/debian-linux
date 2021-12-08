@@ -7,6 +7,16 @@ linux (4.9.290-2) UNRELEASED; urgency=medium
     - bpf: allow socket_filter programs to use bpf_prog_test_run
     - bpf: fix panic due to oob in bpf_prog_test_run_skb
   * bpf: Avoid ABI change for BPF_PROG_TEST_RUN
+  * bpf: Fix verifier bypass through truncation in divide-by-zero check
+    (CVE-2021-3600):
+    - bpf: fix subprog verifier bypass by div/mod by 0 exception
+    - bpf, tests: Change divide-by-zero test case
+    - [amd64,arm64] bpf: remove obsolete exception handling from div/mod
+    - bpf: allocate 0x06 to new eBPF instruction class JMP32
+    - bpf: disassembler support JMP32
+    - bpf: interpreter support for JMP32
+    - [amd64,arm64] bpf: implement jitting of JMP32
+    - bpf: Fix 32 bit src register truncation on div/mod
 
  -- Ben Hutchings <benh@debian.org>  Fri, 17 Dec 2021 18:43:58 +0100
 

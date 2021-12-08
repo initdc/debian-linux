@@ -1,0 +1,81 @@
+From: Jiong Wang <jiong.wang@netronome.com>
+Date: Sat, 26 Jan 2019 12:26:08 -0500
+Subject: arm64: bpf: implement jitting of JMP32
+Origin: https://git.kernel.org/linus/654b65a04880454efb7d3287f011f2f790963b32
+
+This patch implements code-gen for new JMP32 instructions on arm64.
+
+Cc: Daniel Borkmann <daniel@iogearbox.net>
+Cc: Alexei Starovoitov <ast@kernel.org>
+Cc: Zi Shen Lim <zlim.lnx@gmail.com>
+
+Signed-off-by: Jiong Wang <jiong.wang@netronome.com>
+Signed-off-by: Alexei Starovoitov <ast@kernel.org>
+[bwh: Backported to 4.9:
+ - Leave out the LE and LT cases
+ - Adjust context]
+---
+ arch/arm64/net/bpf_jit_comp.c | 29 ++++++++++++++++++++++-------
+ 1 file changed, 22 insertions(+), 7 deletions(-)
+
+--- a/arch/arm64/net/bpf_jit_comp.c
++++ b/arch/arm64/net/bpf_jit_comp.c
+@@ -320,7 +320,8 @@ static int build_insn(const struct bpf_i
+ 	const s16 off = insn->off;
+ 	const s32 imm = insn->imm;
+ 	const int i = insn - ctx->prog->insnsi;
+-	const bool is64 = BPF_CLASS(code) == BPF_ALU64;
++	const bool is64 = BPF_CLASS(code) == BPF_ALU64 ||
++			  BPF_CLASS(code) == BPF_JMP;
+ 	u8 jmp_cond;
+ 	s32 jmp_offset;
+ 
+@@ -512,7 +513,13 @@ emit_bswap_uxt:
+ 	case BPF_JMP | BPF_JNE | BPF_X:
+ 	case BPF_JMP | BPF_JSGT | BPF_X:
+ 	case BPF_JMP | BPF_JSGE | BPF_X:
+-		emit(A64_CMP(1, dst, src), ctx);
++	case BPF_JMP32 | BPF_JEQ | BPF_X:
++	case BPF_JMP32 | BPF_JGT | BPF_X:
++	case BPF_JMP32 | BPF_JGE | BPF_X:
++	case BPF_JMP32 | BPF_JNE | BPF_X:
++	case BPF_JMP32 | BPF_JSGT | BPF_X:
++	case BPF_JMP32 | BPF_JSGE | BPF_X:
++		emit(A64_CMP(is64, dst, src), ctx);
+ emit_cond_jmp:
+ 		jmp_offset = bpf2a64_offset(i + off, i, ctx);
+ 		check_imm19(jmp_offset);
+@@ -542,7 +549,8 @@ emit_cond_jmp:
+ 		emit(A64_B_(jmp_cond, jmp_offset), ctx);
+ 		break;
+ 	case BPF_JMP | BPF_JSET | BPF_X:
+-		emit(A64_TST(1, dst, src), ctx);
++	case BPF_JMP32 | BPF_JSET | BPF_X:
++		emit(A64_TST(is64, dst, src), ctx);
+ 		goto emit_cond_jmp;
+ 	/* IF (dst COND imm) JUMP off */
+ 	case BPF_JMP | BPF_JEQ | BPF_K:
+@@ -551,12 +559,19 @@ emit_cond_jmp:
+ 	case BPF_JMP | BPF_JNE | BPF_K:
+ 	case BPF_JMP | BPF_JSGT | BPF_K:
+ 	case BPF_JMP | BPF_JSGE | BPF_K:
+-		emit_a64_mov_i(1, tmp, imm, ctx);
+-		emit(A64_CMP(1, dst, tmp), ctx);
++	case BPF_JMP32 | BPF_JEQ | BPF_K:
++	case BPF_JMP32 | BPF_JGT | BPF_K:
++	case BPF_JMP32 | BPF_JGE | BPF_K:
++	case BPF_JMP32 | BPF_JNE | BPF_K:
++	case BPF_JMP32 | BPF_JSGT | BPF_K:
++	case BPF_JMP32 | BPF_JSGE | BPF_K:
++		emit_a64_mov_i(is64, tmp, imm, ctx);
++		emit(A64_CMP(is64, dst, tmp), ctx);
+ 		goto emit_cond_jmp;
+ 	case BPF_JMP | BPF_JSET | BPF_K:
+-		emit_a64_mov_i(1, tmp, imm, ctx);
+-		emit(A64_TST(1, dst, tmp), ctx);
++	case BPF_JMP32 | BPF_JSET | BPF_K:
++		emit_a64_mov_i(is64, tmp, imm, ctx);
++		emit(A64_TST(is64, dst, tmp), ctx);
+ 		goto emit_cond_jmp;
+ 	/* function call */
+ 	case BPF_JMP | BPF_CALL:
