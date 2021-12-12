@@ -1,4 +1,4 @@
-linux (4.9.290-1) UNRELEASED; urgency=medium
+linux (4.9.290-1) stretch-security; urgency=high
 
   * New upstream stable update:
     https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.9.273
@@ -759,7 +759,7 @@ linux (4.9.290-1) UNRELEASED; urgency=medium
   * media: firewire: firedtv-avc: fix a buffer overflow in avc_ca_pmt()
     (CVE-2021-42739)
 
- -- Ben Hutchings <benh@debian.org>  Tue, 20 Jul 2021 20:42:19 +0200
+ -- Ben Hutchings <benh@debian.org>  Sun, 12 Dec 2021 22:40:16 +0100
 
 linux (4.9.272-2) stretch-security; urgency=high
 
