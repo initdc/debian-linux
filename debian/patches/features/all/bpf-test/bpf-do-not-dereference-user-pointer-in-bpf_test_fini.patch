@@ -1,0 +1,50 @@
+From: David Miller <davem@davemloft.net>
+Date: Tue, 2 May 2017 11:36:33 -0400
+Subject: bpf: Do not dereference user pointer in bpf_test_finish().
+Origin: https://git.kernel.org/linus/78e5227237cae9172dd50c3ebb08d4fb31530676
+
+Instead, pass the kattr in which has a kernel side copy of this
+data structure from userspace already.
+
+Fix based upon a suggestion from Alexei Starovoitov.
+
+Signed-off-by: David S. Miller <davem@davemloft.net>
+Acked-by: Daniel Borkmann <daniel@iogearbox.net>
+---
+ net/bpf/test_run.c | 9 +++++----
+ 1 file changed, 5 insertions(+), 4 deletions(-)
+
+--- a/net/bpf/test_run.c
++++ b/net/bpf/test_run.c
+@@ -49,10 +49,11 @@ static u32 bpf_test_run(struct bpf_prog
+ 	return ret;
+ }
+ 
+-static int bpf_test_finish(union bpf_attr __user *uattr, const void *data,
++static int bpf_test_finish(const union bpf_attr *kattr,
++			   union bpf_attr __user *uattr, const void *data,
+ 			   u32 size, u32 retval, u32 duration)
+ {
+-	void __user *data_out = u64_to_user_ptr(uattr->test.data_out);
++	void __user *data_out = u64_to_user_ptr(kattr->test.data_out);
+ 	int err = -EFAULT;
+ 
+ 	if (data_out && copy_to_user(data_out, data, size))
+@@ -136,7 +137,7 @@ int bpf_prog_test_run_skb(struct bpf_pro
+ 	/* bpf program can never convert linear skb to non-linear */
+ 	if (WARN_ON_ONCE(skb_is_nonlinear(skb)))
+ 		size = skb_headlen(skb);
+-	ret = bpf_test_finish(uattr, skb->data, size, retval, duration);
++	ret = bpf_test_finish(kattr, uattr, skb->data, size, retval, duration);
+ 	kfree_skb(skb);
+ 	return ret;
+ }
+@@ -164,7 +165,7 @@ int bpf_prog_test_run_xdp(struct bpf_pro
+ 	retval = bpf_test_run(prog, &xdp, repeat, &duration);
+ 	if (xdp.data != data + XDP_PACKET_HEADROOM)
+ 		size = xdp.data_end - xdp.data;
+-	ret = bpf_test_finish(uattr, xdp.data, size, retval, duration);
++	ret = bpf_test_finish(kattr, uattr, xdp.data, size, retval, duration);
+ 	kfree(data);
+ 	return ret;
+ }

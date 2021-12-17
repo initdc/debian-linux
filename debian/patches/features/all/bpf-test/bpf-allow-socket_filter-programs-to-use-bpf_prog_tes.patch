@@ -1,0 +1,40 @@
+From: Alexei Starovoitov <ast@kernel.org>
+Date: Wed, 17 Jan 2018 16:52:02 -0800
+Subject: bpf: allow socket_filter programs to use bpf_prog_test_run
+Origin: https://git.kernel.org/linus/61f3c964dfd287b05d7ac6660a4f4ddfef84786c
+
+in order to improve test coverage allow socket_filter program type
+to be run via bpf_prog_test_run command.
+Since such programs can be loaded by non-root tighten
+permissions for bpf_prog_test_run to be root only
+to avoid surprises.
+
+Signed-off-by: Alexei Starovoitov <ast@kernel.org>
+Signed-off-by: Daniel Borkmann <daniel@iogearbox.net>
+[bwh: Backported to 4.9: adjust context]
+---
+ kernel/bpf/syscall.c | 2 ++
+ net/core/filter.c    | 1 +
+ 2 files changed, 3 insertions(+)
+
+--- a/kernel/bpf/syscall.c
++++ b/kernel/bpf/syscall.c
+@@ -808,6 +808,8 @@ static int bpf_prog_test_run(const union
+ 	struct bpf_prog *prog;
+ 	int ret = -ENOTSUPP;
+ 
++	if (!capable(CAP_SYS_ADMIN))
++		return -EPERM;
+ 	if (CHECK_ATTR(BPF_PROG_TEST_RUN))
+ 		return -EINVAL;
+ 
+--- a/net/core/filter.c
++++ b/net/core/filter.c
+@@ -2975,6 +2975,7 @@ static const struct bpf_verifier_ops sk_
+ 	.get_func_proto		= sk_filter_func_proto,
+ 	.is_valid_access	= sk_filter_is_valid_access,
+ 	.convert_ctx_access	= sk_filter_convert_ctx_access,
++	.test_run		= bpf_prog_test_run_skb,
+ };
+ 
+ static const struct bpf_verifier_ops tc_cls_act_ops = {

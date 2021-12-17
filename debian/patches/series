@@ -307,6 +307,13 @@ features/all/ena/0074-net-ena-update-driver-version-from-2.0.1-to-2.0.2.patch
 
 features/all/ena/0075-net-ena-support-linux-4.9-napi_complete_done-api.patch
 
+# BPF testability
+features/all/bpf-test/bpf-introduce-bpf_prog_test_run-command.patch
+features/all/bpf-test/bpf-do-not-dereference-user-pointer-in-bpf_test_fini.patch
+features/all/bpf-test/bpf-align-packet-data-properly-in-program-testing-fr.patch
+features/all/bpf-test/bpf-allow-socket_filter-programs-to-use-bpf_prog_tes.patch
+features/all/bpf-test/bpf-fix-panic-due-to-oob-in-bpf_prog_test_run_skb.patch
+
 # Security fixes
 debian/i386-686-pae-pci-set-pci-nobios-by-default.patch
 debian/time-mark-timer_stats-as-broken.patch
