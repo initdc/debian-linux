@@ -6,6 +6,7 @@ linux (4.9.290-2) UNRELEASED; urgency=medium
     - bpf: Align packet data properly in program testing framework.
     - bpf: allow socket_filter programs to use bpf_prog_test_run
     - bpf: fix panic due to oob in bpf_prog_test_run_skb
+  * bpf: Avoid ABI change for BPF_PROG_TEST_RUN
 
  -- Ben Hutchings <benh@debian.org>  Fri, 17 Dec 2021 18:43:58 +0100
 

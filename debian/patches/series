@@ -344,3 +344,4 @@ bugfix/all/nfsv4-initialise-connection-to-the-server-in-nfs4_al.patch
 bugfix/all/media-firewire-firedtv-avc-fix-a-buffer-overflow-in-.patch
 
 # ABI maintenance
+debian/abi/bpf-avoid-abi-change-for-bpf_prog_test_run.patch

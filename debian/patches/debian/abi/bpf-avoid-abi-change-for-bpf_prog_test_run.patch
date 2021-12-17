@@ -1,0 +1,49 @@
+From: Ben Hutchings <benh@debian.org>
+Date: Fri, 17 Dec 2021 17:32:56 +0100
+Subject: bpf: Avoid ABI change for BPF_PROG_TEST_RUN
+Forwarded: not-needed
+
+"bpf: introduce BPF_PROG_TEST_RUN command" added a new member to
+struct bpf_verifier_ops.  This structure is only accessed by built-in
+code (from kernel/bpf/verifier.c).  Instances of the structure are
+registered with bpf_register_prog_type(), which is not exported.
+So modules are not affected by this change, and we should just hide
+it from genksyms.
+
+It also added a new member to union bpf_attr.  This is exposed to
+user-space but the new member is only used in conjunction with the new
+command.  So it is backward-compatible, and we can also safely hide it
+from genksyms.
+
+---
+--- a/include/linux/bpf.h
++++ b/include/linux/bpf.h
+@@ -173,8 +173,10 @@ struct bpf_verifier_ops {
+ 	u32 (*convert_ctx_access)(enum bpf_access_type type, int dst_reg,
+ 				  int src_reg, int ctx_off,
+ 				  struct bpf_insn *insn, struct bpf_prog *prog);
++#ifndef __GENKSYMS__
+ 	int (*test_run)(struct bpf_prog *prog, const union bpf_attr *kattr,
+ 			union bpf_attr __user *uattr);
++#endif
+ };
+ 
+ struct bpf_prog_type_list {
+--- a/include/uapi/linux/bpf.h
++++ b/include/uapi/linux/bpf.h
+@@ -146,6 +146,7 @@ union bpf_attr {
+ 		__u32		bpf_fd;
+ 	};
+ 
++#ifndef __GENKSYMS__
+ 	struct { /* anonymous struct used by BPF_PROG_TEST_RUN command */
+ 		__u32		prog_fd;
+ 		__u32		retval;
+@@ -156,6 +157,7 @@ union bpf_attr {
+ 		__u32		repeat;
+ 		__u32		duration;
+ 	} test;
++#endif
+ } __attribute__((aligned(8)));
+ 
+ /* integer value in 'imm' field of BPF_CALL instruction selects which helper
