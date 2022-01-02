@@ -3,6 +3,7 @@ linux (5.15.5-2~bpo11+1) UNRELEASED; urgency=medium
   * Rebuild for bullseye-backports:
     - Change ABI number to 0.bpo.2
     - Revert "Compile with gcc-11 on all architectures"
+    - perf: Disable use of libopencsd, as bullseye's version is too old
 
  -- Ben Hutchings <benh@debian.org>  Sun, 02 Jan 2022 03:15:12 +0100
 
