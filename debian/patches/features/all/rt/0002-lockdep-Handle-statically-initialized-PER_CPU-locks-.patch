@@ -2,7 +2,7 @@ From: Thomas Gleixner <tglx@linutronix.de>
 Date: Fri, 17 Feb 2017 19:44:39 +0100
 Subject: [PATCH 002/347] lockdep: Handle statically initialized PER_CPU locks
  proper
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=abd629aeaf5c369286fca71df9489eac1bc26511
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=87a345afb67f9b7890531b9669da8a41d097b03d
 
 If a PER_CPU struct which contains a spin_lock is statically initialized
 via:
@@ -69,7 +69,7 @@ index 56939d3f6e53..491b3f5a5f8a 100644
  
  #if !defined(CONFIG_SMP) || !defined(CONFIG_HAVE_SETUP_PER_CPU_AREA)
 diff --git a/kernel/locking/lockdep.c b/kernel/locking/lockdep.c
-index 9f56e3fac795..736ab5cf03aa 100644
+index 05dd765e2cbc..199d4283a0ce 100644
 --- a/kernel/locking/lockdep.c
 +++ b/kernel/locking/lockdep.c
 @@ -658,6 +658,7 @@ look_up_lock_class(struct lockdep_map *lock, unsigned int subclass)

@@ -2,7 +2,7 @@ From: Steven Rostedt <rostedt@goodmis.org>
 Date: Fri, 15 Nov 2019 09:28:29 -0500
 Subject: [PATCH 345/347] genirq: Do not call cancel_work on old_notify->work
  on PREEMPT_RT
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=9a17f9607163fda1c36fc529e7368660fbe8c43d
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=338ff49914bf532f29c86264aae9abee5dab079e
 
 When PREEMPT_RT is configured, old_notify->work does not exist, and
 instead swork is used. Unfortunately, there is no cancel_work() for

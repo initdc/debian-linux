@@ -1,7 +1,7 @@
 From: Ingo Molnar <mingo@elte.hu>
 Date: Fri, 3 Jul 2009 08:29:58 -0500
 Subject: [PATCH 057/347] bug: BUG_ON/WARN_ON variants dependend on RT/!RT
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=2e045b80eca37788067c9450897a40fb3c12e0c5
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=00879a52902e51ec0832c66f3ef3bd4867f30a93
 
 Introduce RT/NON-RT WARN/BUG statements to avoid ifdefs in the code.
 

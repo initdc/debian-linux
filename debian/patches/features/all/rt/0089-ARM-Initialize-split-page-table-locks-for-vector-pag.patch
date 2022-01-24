@@ -2,7 +2,7 @@ From: Frank Rowand <frank.rowand@am.sony.com>
 Date: Sat, 1 Oct 2011 18:58:13 -0700
 Subject: [PATCH 089/347] ARM: Initialize split page table locks for vector
  page
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=78508d1b1845ffa0b31a8c86aac435e1a922d53d
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=72fb6500b32a66fae0f82292b09923afbfff309e
 
 Without this patch, ARM can not use SPLIT_PTLOCK_CPUS if
 PREEMPT_RT_FULL=y because vectors_user_mapping() creates a

@@ -1,7 +1,7 @@
 From: Steven Rostedt <rostedt@goodmis.org>
 Date: Fri, 27 Feb 2015 15:20:37 +0100
 Subject: [PATCH 189/347] x86/mce: use swait queue for mce wakeups
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=e015f7c2776adde2a2b846bc1116c0bcddb9bd0a
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=8428dce785a869bc85e6aa04556d4563f6a2f569
 
 We had a customer report a lockup on a 3.0-rt kernel that had the
 following backtrace:

@@ -2,7 +2,7 @@ From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 21 Sep 2017 15:35:57 +0200
 Subject: [PATCH 323/347] Bluetooth: avoid recursive locking in
  hci_send_to_channel()
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=e787ac18575b88f34ceb750c4484f1c006f1daae
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=bd22e14b2eff7646c07d0b2ac6876a37640ec88d
 
 Mart reported a deadlock in -RT in the call path:
   hci_send_monitor_ctrl_event() -> hci_send_to_channel()

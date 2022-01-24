@@ -1,7 +1,7 @@
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Tue, 23 Jun 2015 15:32:51 +0200
 Subject: [PATCH 227/347] irqwork: push most work into softirq context
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=93407fe5ee718d96950e46335b1bf16611b5d6ff
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=bedc38e8b8ad16b23b779cc9fe1bbf8289d8313a
 
 Initially we defered all irqwork into softirq because we didn't want the
 latency spikes if perf or another user was busy and delayed the RT task.
@@ -147,10 +147,10 @@ index bcf107ce0854..0ddaf1e66d8c 100644
  EXPORT_SYMBOL_GPL(irq_work_run);
  
 diff --git a/kernel/sched/core.c b/kernel/sched/core.c
-index d5d6b71ed369..2c3fa2480141 100644
+index a48ef88d8bf0..4753e88105cc 100644
 --- a/kernel/sched/core.c
 +++ b/kernel/sched/core.c
-@@ -6047,6 +6047,7 @@ static int init_rootdomain(struct root_domain *rd)
+@@ -6050,6 +6050,7 @@ static int init_rootdomain(struct root_domain *rd)
  	rd->rto_cpu = -1;
  	raw_spin_lock_init(&rd->rto_lock);
  	init_irq_work(&rd->rto_push_work, rto_push_irq_work_func);

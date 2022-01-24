@@ -1,7 +1,7 @@
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Sun, 26 Jul 2009 19:39:56 +0200
 Subject: [PATCH 159/347] rt: Add the preempt-rt lock replacement APIs
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=04688757a280682a05177c4108785d21c0061195
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=f379c90838693647f45fc3adc9a6abcb6a71a6d7
 
 Map spinlocks, rwlocks, rw_semaphores and semaphores to the rt_mutex
 based locking functions for preempt-rt.
@@ -629,7 +629,7 @@ index 000000000000..e26bd95a57c3
 +#endif
 +#endif
 diff --git a/include/linux/sched.h b/include/linux/sched.h
-index b59e076cf088..2b6b8db25242 100644
+index 6b20483ea1a3..6fb98dd254b4 100644
 --- a/include/linux/sched.h
 +++ b/include/linux/sched.h
 @@ -311,6 +311,11 @@ extern char ___assert_task_state[1 - 2*!!(
@@ -2357,7 +2357,7 @@ index 03595c29c566..d63df281b495 100644
 +
 +#endif
 diff --git a/kernel/sched/core.c b/kernel/sched/core.c
-index 60b10c0c8049..c6327064c5c2 100644
+index f11746cba78c..256231dd2e65 100644
 --- a/kernel/sched/core.c
 +++ b/kernel/sched/core.c
 @@ -454,7 +454,7 @@ void wake_q_add(struct wake_q_head *head, struct task_struct *task)

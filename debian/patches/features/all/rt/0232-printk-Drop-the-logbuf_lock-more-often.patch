@@ -1,7 +1,7 @@
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 21 Mar 2013 19:01:05 +0100
 Subject: [PATCH 232/347] printk: Drop the logbuf_lock more often
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=ebe81ac2b20b11e4d9f8f11e0c516495a899ea32
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=230d6b16607d5463b0e66778affb3efab6d17433
 
 The lock is hold with irgs off. The latency drops 500us+ on my arm bugs
 with a "full" buffer after executing "dmesg" on the shell.
@@ -12,7 +12,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  1 file changed, 26 insertions(+)
 
 diff --git a/kernel/printk/printk.c b/kernel/printk/printk.c
-index f1e9a39e2c35..274bff6b45e3 100644
+index 7f10573db7e9..3f1b762a0c30 100644
 --- a/kernel/printk/printk.c
 +++ b/kernel/printk/printk.c
 @@ -1369,6 +1369,7 @@ static int syslog_print_all(char __user *buf, int size, bool clear)

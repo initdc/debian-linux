@@ -2,7 +2,7 @@ From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Wed, 28 Jan 2015 17:14:16 +0100
 Subject: [PATCH 097/347] mm/memcontrol: Replace local_irq_disable with local
  locks
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=19a7894b8664af3c90f9b10cab3bac54c3dcbb7c
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=e9676eb553e061bb77c8beeb724ab1af1afc80ba
 
 There are a few local_irq_disable() which then take sleeping locks. This
 patch converts them local locks.

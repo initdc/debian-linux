@@ -1,7 +1,7 @@
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Mon, 20 Jun 2011 09:03:47 +0200
 Subject: [PATCH 063/347] rt: Add local irq locks
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=cf91b3024c2a9f08e6ff78f4d6285967a06d5000
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=a323cd2d4eddeeee48d93d07e9ba716ff1aa8833
 
 Introduce locallock. For !RT this maps to preempt_disable()/
 local_irq_disable() so there is not much that changes. For RT this will

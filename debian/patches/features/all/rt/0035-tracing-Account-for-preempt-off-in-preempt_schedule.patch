@@ -2,7 +2,7 @@ From: Steven Rostedt <rostedt@goodmis.org>
 Date: Thu, 29 Sep 2011 12:24:30 -0500
 Subject: [PATCH 035/347] tracing: Account for preempt off in
  preempt_schedule()
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=9203af1e7638ceb62c8a6d44578c1e759bc7908f
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=d2ddfe8b56237dd233fded2f8cecaf27e19ed847
 
 The preempt_schedule() uses the preempt_disable_notrace() version
 because it can cause infinite recursion by the function tracer as
@@ -28,10 +28,10 @@ Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
  1 file changed, 9 insertions(+)
 
 diff --git a/kernel/sched/core.c b/kernel/sched/core.c
-index a04bf15c19f4..895f3c856b2c 100644
+index ca7a6710802c..7510b7849af6 100644
 --- a/kernel/sched/core.c
 +++ b/kernel/sched/core.c
-@@ -3585,7 +3585,16 @@ asmlinkage __visible void __sched notrace preempt_schedule_notrace(void)
+@@ -3588,7 +3588,16 @@ asmlinkage __visible void __sched notrace preempt_schedule_notrace(void)
  		 * an infinite recursion.
  		 */
  		prev_ctx = exception_enter();

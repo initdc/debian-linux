@@ -1,7 +1,7 @@
 From: Ingo Molnar <mingo@elte.hu>
 Date: Fri, 3 Jul 2009 08:29:57 -0500
 Subject: [PATCH 081/347] genirq: Disable irqpoll on -rt
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=516dc2d5bf866b178775f5c723406ad93bd3e621
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=f62bc0ea269e1832e30b8a93fdde90dd12a37ed1
 
 Creates long latencies for no value
 

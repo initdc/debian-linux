@@ -1,7 +1,7 @@
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Mon, 18 Jul 2011 13:59:17 +0200
 Subject: [PATCH 138/347] softirq: Disable softirq stacks for RT
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=ee6db848992be20986c139b9dc4f61f6abca60b2
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=17efeb0d7fa4cb034dd331e771937a071aae8de3
 
 Disable extra stacks for softirqs. We want to preempt softirqs and
 having them on special IRQ-stack does not make this easier.

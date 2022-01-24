@@ -2,7 +2,7 @@ From: Thomas Gleixner <tglx@linutronix.de>
 Date: Thu, 14 Jul 2011 09:56:44 +0200
 Subject: [PATCH 121/347] sched: Take RT softirq semantics into account in
  cond_resched()
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=455a60746e348f99723a3af705e82f78085ceb9e
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=3ebf05da0b7786c615354f91442b2b9cffda71ee
 
 The softirq semantics work different on -RT. There is no SOFTIRQ_MASK in
 the preemption counter which leads to the BUG_ON() statement in
@@ -16,7 +16,7 @@ Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
  2 files changed, 6 insertions(+)
 
 diff --git a/include/linux/sched.h b/include/linux/sched.h
-index 432a50659246..8061535253bc 100644
+index fe1eac5d0f8b..cf15848b861e 100644
 --- a/include/linux/sched.h
 +++ b/include/linux/sched.h
 @@ -3413,12 +3413,16 @@ extern int __cond_resched_lock(spinlock_t *lock);
@@ -37,10 +37,10 @@ index 432a50659246..8061535253bc 100644
  static inline void cond_resched_rcu(void)
  {
 diff --git a/kernel/sched/core.c b/kernel/sched/core.c
-index 1ed2c7839499..3e5c49571bd4 100644
+index 3881d909a61f..d777df47d6ba 100644
 --- a/kernel/sched/core.c
 +++ b/kernel/sched/core.c
-@@ -5096,6 +5096,7 @@ int __cond_resched_lock(spinlock_t *lock)
+@@ -5099,6 +5099,7 @@ int __cond_resched_lock(spinlock_t *lock)
  }
  EXPORT_SYMBOL(__cond_resched_lock);
  
@@ -48,7 +48,7 @@ index 1ed2c7839499..3e5c49571bd4 100644
  int __sched __cond_resched_softirq(void)
  {
  	BUG_ON(!in_softirq());
-@@ -5109,6 +5110,7 @@ int __sched __cond_resched_softirq(void)
+@@ -5112,6 +5113,7 @@ int __sched __cond_resched_softirq(void)
  	return 0;
  }
  EXPORT_SYMBOL(__cond_resched_softirq);

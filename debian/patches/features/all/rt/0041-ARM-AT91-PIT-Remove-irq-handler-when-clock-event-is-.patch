@@ -5,7 +5,7 @@ Subject: [PATCH 041/347] ARM: AT91: PIT: Remove irq handler when clock event
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=1de3bdb60a5128b11f5d355880f788c6688b2cb3
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=edc5dbf08dc0a4a247e6a55784d738b2b920943a
 
 Setup and remove the interrupt handler in clock event mode selection.
 This avoids calling the (shared) interrupt handler when the device is

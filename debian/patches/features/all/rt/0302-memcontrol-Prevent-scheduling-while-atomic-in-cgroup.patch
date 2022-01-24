@@ -2,7 +2,7 @@ From: Mike Galbraith <umgwanakikbuti@gmail.com>
 Date: Sat, 21 Jun 2014 10:09:48 +0200
 Subject: [PATCH 302/347] memcontrol: Prevent scheduling while atomic in cgroup
  code
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=bcf7ac7dd0eaf8f540a6f434f9ea7cdd12f3718f
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=1c3c44779d752262a942bacf467225666e04d84f
 
 mm, memcg: make refill_stock() use get_cpu_light()
 

@@ -1,7 +1,7 @@
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Fri, 8 Jul 2011 16:35:35 +0200
 Subject: [PATCH 194/347] fs/epoll: Do not disable preemption on RT
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=3c2564b72aa61b0f3632a9062dd84ab23a1d0ca5
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=433494ca90c70cec6cb47675a3df093095f59b99
 
 ep_call_nested() takes a sleeping lock so we can't disable preemption.
 The light version is enough since ep_call_nested() doesn't mind beeing

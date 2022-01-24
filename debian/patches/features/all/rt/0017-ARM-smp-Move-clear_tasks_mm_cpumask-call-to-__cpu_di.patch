@@ -2,7 +2,7 @@ From: Grygorii Strashko <grygorii.strashko@ti.com>
 Date: Fri, 11 Sep 2015 21:21:23 +0300
 Subject: [PATCH 017/347] ARM: smp: Move clear_tasks_mm_cpumask() call to
  __cpu_die()
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=bdc1edbbd46bd22d62e995861a44c630b23e466d
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=59cf25e2f6e534e6859eb6a4a51ade1fc759aa85
 
 When running with the RT-kernel (4.1.5-rt5) on TI OMAP dra7-evm and trying
 to do Suspend to RAM, the following backtrace occurs:

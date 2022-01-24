@@ -2,7 +2,7 @@ From: Sven-Thorsten Dietrich <sdietrich@novell.com>
 Date: Fri, 3 Jul 2009 08:30:35 -0500
 Subject: [PATCH 067/347] infiniband: Mellanox IB driver patch use _nort()
  primitives
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=4a68095c75a550fd3240c7a07c35d07e43f46b6e
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=accfeaad261fdf987e74741331b97cdff0735429
 
 Fixes in_atomic stack-dump, when Mellanox module is loaded into the RT
 Kernel.

@@ -2,7 +2,7 @@ From: Steven Rostedt <rostedt@goodmis.org>
 Date: Wed, 13 Feb 2013 09:26:05 -0500
 Subject: [PATCH 258/347] acpi/rt: Convert acpi_gbl_hardware lock back to a
  raw_spinlock_t
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=41c488d818e56e19458b292d7ce08f8e04502e57
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=b83a3312c7633b2b4f445c8ea33257fb8d816bcf
 
 We hit the following bug with 3.6-rt:
 
@@ -73,7 +73,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  5 files changed, 22 insertions(+), 7 deletions(-)
 
 diff --git a/drivers/acpi/acpica/acglobal.h b/drivers/acpi/acpica/acglobal.h
-index 750fa824d42c..441edf51484a 100644
+index a04bb91d56ca..4e12e1266246 100644
 --- a/drivers/acpi/acpica/acglobal.h
 +++ b/drivers/acpi/acpica/acglobal.h
 @@ -116,7 +116,7 @@ ACPI_GLOBAL(u8, acpi_gbl_global_lock_pending);

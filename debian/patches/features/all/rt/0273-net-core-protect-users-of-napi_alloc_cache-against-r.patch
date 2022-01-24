@@ -2,7 +2,7 @@ From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Fri, 15 Jan 2016 16:33:34 +0100
 Subject: [PATCH 273/347] net/core: protect users of napi_alloc_cache against
  reentrance
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=8d0493753b5a5edbc80a20af8a3f44eee502ca50
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=02558ab99d4ec515360d511aeca7717e32b5da3a
 
 On -RT the code running in BH can not be moved to another CPU so CPU
 local variable remain local. However the code can be preempted

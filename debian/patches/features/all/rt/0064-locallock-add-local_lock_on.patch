@@ -1,7 +1,7 @@
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Fri, 27 May 2016 15:11:51 +0200
 Subject: [PATCH 064/347] locallock: add local_lock_on()
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=ab79be0574fec4cfbe8010049497430945df3999
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=ae04f79263b156e37cf7d0fc883a981148078e09
 
 Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 ---

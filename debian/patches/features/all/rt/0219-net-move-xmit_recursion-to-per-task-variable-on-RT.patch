@@ -1,7 +1,7 @@
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Wed, 13 Jan 2016 15:55:02 +0100
 Subject: [PATCH 219/347] net: move xmit_recursion to per-task variable on -RT
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=c1e6253ee3b0701609e2567ceb6b3535ab7bfa5c
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=2fa50576445910af1184e0213599d5458e3e3184
 
 A softirq on -RT can be preempted. That means one task is in
 __dev_queue_xmit(), gets preempted and another task may enter
@@ -82,7 +82,7 @@ index 69d50e5aa690..bcdb21b6dde7 100644
  struct net_device *__dev_get_by_index(struct net *net, int ifindex);
  struct net_device *dev_get_by_index_rcu(struct net *net, int ifindex);
 diff --git a/include/linux/sched.h b/include/linux/sched.h
-index 5a4c24990406..c8cd953d24ca 100644
+index fd078d5646d9..48ddc0ca2a58 100644
 --- a/include/linux/sched.h
 +++ b/include/linux/sched.h
 @@ -2014,6 +2014,9 @@ struct task_struct {

@@ -1,7 +1,7 @@
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Wed, 1 Mar 2017 16:30:49 +0100
 Subject: [PATCH 111/347] timer/hrtimer: check properly for a running timer
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=c4a763f6a1d0c3dba145b24a5dbce4ab633720f2
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=564d635226df23be9d1efc4cc5dd24a2fcb38e0f
 
 hrtimer_callback_running() checks only whether a timmer is running on a
 CPU in hardirq-context. This is okay for !RT. For RT environment we move

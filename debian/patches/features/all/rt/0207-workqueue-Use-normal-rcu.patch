@@ -1,7 +1,7 @@
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Wed, 24 Jul 2013 15:26:54 +0200
 Subject: [PATCH 207/347] workqueue: Use normal rcu
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=89e5eddd54376ecf0120819d658c51a925ad77c5
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=0191d0bd2040c8bed50cc170cc1f4e8e994b2e8d
 
 There is no need for sched_rcu. The undocumented reason why sched_rcu
 is used is to avoid a few explicit rcu_read_lock()/unlock() pairs by

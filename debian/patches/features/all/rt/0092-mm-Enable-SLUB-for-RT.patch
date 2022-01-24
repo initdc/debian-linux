@@ -1,7 +1,7 @@
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Thu, 25 Oct 2012 10:32:35 +0100
 Subject: [PATCH 092/347] mm: Enable SLUB for RT
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=ddbfe7159ace8890dcefc72e4545ea2e9ba50ee2
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=a6b2dd5ce7cacead6f15759a0a690330d42ffb30
 
 Make SLUB RT aware by converting locks to raw and using free lists to
 move the freeing out of the lock held region.
@@ -13,7 +13,7 @@ Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
  2 files changed, 109 insertions(+), 29 deletions(-)
 
 diff --git a/mm/slab.h b/mm/slab.h
-index ceb7d70cdb76..dfd281e43fbe 100644
+index 34929ac0ebea..0cdef21a33b6 100644
 --- a/mm/slab.h
 +++ b/mm/slab.h
 @@ -426,7 +426,11 @@ static inline void slab_post_alloc_hook(struct kmem_cache *s, gfp_t flags,

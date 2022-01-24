@@ -1,7 +1,7 @@
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Mon, 11 Apr 2016 16:55:02 +0200
 Subject: [PATCH 175/347] tty: serial: 8250: don't take the trylock during oops
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=02f9def9c57f5233d6c46d56954f4a13225901c1
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=fc0d7c163601a11472d1f5fac448b68a27c55ace
 
 An oops with irqs off (panic() from irqsafe hrtimer like the watchdog
 timer) will lead to a lockdep warning on each invocation and as such

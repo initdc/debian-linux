@@ -1,7 +1,7 @@
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Sun, 17 Jul 2011 18:51:23 +0200
 Subject: [PATCH 134/347] lockdep: Make it RT aware
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=ad0e2c194ff82e577591290621219bdf54b4b985
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=bdb64a52129e8b777d90f75659280943eb894ee2
 
 teach lockdep that we don't really do softirqs on -RT.
 
@@ -42,7 +42,7 @@ index f8f27cc5546f..9b77034f7c5e 100644
  
  #if defined(CONFIG_IRQSOFF_TRACER) || \
 diff --git a/kernel/locking/lockdep.c b/kernel/locking/lockdep.c
-index 736ab5cf03aa..0069ccc49ccf 100644
+index 199d4283a0ce..c2458fd7f97b 100644
 --- a/kernel/locking/lockdep.c
 +++ b/kernel/locking/lockdep.c
 @@ -3716,6 +3716,7 @@ static void check_flags(unsigned long flags)

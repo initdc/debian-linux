@@ -2,7 +2,7 @@ From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Tue, 13 Mar 2018 13:49:16 +0100
 Subject: [PATCH 339/347] block: blk-mq: move blk_queue_usage_counter_release()
  into process context
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=f09a76fdd6dfa47a457e3f7225c7a0b89bad95c3
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=511fa97c2929eeaccf1039c25a654d02c0562971
 
 | BUG: sleeping function called from invalid context at kernel/locking/rtmutex.c:914
 | in_atomic(): 1, irqs_disabled(): 0, pid: 255, name: kworker/u257:6

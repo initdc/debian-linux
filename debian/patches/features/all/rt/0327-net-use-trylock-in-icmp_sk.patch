@@ -1,7 +1,7 @@
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 21 Sep 2017 14:42:04 +0200
 Subject: [PATCH 327/347] net: use trylock in icmp_sk
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=2759d9e9b641b7a8e4b66d3cf64190959b70418d
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=0dadaac8d0dd6215e784e1671b3561bc5a01243d
 
 The locking path can be recursive (same as for sk->sk_lock.slock) and
 therefore we need a trylock version for the locallock, too.

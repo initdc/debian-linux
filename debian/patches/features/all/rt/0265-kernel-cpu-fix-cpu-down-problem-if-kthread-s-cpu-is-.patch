@@ -2,7 +2,7 @@ From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Fri, 7 Jun 2013 22:37:06 +0200
 Subject: [PATCH 265/347] kernel/cpu: fix cpu down problem if kthread's cpu is
  going down
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=c6f4975cc5de00dcbc51533018bbfc90d913e887
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=a19e5e288a9336a493ab04649b7cb30592510c49
 
 If kthread is pinned to CPUx and CPUx is going down then we get into
 trouble:

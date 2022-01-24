@@ -1,7 +1,7 @@
 From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
 Date: Sun, 25 Oct 2015 18:06:05 -0400
 Subject: [PATCH 049/347] latency_hist: Update sched_wakeup probe
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=79fe24346570bd4181c1402fe11d47ca39098d9b
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=689ba3b49294ecb30dc5f31abcf2a7a4c14c495a
 
 "sched: Introduce the 'trace_sched_waking' tracepoint" introduces a
 prototype change for the sched_wakeup probe: the "success" argument is

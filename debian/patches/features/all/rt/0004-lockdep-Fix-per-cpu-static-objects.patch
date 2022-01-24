@@ -1,7 +1,7 @@
 From: Peter Zijlstra <peterz@infradead.org>
 Date: Mon, 20 Mar 2017 12:26:55 +0100
 Subject: [PATCH 004/347] lockdep: Fix per-cpu static objects
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=b311293fa5df1e4fb262aab224b751a456249ae1
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=21ca55dac7b189db5ef5dd9923943aa137faf73d
 
 Since commit 383776fa7527 ("locking/lockdep: Handle statically initialized
 PER_CPU locks properly") we try to collapse per-cpu locks into a single

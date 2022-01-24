@@ -1,7 +1,7 @@
 From: Peter Zijlstra <peterz@infradead.org>
 Date: Fri, 21 Aug 2009 11:56:45 +0200
 Subject: [PATCH 104/347] timer: delay waking softirqs from the jiffy tick
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=5161d3f7c4adcec4b608d72e23fb7db232c9b147
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=34bd1faa0e1730b43477a8fe9484239c65c9f967
 
 People were complaining about broken balancing with the recent -rt
 series.

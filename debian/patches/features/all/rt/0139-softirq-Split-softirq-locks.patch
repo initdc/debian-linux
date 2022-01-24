@@ -1,7 +1,7 @@
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Thu, 4 Oct 2012 14:20:47 +0100
 Subject: [PATCH 139/347] softirq: Split softirq locks
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=f720aed928fc36f0f9ad0386394c97ff023fc919
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=5f17b27d0528e21154ee2cefc6dc46bcd43abf10
 
 The 3.x RT series removed the split softirq implementation in favour
 of pushing softirq processing into the context of the thread which
@@ -178,7 +178,7 @@ index 2eed4b5fd08e..0c7346289422 100644
  #define in_task()		(!(preempt_count() & \
  				   (NMI_MASK | HARDIRQ_MASK | SOFTIRQ_OFFSET)))
 diff --git a/include/linux/sched.h b/include/linux/sched.h
-index 8061535253bc..b59e076cf088 100644
+index cf15848b861e..6b20483ea1a3 100644
 --- a/include/linux/sched.h
 +++ b/include/linux/sched.h
 @@ -1984,6 +1984,8 @@ struct task_struct {

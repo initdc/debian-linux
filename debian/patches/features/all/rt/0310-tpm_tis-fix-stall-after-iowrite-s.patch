@@ -1,7 +1,7 @@
 From: Haris Okanovic <haris.okanovic@ni.com>
 Date: Tue, 15 Aug 2017 15:13:08 -0500
 Subject: [PATCH 310/347] tpm_tis: fix stall after iowrite*()s
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=8a1c1a0540125ca54304633b9fc52cfb86c8efc6
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=1063fcef3e4b2a126c08f9cb5c34eef8ec4c030b
 
 ioread8() operations to TPM MMIO addresses can stall the cpu when
 immediately following a sequence of iowrite*()'s to the same region.

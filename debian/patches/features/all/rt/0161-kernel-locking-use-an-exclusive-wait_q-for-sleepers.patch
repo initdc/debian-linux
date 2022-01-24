@@ -4,7 +4,7 @@ Subject: [PATCH 161/347] kernel/locking: use an exclusive wait_q for sleepers
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=15f9de45db5e9540ab78e12ae0595e1fa098feeb
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=b75bc9bd56fc61d5fa67cdc4882df4e1c2025c5a
 
 If a task is queued as a sleeper for a wakeup and never goes to
 schedule() (because it just obtained the lock) then it will receive a
@@ -43,7 +43,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  4 files changed, 33 insertions(+), 7 deletions(-)
 
 diff --git a/include/linux/sched.h b/include/linux/sched.h
-index 2b6b8db25242..6e235dc4d758 100644
+index 6fb98dd254b4..c5d4f5d9391c 100644
 --- a/include/linux/sched.h
 +++ b/include/linux/sched.h
 @@ -1027,8 +1027,20 @@ struct wake_q_head {
@@ -103,7 +103,7 @@ index 287de39d20c7..4f291289e1bd 100644
  		wake_q_add(wake_q, waiter->task);
  	raw_spin_unlock(&current->pi_lock);
 diff --git a/kernel/sched/core.c b/kernel/sched/core.c
-index c6327064c5c2..99da62df3be5 100644
+index 256231dd2e65..8082d41edc28 100644
 --- a/kernel/sched/core.c
 +++ b/kernel/sched/core.c
 @@ -430,9 +430,15 @@ static bool set_nr_if_polling(struct task_struct *p)

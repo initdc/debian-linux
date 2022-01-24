@@ -1,7 +1,7 @@
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 15 Sep 2016 10:51:27 +0200
 Subject: [PATCH 147/347] fs/nfs: turn rmdir_sem into a semaphore
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=08ca21c71434eb7523badb24b46c4a8679c182a1
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=a4e9de48a977fa93075f9bc37954c24f434286d8
 
 The RW semaphore had a reader side which used the _non_owner version
 because it most likely took the reader lock in one thread and released it

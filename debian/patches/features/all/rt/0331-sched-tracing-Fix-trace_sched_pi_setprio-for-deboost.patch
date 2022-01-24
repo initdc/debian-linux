@@ -5,7 +5,7 @@ Subject: [PATCH 331/347] sched, tracing: Fix trace_sched_pi_setprio() for
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=1b982ad11bd15a2dea0cd6c949ca88bacf51721e
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=7abd608d9ee8c1b735b0f9b7c7b790cfc0eee210
 
 [ Upstream commit 4ff648decf4712d39f184fc2df3163f43975575a ]
 

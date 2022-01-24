@@ -1,7 +1,7 @@
 From: Mike Galbraith <umgwanakikbuti@gmail.com>
 Date: Sun, 16 Oct 2016 05:08:30 +0200
 Subject: [PATCH 285/347] ftrace: Fix trace header alignment
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=8140c26973fa88fdea67be141c8060d6a6c1f8c9
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=9306e24002335a29dad073f9517d9332b94759fe
 
 Line up helper arrows to the right column.
 
@@ -14,7 +14,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  1 file changed, 16 insertions(+), 16 deletions(-)
 
 diff --git a/kernel/trace/trace.c b/kernel/trace/trace.c
-index 03b622ddec99..fb940c9e7747 100644
+index a67c5ecd863d..df5a3e8db827 100644
 --- a/kernel/trace/trace.c
 +++ b/kernel/trace/trace.c
 @@ -2902,17 +2902,17 @@ get_total_entries(struct trace_buffer *buf,

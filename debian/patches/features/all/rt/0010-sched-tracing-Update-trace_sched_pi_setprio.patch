@@ -1,7 +1,7 @@
 From: Peter Zijlstra <peterz@infradead.org>
 Date: Thu, 23 Mar 2017 15:56:12 +0100
 Subject: [PATCH 010/347] sched,tracing: Update trace_sched_pi_setprio()
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=9015cb00b0596fefab477b620cdbbbf53676ddae
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=55941d030e9efd0e3c7ccc219c56d6b254e1853b
 
 Upstream commit b91473ff6e979c0028f02f90e40c844959c736d8
 
@@ -99,10 +99,10 @@ index 9b90c57517a9..516ae88cddf4 100644
  
  	TP_printk("comm=%s pid=%d oldprio=%d newprio=%d",
 diff --git a/kernel/sched/core.c b/kernel/sched/core.c
-index a9c400d96c7a..a04bf15c19f4 100644
+index ab32158b03a2..ca7a6710802c 100644
 --- a/kernel/sched/core.c
 +++ b/kernel/sched/core.c
-@@ -3710,7 +3710,7 @@ void rt_mutex_setprio(struct task_struct *p, struct task_struct *pi_task)
+@@ -3713,7 +3713,7 @@ void rt_mutex_setprio(struct task_struct *p, struct task_struct *pi_task)
  		goto out_unlock;
  	}
  

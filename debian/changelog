@@ -328,6 +328,7 @@ linux (4.9.297-1) UNRELEASED; urgency=medium
     - Revert "serial: core: Fix initializing and restoring termios speed"
     - nl802154: Avoid ABI change in 4.9.292
     - siphash: Avoid ABI change in 4.9.292
+  * [rt] Update to 4.9.297-rt191
 
  -- Ben Hutchings <benh@debian.org>  Mon, 24 Jan 2022 20:01:51 +0100
 

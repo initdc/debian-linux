@@ -1,7 +1,7 @@
 From: Jason Wessel <jason.wessel@windriver.com>
 Date: Thu, 28 Jul 2011 12:42:23 -0500
 Subject: [PATCH 241/347] kgdb/serial: Short term workaround
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=7022800e856ab5f8291e65d9ad1740a68b2e756d
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=8b0189b97120de5ecf667ea42c702277e9334a86
 
 On 07/27/2011 04:37 PM, Thomas Gleixner wrote:
 >  - KGDB (not yet disabled) is reportedly unusable on -rt right now due

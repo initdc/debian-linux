@@ -2,7 +2,7 @@ From: Thomas Gleixner <tglx@linutronix.de>
 Date: Sat, 25 Jun 2011 09:21:04 +0200
 Subject: [PATCH 117/347] sched: Add saved_state for tasks blocked on sleeping
  locks
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=ca9fe4a4dfecb553e3b18d1e1d4c13a21f832eb7
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=48beb96ecfbe3b11c1b2fd4281222923142bbe73
 
 Spinlocks are state preserving in !RT. RT changes the state when a
 task gets blocked on a lock. So we need to remember the state before
@@ -18,7 +18,7 @@ Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
  3 files changed, 33 insertions(+), 1 deletion(-)
 
 diff --git a/include/linux/sched.h b/include/linux/sched.h
-index 0d09aadb80d9..73bdf54fb5c5 100644
+index ad57ea3087bf..b6cc128833d0 100644
 --- a/include/linux/sched.h
 +++ b/include/linux/sched.h
 @@ -1493,6 +1493,7 @@ struct task_struct {
@@ -38,10 +38,10 @@ index 0d09aadb80d9..73bdf54fb5c5 100644
  #ifdef CONFIG_SMP
   extern void kick_process(struct task_struct *tsk);
 diff --git a/kernel/sched/core.c b/kernel/sched/core.c
-index 87e0238b6026..c11a582aeabd 100644
+index 5407d56ef416..a5e716d0f336 100644
 --- a/kernel/sched/core.c
 +++ b/kernel/sched/core.c
-@@ -2034,8 +2034,25 @@ try_to_wake_up(struct task_struct *p, unsigned int state, int wake_flags)
+@@ -2037,8 +2037,25 @@ try_to_wake_up(struct task_struct *p, unsigned int state, int wake_flags)
  	 */
  	smp_mb__before_spinlock();
  	raw_spin_lock_irqsave(&p->pi_lock, flags);
@@ -68,7 +68,7 @@ index 87e0238b6026..c11a582aeabd 100644
  
  	trace_sched_waking(p);
  
-@@ -2182,6 +2199,18 @@ int wake_up_process(struct task_struct *p)
+@@ -2185,6 +2202,18 @@ int wake_up_process(struct task_struct *p)
  }
  EXPORT_SYMBOL(wake_up_process);
  

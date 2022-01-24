@@ -2,7 +2,7 @@ From: Steven Rostedt <srostedt@redhat.com>
 Date: Fri, 3 Jul 2009 08:44:29 -0500
 Subject: [PATCH 065/347] ata: Do not disable interrupts in ide code for
  preempt-rt
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=6f2e90e58778a2719588bd1a631f0b1053cc9a89
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=23f32a861de152640bec93d1019be25b53fb1e02
 
 Use the local_irq_*_nort variants.
 

@@ -1,7 +1,7 @@
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Fri, 3 Jul 2009 08:44:56 -0500
 Subject: [PATCH 039/347] signals: Allow rt tasks to cache one sigqueue struct
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=77c21ffb6a43fb3ea2b264472e01d1fbe3b114dd
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=9318f10b19ea38bfccf5880882f5fb8c676df48a
 
 To avoid allocation allow rt tasks to cache one sigqueue struct in
 task struct.
@@ -16,7 +16,7 @@ Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
  5 files changed, 76 insertions(+), 10 deletions(-)
 
 diff --git a/include/linux/sched.h b/include/linux/sched.h
-index bb28896ffd6a..b71161f2c2bc 100644
+index 5ad6da2d17f3..257c641e7b15 100644
 --- a/include/linux/sched.h
 +++ b/include/linux/sched.h
 @@ -1701,6 +1701,7 @@ struct task_struct {
@@ -65,7 +65,7 @@ index 02ac2a1e2101..a434cbefcf7f 100644
  	p->utime = p->stime = p->gtime = 0;
  	p->utimescaled = p->stimescaled = 0;
 diff --git a/kernel/signal.c b/kernel/signal.c
-index d2edbc3f2bc5..09c0f647ce17 100644
+index c5ed2119ac5a..7649fa21f217 100644
 --- a/kernel/signal.c
 +++ b/kernel/signal.c
 @@ -14,6 +14,7 @@
@@ -210,7 +210,7 @@ index d2edbc3f2bc5..09c0f647ce17 100644
  
  	if (q)
  		q->flags |= SIGQUEUE_PREALLOC;
-@@ -2395,7 +2458,7 @@ int get_signal(struct ksignal *ksig)
+@@ -2382,7 +2445,7 @@ int get_signal(struct ksignal *ksig)
  }
  
  /**
@@ -219,7 +219,7 @@ index d2edbc3f2bc5..09c0f647ce17 100644
   * @ksig:		kernel signal struct
   * @stepping:		nonzero if debugger single-step or block-step in use
   *
-@@ -3339,7 +3402,7 @@ int __compat_save_altstack(compat_stack_t __user *uss, unsigned long sp)
+@@ -3326,7 +3389,7 @@ int __compat_save_altstack(compat_stack_t __user *uss, unsigned long sp)
   */
  SYSCALL_DEFINE1(sigpending, old_sigset_t __user *, set)
  {
@@ -228,7 +228,7 @@ index d2edbc3f2bc5..09c0f647ce17 100644
  }
  
  #endif
-@@ -3464,7 +3527,7 @@ COMPAT_SYSCALL_DEFINE4(rt_sigaction, int, sig,
+@@ -3451,7 +3514,7 @@ COMPAT_SYSCALL_DEFINE4(rt_sigaction, int, sig,
  	ret = do_sigaction(sig, act ? &new_ka : NULL, oact ? &old_ka : NULL);
  	if (!ret && oact) {
  		sigset_to_compat(&mask, &old_ka.sa.sa_mask);
@@ -237,7 +237,7 @@ index d2edbc3f2bc5..09c0f647ce17 100644
  			       &oact->sa_handler);
  		ret |= copy_to_user(&oact->sa_mask, &mask, sizeof(mask));
  		ret |= put_user(old_ka.sa.sa_flags, &oact->sa_flags);
-@@ -3642,7 +3705,7 @@ SYSCALL_DEFINE2(rt_sigsuspend, sigset_t __user *, unewset, size_t, sigsetsize)
+@@ -3629,7 +3692,7 @@ SYSCALL_DEFINE2(rt_sigsuspend, sigset_t __user *, unewset, size_t, sigsetsize)
  		return -EFAULT;
  	return sigsuspend(&newset);
  }

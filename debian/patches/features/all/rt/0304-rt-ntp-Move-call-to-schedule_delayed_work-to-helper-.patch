@@ -2,7 +2,7 @@ From: Steven Rostedt <rostedt@goodmis.org>
 Date: Wed, 26 Jun 2013 15:28:11 -0400
 Subject: [PATCH 304/347] rt,ntp: Move call to schedule_delayed_work() to
  helper thread
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=b939a47297e83e3957e167146da26859395a943d
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=a02de8eef5c7e92278a5bd33f9b7f07360fdc3c2
 
 The ntp code for notify_cmos_timer() is called from a hard interrupt
 context. schedule_delayed_work() under PREEMPT_RT_FULL calls spinlocks

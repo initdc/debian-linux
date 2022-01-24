@@ -1,7 +1,7 @@
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Sat, 1 Apr 2017 12:51:00 +0200
 Subject: [PATCH 163/347] rtmutex: Provide rt_mutex_lock_state()
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=cefa48d355a7d0392caa089e8f9557670c7dd59e
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=bd1c41dfaa7f7e35f5fcdf3845df0e519480cdea
 
 Allow rtmutex to be locked with arbitrary states. Preparatory patch for the
 rt rwsem rework.

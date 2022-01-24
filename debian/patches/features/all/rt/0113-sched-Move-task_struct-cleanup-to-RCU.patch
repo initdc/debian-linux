@@ -1,7 +1,7 @@
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Tue, 31 May 2011 16:59:16 +0200
 Subject: [PATCH 113/347] sched: Move task_struct cleanup to RCU
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=4909432d6c57e27de81d22f5d752ac631fce934a
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=891096374830003780470614ee3aec820a670279
 
 __put_task_struct() does quite some expensive work. We don't want to
 burden random tasks with that.
@@ -13,7 +13,7 @@ Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
  2 files changed, 27 insertions(+), 1 deletion(-)
 
 diff --git a/include/linux/sched.h b/include/linux/sched.h
-index 4fc8fead2a16..ee414010a43e 100644
+index 5297a62083be..32758020fbe8 100644
 --- a/include/linux/sched.h
 +++ b/include/linux/sched.h
 @@ -1982,6 +1982,9 @@ struct task_struct {

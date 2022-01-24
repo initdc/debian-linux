@@ -2,7 +2,7 @@ From: Alexandre Belloni <alexandre.belloni@free-electrons.com>
 Date: Thu, 17 Mar 2016 21:09:43 +0100
 Subject: [PATCH 042/347] clockevents/drivers/timer-atmel-pit: fix double
  free_irq
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=d0035d9cbc13725c8b77c7603bbb39871573de4c
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=a3883f764845a14a63f65346db431eb68b8f2e0e
 
 clockevents_exchange_device() changes the state from detached to shutdown
 and so at that point the IRQ has not yet been requested.

@@ -1,7 +1,7 @@
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Wed, 19 Sep 2012 14:50:37 +0200
 Subject: [PATCH 230/347] printk: Make rt aware
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=7e36d8907f1ba7ec7702afc4d2a3b21bc3b18544
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=d7b985e988b6d2bf1aa9ad73488d913ffa7c809f
 
 Drop the lock before calling the console driver and do not disable
 interrupts while printing to a serial console.
@@ -12,7 +12,7 @@ Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
  1 file changed, 23 insertions(+), 2 deletions(-)
 
 diff --git a/kernel/printk/printk.c b/kernel/printk/printk.c
-index 7ab269bba4ab..52cbd54a7cd6 100644
+index 59b0f537f464..696970800418 100644
 --- a/kernel/printk/printk.c
 +++ b/kernel/printk/printk.c
 @@ -1591,6 +1591,7 @@ static void call_console_drivers(int level,
@@ -56,7 +56,7 @@ index 7ab269bba4ab..52cbd54a7cd6 100644
  			console_unlock();
  		lockdep_on();
  	}
-@@ -2313,11 +2325,16 @@ static void console_cont_flush(char *text, size_t size)
+@@ -2320,11 +2332,16 @@ static void console_cont_flush(char *text, size_t size)
  		goto out;
  
  	len = cont_print_text(text, size);
@@ -73,7 +73,7 @@ index 7ab269bba4ab..52cbd54a7cd6 100644
  	return;
  out:
  	raw_spin_unlock_irqrestore(&logbuf_lock, flags);
-@@ -2441,13 +2458,17 @@ void console_unlock(void)
+@@ -2448,13 +2465,17 @@ void console_unlock(void)
  		}
  		console_idx = log_next(console_idx);
  		console_seq++;

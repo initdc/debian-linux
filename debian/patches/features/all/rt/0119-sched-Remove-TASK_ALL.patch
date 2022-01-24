@@ -1,7 +1,7 @@
 From: Peter Zijlstra <peterz@infradead.org>
 Date: Wed, 7 Jun 2017 10:12:45 +0200
 Subject: [PATCH 119/347] sched: Remove TASK_ALL
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=3f3828ae5265a72f60d6a1872e59819e444b3c32
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=bcb48c7713378df1d741951c51d594452a239b57
 
 It's unused:
 
@@ -19,7 +19,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  1 file changed, 1 deletion(-)
 
 diff --git a/include/linux/sched.h b/include/linux/sched.h
-index 73bdf54fb5c5..432a50659246 100644
+index b6cc128833d0..fe1eac5d0f8b 100644
 --- a/include/linux/sched.h
 +++ b/include/linux/sched.h
 @@ -236,7 +236,6 @@ extern char ___assert_task_state[1 - 2*!!(

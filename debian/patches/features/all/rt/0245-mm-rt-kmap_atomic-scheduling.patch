@@ -1,7 +1,7 @@
 From: Peter Zijlstra <peterz@infradead.org>
 Date: Thu, 28 Jul 2011 10:43:51 +0200
 Subject: [PATCH 245/347] mm, rt: kmap_atomic scheduling
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=57de297b8ca602d173fa39046787da9dd92ffde3
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=0cc8132be3d4b5d3f5011d0ab680e791dd5b9a26
 
 In fact, with migrate_disable() existing one could play games with
 kmap_atomic. You could save/restore the kmap_atomic slots on context
@@ -229,7 +229,7 @@ index bb3f3297062a..1a8a811ae882 100644
  }
  
 diff --git a/include/linux/sched.h b/include/linux/sched.h
-index c8cd953d24ca..4c347b40c7da 100644
+index 48ddc0ca2a58..2f45f45d5dc8 100644
 --- a/include/linux/sched.h
 +++ b/include/linux/sched.h
 @@ -26,6 +26,7 @@ struct sched_param {
