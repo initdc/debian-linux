@@ -6,7 +6,6 @@ linux (4.9.297-1) UNRELEASED; urgency=medium
       delay
     - Input: elantench - fix misreporting trackpoint coordinates
     - [x86] Input: i8042 - Add quirk for Fujitsu Lifebook T725
-    - libata: fix read log timeout value
     - ocfs2: fix data corruption on truncate
     - [arm64,armhf] mmc: dw_mmc: Dont wait for DRTO on Write RSP error
     - [x86] media: ite-cir: IR receiver stop working after receive overflow
@@ -38,7 +37,6 @@ linux (4.9.297-1) UNRELEASED; urgency=medium
     - [arm64] wcn36xx: handle connection loss indication
     - RDMA/qedr: Fix NULL deref for query_qp on the GSI QP
     - signal: Remove the bogus sigkill_pending in ptrace_stop
-    - serial: core: Fix initializing and restoring termios speed
     - ALSA: mixer: oss: Fix racy access to slots
     - ALSA: mixer: fix deadlock in snd_mixer_oss_set_volume
     - [arm64] PCI: aardvark: Read all 16-bits from PCIE_MSI_PAYLOAD_REG
@@ -323,6 +321,13 @@ linux (4.9.297-1) UNRELEASED; urgency=medium
     - scsi: libiscsi: Fix UAF in iscsi_conn_get_param()/iscsi_conn_teardown()
     - ip6_vti: initialize __ip6_tnl_parm struct in vti6_siocdevprivate
     - net: udp: fix alignment problem in udp4_seq_show()
+
+  [ Ben Hutchings ]
+  * Resolve kernel ABI changes:
+    - Revert "libata: fix read log timeout value"
+    - Revert "serial: core: Fix initializing and restoring termios speed"
+    - nl802154: Avoid ABI change in 4.9.292
+    - siphash: Avoid ABI change in 4.9.292
 
  -- Ben Hutchings <benh@debian.org>  Mon, 24 Jan 2022 20:01:51 +0100
 

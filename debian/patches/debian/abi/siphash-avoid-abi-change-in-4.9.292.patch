@@ -1,0 +1,46 @@
+From: Ben Hutchings <benh@debian.org>
+Date: Mon, 24 Jan 2022 23:54:34 +0100
+Subject: siphash: Avoid ABI change in 4.9.292
+Forwarded: not-needed
+
+Commit 0d604c141be69a11425a8c142b2669cae9882f32 "siphash: use
+_unaligned version by default" changed siphash to use and define only
+__{h,}siphash_unaligned(), rather than only __{h,}siphash_aligned(),
+on some architectures.
+
+Since the new functions are safe to use regardless of alignment,
+re-add __{h,}siphash_aligned() as trivial wrappers for them.
+
+---
+--- a/lib/siphash.c
++++ b/lib/siphash.c
+@@ -80,8 +80,13 @@ u64 __siphash_aligned(const void *data,
+ #endif
+ 	POSTAMBLE
+ }
+-EXPORT_SYMBOL(__siphash_aligned);
++#else
++u64 __siphash_aligned(const void *data, size_t len, const siphash_key_t *key)
++{
++	return __siphash_unaligned(data, len, key);
++}
+ #endif
++EXPORT_SYMBOL(__siphash_aligned);
+ 
+ u64 __siphash_unaligned(const void *data, size_t len, const siphash_key_t *key)
+ {
+@@ -280,8 +285,13 @@ u32 __hsiphash_aligned(const void *data,
+ #endif
+ 	HPOSTAMBLE
+ }
+-EXPORT_SYMBOL(__hsiphash_aligned);
++#else
++u32 __hsiphash_aligned(const void *data, size_t len, const hsiphash_key_t *key)
++{
++	return __hsiphash_unaligned(data, len, key);
++}
+ #endif
++EXPORT_SYMBOL(__hsiphash_aligned);
+ 
+ u32 __hsiphash_unaligned(const void *data, size_t len,
+ 			 const hsiphash_key_t *key)

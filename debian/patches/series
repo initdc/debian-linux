@@ -337,3 +337,7 @@ bugfix/all/nfsv4-initialise-connection-to-the-server-in-nfs4_al.patch
 bugfix/all/media-firewire-firedtv-avc-fix-a-buffer-overflow-in-.patch
 
 # ABI maintenance
+debian/abi/revert-libata-fix-read-log-timeout-value.patch
+debian/abi/revert-serial-core-fix-initializing-and-restoring-termios-speed.patch
+debian/abi/nl802154-avoid-abi-change-in-4.9.292.patch
+debian/abi/siphash-avoid-abi-change-in-4.9.292.patch

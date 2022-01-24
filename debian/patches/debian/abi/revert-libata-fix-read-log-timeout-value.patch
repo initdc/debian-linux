@@ -1,0 +1,45 @@
+From: Ben Hutchings <benh@debian.org>
+Date: Mon, 24 Jan 2022 23:09:39 +0100
+Subject: Revert "libata: fix read log timeout value"
+Forwarded: not-needed
+
+This reverts commit 985d5b3f2b3c8837431648a79bbee9fc9193dcb4, which
+was commit 68dbbe7d5b4fde736d104cbbc9a2fce875562012 upstream.  This
+caused an ABI change in libata.
+
+---
+--- a/drivers/ata/libata-eh.c
++++ b/drivers/ata/libata-eh.c
+@@ -114,12 +114,6 @@ static const unsigned long ata_eh_identi
+ 	ULONG_MAX,
+ };
+ 
+-static const unsigned long ata_eh_revalidate_timeouts[] = {
+-	15000,	/* Some drives are slow to read log pages when waking-up */
+-	15000,  /* combined time till here is enough even for media access */
+-	ULONG_MAX,
+-};
+-
+ static const unsigned long ata_eh_flush_timeouts[] = {
+ 	15000,	/* be generous with flush */
+ 	15000,  /* ditto */
+@@ -156,8 +150,6 @@ static const struct ata_eh_cmd_timeout_e
+ ata_eh_cmd_timeout_table[ATA_EH_CMD_TIMEOUT_TABLE_SIZE] = {
+ 	{ .commands = CMDS(ATA_CMD_ID_ATA, ATA_CMD_ID_ATAPI),
+ 	  .timeouts = ata_eh_identify_timeouts, },
+-	{ .commands = CMDS(ATA_CMD_READ_LOG_EXT, ATA_CMD_READ_LOG_DMA_EXT),
+-	  .timeouts = ata_eh_revalidate_timeouts, },
+ 	{ .commands = CMDS(ATA_CMD_READ_NATIVE_MAX, ATA_CMD_READ_NATIVE_MAX_EXT),
+ 	  .timeouts = ata_eh_other_timeouts, },
+ 	{ .commands = CMDS(ATA_CMD_SET_MAX, ATA_CMD_SET_MAX_EXT),
+--- a/include/linux/libata.h
++++ b/include/linux/libata.h
+@@ -404,7 +404,7 @@ enum {
+ 	/* This should match the actual table size of
+ 	 * ata_eh_cmd_timeout_table in libata-eh.c.
+ 	 */
+-	ATA_EH_CMD_TIMEOUT_TABLE_SIZE = 7,
++	ATA_EH_CMD_TIMEOUT_TABLE_SIZE = 6,
+ 
+ 	/* Horkage types. May be set by libata or controller on drives
+ 	   (some horkage may be drive/controller pair dependent */

@@ -1,0 +1,29 @@
+From: Ben Hutchings <benh@debian.org>
+Date: Mon, 24 Jan 2022 23:22:16 +0100
+Subject: nl802154: Avoid ABI change in 4.9.292
+Forwarded: not-needed
+
+Commit 3ada7ad7fb1391e492fa482bafc6f33d435e0c18 "net: ieee802154:
+handle iftypes as u32" changed the underlying type of enum
+nl802154_iftype from int to unsigned int.  However, the enumerators
+have the same (bitwise) values so this is not an ABI change.  Hide the
+change from genksyms.
+
+---
+--- a/include/net/nl802154.h
++++ b/include/net/nl802154.h
+@@ -152,9 +152,14 @@ enum nl802154_attrs {
+ };
+ 
+ enum nl802154_iftype {
++#ifndef __GENKSYMS__
+ 	NL802154_IFTYPE_UNSPEC = (~(__u32)0),
+ 
+ 	NL802154_IFTYPE_NODE = 0,
++#else
++	NL802154_IFTYPE_UNSPEC = -1,
++	NL802154_IFTYPE_NODE,
++#endif
+ 	NL802154_IFTYPE_MONITOR,
+ 	NL802154_IFTYPE_COORD,
+ 
