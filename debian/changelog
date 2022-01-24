@@ -45,7 +45,8 @@ linux (4.9.297-1) UNRELEASED; urgency=medium
     - USB: serial: keyspan: fix memleak on probe errors
     - USB: iowarrior: fix control-message timeouts
     - Bluetooth: sco: Fix lock_sock() blockage by memcpy_from_msg()
-    - Bluetooth: fix use-after-free error in lock_sock_nested()
+      (CVE-2021-3640)
+    - Bluetooth: fix use-after-free error in lock_sock_nested() (CVE-2021-3752)
     - [x86] platform/x86: wmi: do not fail if disabling fails
     - [amd64] Increase exception stack sizes
     - media: netup_unidvb: handle interrupt properly according to the firmware
@@ -132,7 +133,7 @@ linux (4.9.297-1) UNRELEASED; urgency=medium
     - iavf: Fix for the false positive ASQ/ARQ errors while issuing VF reset
     - [x86] platform/x86: hp_accel: Fix an error handling path in
       'lis3lv02d_probe()'
-    - NFC: reorganize the functions in nci_request
+    - NFC: reorganize the functions in nci_request (CVE-2021-4202)
     - NFC: reorder the logic in nfc_{un,}register_device
     - [x86] perf/x86/intel/uncore: Fix filter_tid mask for CHA events on
       Skylake Server
@@ -174,10 +175,10 @@ linux (4.9.297-1) UNRELEASED; urgency=medium
     - tcp_cubic: fix spurious Hystart ACK train detections for not-cwnd-limited
       flows
     - tracing: Check pid filtering when creating events
-    - hugetlbfs: flush TLBs correctly after huge_pmd_unshare
+    - hugetlbfs: flush TLBs correctly after huge_pmd_unshare (CVE-2021-4002)
     - vhost/vsock: fix incorrect used length reported to the guest
     - proc/vmcore: fix clearing user buffer by properly using clear_user()
-    - NFC: add NCI_UNREG flag to eliminate the race
+    - NFC: add NCI_UNREG flag to eliminate the race (CVE-2021-4202)
     - fuse: release pipe buf after last use
     - xen: sync include/xen/interface/io/ring.h with Xen's newest version
     - xen/blkfront: read response from backend only once
@@ -202,6 +203,7 @@ linux (4.9.297-1) UNRELEASED; urgency=medium
     - kprobes: Limit max data_size of the kretprobe instances
     - fs: add fget_many() and fput_many()
     - fget: check that the fd still exists after getting a ref to it
+      (CVE-2021-4083)
     - net: qlogic: qlcnic: Fix a NULL pointer dereference in
       qlcnic_83xx_add_rings()
     - [armel,armhf] siphash: use _unaligned version by default
@@ -233,8 +235,8 @@ linux (4.9.297-1) UNRELEASED; urgency=medium
       fec_enet_rx_queue()
     - net, neigh: clear whole pneigh_entry at alloc time
     - net/qla3xxx: fix an error code in ql_adapter_up()
-    - USB: gadget: detect too-big endpoint 0 requests
-    - USB: gadget: zero allocate endpoint 0 buffers
+    - USB: gadget: detect too-big endpoint 0 requests (CVE-2021-39685)
+    - USB: gadget: zero allocate endpoint 0 buffers (CVE-2021-39685)
     - usb: core: config: fix validation of wMaxPacketValue entries
     - usb: core: config: using bit mask instead of individual bits
     - [armhf] iio: mma8452: Fix trigger reference couting
@@ -269,10 +271,12 @@ linux (4.9.297-1) UNRELEASED; urgency=medium
     - net: lan78xx: Avoid unnecessary self assignment
     - [armel] 8805/2: remove unneeded naked function usage
     - xen/blkfront: harden blkfront against event channel storms
+      (CVE-2021-28711)
     - xen/netfront: harden netfront against event channel storms
-    - xen/console: harden hvc_xen against event channel storms
-    - xen/netback: fix rx queue stall detection
-    - xen/netback: don't queue unlimited number of packages
+      (CVE-2021-28712)
+    - xen/console: harden hvc_xen against event channel storms (CVE-2021-28713)
+    - xen/netback: fix rx queue stall detection (CVE-2021-28714)
+    - xen/netback: don't queue unlimited number of packages (CVE-2021-28715)
     https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.9.295
     - net: usb: lan78xx: add Allied Telesis AT29M2-AF
     - can: kvaser_usb: get CAN clock frequency from device
@@ -313,11 +317,12 @@ linux (4.9.297-1) UNRELEASED; urgency=medium
     - i40e: Fix incorrect netdev's real number of RX/TX queues
     - sch_qfq: prevent shift-out-of-bounds in qfq_init_qdisc
     - xfs: map unwritten blocks in XFS_IOC_{ALLOC,FREE}SP just like fallocate
+      (CVE-2021-4155)
     - rndis_host: support Hytera digital radios
     - [arm64] reduce el2_setup branching
     - [arm64] move !VHE work to end of el2_setup
     - [arm64] sysreg: Move to use definitions for all the SCTLR bits
-    - phonet: refcount leak in pep_sock_accep
+    - phonet: refcount leak in pep_sock_accep (CVE-2021-45095)
     - scsi: libiscsi: Fix UAF in iscsi_conn_get_param()/iscsi_conn_teardown()
     - ip6_vti: initialize __ip6_tnl_parm struct in vti6_siocdevprivate
     - net: udp: fix alignment problem in udp4_seq_show()
