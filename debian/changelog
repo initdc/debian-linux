@@ -1,4 +1,4 @@
-linux (4.9.297-1) UNRELEASED; urgency=medium
+linux (4.9.298-1) UNRELEASED; urgency=medium
 
   * New upstream stable update:
     https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.9.291
@@ -326,6 +326,126 @@ linux (4.9.297-1) UNRELEASED; urgency=medium
     - scsi: libiscsi: Fix UAF in iscsi_conn_get_param()/iscsi_conn_teardown()
     - ip6_vti: initialize __ip6_tnl_parm struct in vti6_siocdevprivate
     - net: udp: fix alignment problem in udp4_seq_show()
+    https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.9.298
+    - Bluetooth: bfusb: fix division by zero in send path
+    - USB: core: Fix bug in resuming hub's handling of wakeup requests
+    - USB: Fix "slab-out-of-bounds Write" bug in usb_hcd_poll_rh_status
+    - [x86] mfd: intel-lpss: Fix too early PM enablement in the ACPI ->probe()
+    - can: gs_usb: fix use of uninitialized variable, detach device on
+      reception of invalid USB data
+    - can: gs_usb: gs_can_start_xmit(): zero-initialize hf->{flags,reserved}
+    - random: fix data race on crng_node_pool
+    - random: fix data race on crng init time
+    - media: uvcvideo: fix division by zero at stream start
+    - rtlwifi: rtl8192cu: Fix WARNING when calling local_irq_restore() with
+      interrupts enabled
+    - HID: uhid: Fix worker destroying device without any protection
+    - HID: wacom: Avoid using stale array indicies to read contact count
+    - nfc: llcp: fix NULL error pointer dereference on sendmsg() after failed
+      bind()
+    - rtc: cmos: take rtc_lock while reading from CMOS
+    - media: flexcop-usb: fix control-message timeouts
+    - media: mceusb: fix control-message timeouts
+    - media: em28xx: fix control-message timeouts
+    - media: cpia2: fix control-message timeouts
+    - media: s2255: fix control-message timeouts
+    - media: dib0700: fix undefined behavior in tuner shutdown
+    - media: redrat3: fix control-message timeouts
+    - media: pvrusb2: fix control-message timeouts
+    - media: stk1160: fix control-message timeouts
+    - [x86] can: softing_cs: softingcs_probe(): fix memleak on registration
+      failure
+    - PCI: Add function 1 DMA alias quirk for Marvell 88SE9125 SATA controller
+    - shmem: fix a race between shmem_unused_huge_shrink and shmem_evict_inode
+    - Bluetooth: cmtp: fix possible panic when cmtp_init_sockets() fails
+    - [arm64] wcn36xx: Indicate beacon not connection loss on MISSED_BEACON_IND
+    - Bluetooth: stop proccessing malicious adv data
+    - media: dmxdev: fix UAF when dvb_register_device() fails
+    - [arm64] crypto: qce - fix uaf on qce_ahash_register_one
+    - netfilter: bridge: add support for pppoe filtering
+    - [arm64] dts: qcom: msm8916: fix MMC controller aliases
+    - drm/amdgpu: Fix a NULL pointer dereference in
+      amdgpu_connector_lcd_native_mode()
+    - drm/radeon/radeon_kms: Fix a NULL pointer dereference in
+      radeon_driver_open_kms()
+    - [arm64,armhf] serial: amba-pl011: do not request memory region twice
+    - [x86] floppy: Fix hang in watchdog when disk is ejected
+    - media: dib8000: Fix a memleak in dib8000_init()
+    - media: saa7146: mxb: Fix a NULL pointer dereference in mxb_attach()
+    - media: si2157: Fix "warm" tuner state detection
+    - media: msi001: fix possible null-ptr-deref in msi001_probe()
+    - usb: ftdi-elan: fix memory leak on device disconnect
+    - [x86] pcmcia: rsrc_nonstatic: Fix a NULL pointer dereference in
+      __nonstatic_find_io_region()
+    - [x86] pcmcia: rsrc_nonstatic: Fix a NULL pointer dereference in
+      nonstatic_find_mem_region()
+    - ppp: ensure minimum packet size in ppp_write()
+    - [arm64] spi: spi-meson-spifc: Add missing pm_runtime_disable() in
+      meson_spifc_probe
+    - can: softing: softing_startstop(): fix set but not used variable warning
+    - [x86] pcmcia: fix setting of kthread task states
+    - net: mcs7830: handle usb read errors properly
+    - ext4: avoid trim error on fs with small groups
+    - ALSA: jack: Add missing rwsem around snd_ctl_remove() calls
+    - ALSA: PCM: Add missing rwsem around snd_ctl_remove() calls
+    - ALSA: hda: Add missing rwsem around snd_ctl_remove() calls
+    - ALSA: oss: fix compile error when OSS_DEBUG is enabled
+    - [x86] char/mwave: Adjust io port register size
+    - scsi: ufs: Fix race conditions related to driver data
+    - RDMA/core: Let ib_find_gid() continue search even after empty entry
+    - RDMA/cxgb4: Set queue pair state when being queried
+    - Bluetooth: Fix debugfs entry leak in hci_register_dev()
+    - fs: dlm: filter user dlm messages for kernel locks
+    - ar5523: Fix null-ptr-deref with unexpected WDCMSG_TARGET_START reply
+    - usb: gadget: f_fs: Use stream_open() for endpoint files
+    - HID: apple: Do not reset quirks when the Fn key is not found
+    - media: b2c2: Add missing check in flexcop_pci_isr:
+    - gpiolib: acpi: Do not set the IRQ type if the IRQ is already in use
+    - HSI: core: Fix return freed object in hsi_new_client
+    - mwifiex: Fix skb_over_panic in mwifiex_usb_recv() (CVE-2021-43976)
+    - [x86] floppy: Add max size check for user space request
+    - media: saa7146: hexium_orion: Fix a NULL pointer dereference in
+      hexium_attach()
+    - media: m920x: don't use stack on USB reads
+    - iwlwifi: mvm: synchronize with FW after multicast commands
+    - ath10k: Fix tx hanging
+    - media: igorplugusb: receiver overflow should be reported
+    - media: saa7146: hexium_gemini: Fix a NULL pointer dereference in
+      hexium_attach()
+    - usb: hub: Add delay for SuperSpeed hub resume to let links transit to U0
+    - ath9k: Fix out-of-bound memcpy in ath9k_hif_usb_rx_stream
+    - jffs2: GC deadlock reading a page that is used in jffs2_write_begin()
+    - ACPICA: Utilities: Avoid deleting the same object twice in a row
+    - ACPICA: Executer: Fix the REFCLASS_REFOF case in
+      acpi_ex_opcode_1A_0T_1R()
+    - btrfs: remove BUG_ON() in find_parent_nodes()
+    - btrfs: remove BUG_ON(!eie) in find_parent_nodes
+    - net: mdio: Demote probed message to debug print
+    - dm btree: add a defensive bounds check to insert_at()
+    - dm space map common: add bounds check to sm_ll_lookup_bitmap()
+    - [arm64,armhf] serial: pl010: Drop CR register reset on set_termios
+    - serial: core: Keep mctrl register state and cached copy in sync
+    - [x86] i2c: i801: Don't silently correct invalid transfer size
+    - ALSA: seq: Set upper limit of processed events
+    - [x86] i2c: designware-pci: Fix to change data types of hcnt and lcnt
+      parameters
+    - scsi: sr: Don't use GFP_DMA
+    - ubifs: Error path in ubifs_remount_rw() seems to wrongly free write
+      buffers
+    - iwlwifi: mvm: Increase the scan timeout guard to 30 seconds
+    - ext4: set csum seed in tmp inode while migrating to extents
+    - ext4: Fix BUG_ON in ext4_bread when write quota data
+    - ext4: don't use the orphan list when migrating an inode
+    - drm/radeon: fix error handling in radeon_driver_open_kms
+    - RDMA/rxe: Fix a typo in opcode name
+    - af_unix: annote lockless accesses to unix_tot_inflight & gc_in_progress
+    - netns: add schedule point in ops_exit_list()
+    - libcxgb: Don't accidentally set RTO_ONLINK in cxgb_find_route()
+    - net_sched: restore "mpu xxx" handling
+    - gianfar: simplify FCS handling and fix memory leak
+    - gianfar: fix jumbo packets+napi+rx overrun crash (CVE-2021-29264)
+    - cipso,calipso: resolve a number of problems with the DOI refcounts
+      (CVE-2021-33033)
 
   [ Ben Hutchings ]
   * Resolve kernel ABI changes:

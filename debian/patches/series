@@ -319,17 +319,6 @@ bugfix/all/net-sysfs-fix-reference-count-leak-in-rx-netdev_queu.patch
 bugfix/all/net-sysfs-fix-netdev_queue_add_kobject-breakage.patch
 bugfix/all/net-sysfs-call-dev_hold-always-in-netdev_queue_add_k.patch
 bugfix/all/net-sysfs-call-dev_hold-always-in-rx_queue_add_kobje.patch
-bugfix/all/revert-gup-document-and-work-around-COW-can-break-either-wa.patch
-bugfix/all/gup-document-and-work-around-cow-can-break-either-wa.patch
-bugfix/all/fuse-fix-bad-inode.patch
-bugfix/all/fuse-fix-live-lock-in-fuse_iget.patch
-bugfix/all/drm-ttm-nouveau-don-t-call-tt-destroy-callback-on-al.patch
-bugfix/all/rbtree-cache-leftmost-node-internally.patch
-bugfix/all/lib-timerqueue-rely-on-rbtree-semantics-for-next-tim.patch
-bugfix/all/mm-add-follow_pte_pmd.patch
-bugfix/all/kvm-do-not-assume-pte-is-writable-after-follow_pfn.patch
-bugfix/all/kvm-use-kvm_pfn_t-for-local-pfn-variable-in-hva_to_p.patch
-bugfix/all/kvm-do-not-allow-mapping-valid-but-non-reference-cou.patch
 bugfix/x86/kvm-nvmx-fix-ept-permissions-as-reported-in-exit-qua.patch
 bugfix/x86/kvm-mmu-drop-vcpu-param-in-gpte_access.patch
 bugfix/x86/kvm-x86-mmu-use-the-correct-inherited-permissions-to.patch
