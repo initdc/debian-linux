@@ -210,14 +210,14 @@ linux (4.9.298-1) UNRELEASED; urgency=medium
     - net/rds: correct socket tunable error in rds_tcp_tune()
     - [x86] vgacon: Propagate console boot parameters before calling `vc_resize'
     - [arm64] tty: serial: msm_serial: Deactivate RX DMA for polling support
-    - [arm64,armhf] serial: pl011: Add ACPI SBSA UART match id
+    - [arm64] serial: pl011: Add ACPI SBSA UART match id
     - serial: core: fix transmit-buffer reset and memleak
     https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.9.293
     - HID: wacom: fix problems when device is not a valid USB device
     - HID: check for valid USB device for many HID drivers
     - [x86] can: sja1000: fix use after free in ems_pcmcia_add_card()
     - nfc: fix potential NULL pointer deref in nfc_genl_dump_ses_done
-    - IB/hfi1: Correct guard on eager buffer deallocation
+    - [amd64] IB/hfi1: Correct guard on eager buffer deallocation
     - mm: bdi: initialize bdi_min_ratio when bdi is unregistered
     - ALSA: ctl: Fix copy of updated id with element read/write
     - ALSA: pcm: oss: Fix negative period/buffer sizes
