@@ -15,6 +15,7 @@ ignore-changes:
  mce_*
  mm_iommu_*
  mv_mbus_*
+ psched_ratecfg_precompute
  register_cxl_calls
  register_key_type
  shash_no_setkey
