@@ -53,14 +53,13 @@ CONFIG_HZ_250=y
 ## end choice
 
 ##
-## file: kernel/irq/Kconfig
-##
-CONFIG_SPARSE_IRQ=y
-
-##
 ## file: kernel/Kconfig.preempt
 ##
 ## choice: Preemption Model
 CONFIG_PREEMPT_NONE=y
 ## end choice
 
+##
+## file: kernel/irq/Kconfig
+##
+CONFIG_SPARSE_IRQ=y
