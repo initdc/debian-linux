@@ -449,7 +449,6 @@ linux (4.9.299-1) UNRELEASED; urgency=medium
     https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.9.299
     - [x86] drm/i915: Flush TLBs before releasing backing store
       (CVE-2022-0330)
-    - [armel,armhf] 8800/1: use choice for kernel unwinders
 
   [ Ben Hutchings ]
   * Resolve kernel ABI changes:
@@ -458,6 +457,7 @@ linux (4.9.299-1) UNRELEASED; urgency=medium
     - nl802154: Avoid ABI change in 4.9.292
     - siphash: Avoid ABI change in 4.9.292
     - sched: Ignore ABI change for psched_ratecfg_precompute()
+    - [armel,armhf] Revert "ARM: 8800/1: use choice for kernel unwinders"
   * [rt] Update to 4.9.297-rt191
 
  -- Ben Hutchings <benh@debian.org>  Mon, 24 Jan 2022 20:01:51 +0100

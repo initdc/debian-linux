@@ -325,3 +325,4 @@ debian/abi/revert-libata-fix-read-log-timeout-value.patch
 debian/abi/revert-serial-core-fix-initializing-and-restoring-termios-speed.patch
 debian/abi/nl802154-avoid-abi-change-in-4.9.292.patch
 debian/abi/siphash-avoid-abi-change-in-4.9.292.patch
+debian/abi/revert-arm-8800-1-use-choice-for-kernel-unwinders.patch
