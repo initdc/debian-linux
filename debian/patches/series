@@ -318,11 +318,5 @@ bugfix/all/net-sysfs-call-dev_hold-if-kobject_init_and_add-succ.patch
 bugfix/all/net-sysfs-fix-reference-count-leak-in-rx-netdev_queu.patch
 bugfix/all/net-sysfs-fix-netdev_queue_add_kobject-breakage.patch
 bugfix/all/net-sysfs-call-dev_hold-always-in-netdev_queue_add_k.patch
-bugfix/all/net-sysfs-call-dev_hold-always-in-rx_queue_add_kobje.patch
 
 # ABI maintenance
-debian/abi/revert-libata-fix-read-log-timeout-value.patch
-debian/abi/revert-serial-core-fix-initializing-and-restoring-termios-speed.patch
-debian/abi/nl802154-avoid-abi-change-in-4.9.292.patch
-debian/abi/siphash-avoid-abi-change-in-4.9.292.patch
-debian/abi/revert-arm-8800-1-use-choice-for-kernel-unwinders.patch
