@@ -318,5 +318,11 @@ bugfix/all/net-sysfs-call-dev_hold-if-kobject_init_and_add-succ.patch
 bugfix/all/net-sysfs-fix-reference-count-leak-in-rx-netdev_queu.patch
 bugfix/all/net-sysfs-fix-netdev_queue_add_kobject-breakage.patch
 bugfix/all/net-sysfs-call-dev_hold-always-in-netdev_queue_add_k.patch
+bugfix/x86/bhb/x86-speculation-add-retpoline_amd-support-to-the-inl.patch
+bugfix/x86/bhb/x86-retpoline-make-config_retpoline-depend-on-compil.patch
+bugfix/x86/bhb/x86-retpoline-remove-minimal-retpoline-support.patch
+bugfix/x86/bhb/documentation-add-section-about-cpu-vulnerabilities-.patch
+bugfix/x86/bhb/documentation-add-swapgs-description-to-the-spectre-.patch
+bugfix/x86/bhb/documentation-refer-to-config-randomize_base-for-ker.patch
 
 # ABI maintenance

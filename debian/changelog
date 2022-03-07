@@ -569,6 +569,16 @@ linux (4.9.303-1) UNRELEASED; urgency=medium
   * [rt] Update to 4.9.297-rt191
   * Bump ABI to 18
   * bpf: Enable BPF_UNPRIV_DEFAULT_OFF (Closes: #990411)
+  * [x86] Update retpoline implementation:
+    - x86/speculation: Add RETPOLINE_AMD support to the inline asm CALL_NOSPEC
+      variant
+    - x86/retpoline: Make CONFIG_RETPOLINE depend on compiler support
+    - x86/retpoline: Remove minimal retpoline support
+  * Add Spectre documentation:
+    - Documentation: Add section about CPU vulnerabilities for Spectre
+    - Documentation: Add swapgs description to the Spectre v1 documentation
+    - Documentation: refer to config RANDOMIZE_BASE for kernel address-space
+      randomization
 
  -- Ben Hutchings <benh@debian.org>  Mon, 24 Jan 2022 20:01:51 +0100
 
