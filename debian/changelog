@@ -568,6 +568,7 @@ linux (4.9.303-1) UNRELEASED; urgency=medium
   [ Ben Hutchings ]
   * [rt] Update to 4.9.297-rt191
   * Bump ABI to 18
+  * bpf: Enable BPF_UNPRIV_DEFAULT_OFF (Closes: #990411)
 
  -- Ben Hutchings <benh@debian.org>  Mon, 24 Jan 2022 20:01:51 +0100
 
