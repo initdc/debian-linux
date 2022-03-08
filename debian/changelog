@@ -1,4 +1,4 @@
-linux (5.16.12-1~bpo11+1) UNRELEASED; urgency=medium
+linux (5.16.12-1~bpo11+1) bullseye-backports; urgency=medium
 
   * d/salsa-ci.yml: Update for bullseye-backports
     - Set RELEASE to bullseye-backports
@@ -6,7 +6,7 @@ linux (5.16.12-1~bpo11+1) UNRELEASED; urgency=medium
   * Rebuild for bullseye-backports:
     - Change ABI number to 0.bpo.4
 
- -- Ben Hutchings <benh@debian.org>  Sun, 06 Mar 2022 01:31:46 +0100
+ -- Ben Hutchings <benh@debian.org>  Tue, 08 Mar 2022 20:36:29 +0100
 
 linux (5.16.12-1) unstable; urgency=high
 
