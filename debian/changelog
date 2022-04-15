@@ -183,6 +183,9 @@ linux (4.9.310-1) UNRELEASED; urgency=medium
       + add ID_AA64ISAR2_EL1 sys register
       + Use the clearbhb instruction in mitigations
 
+  [ Ben Hutchings ]
+  * Bump ABI to 19
+
  -- Ben Hutchings <benh@debian.org>  Fri, 15 Apr 2022 14:09:07 +0200
 
 linux (4.9.303-1) stretch-security; urgency=high
