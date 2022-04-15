@@ -2,7 +2,7 @@ From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 23 Nov 2017 17:51:51 +0100
 Subject: [PATCH 315/347] Revert "fs: jbd2: pull your plug when waiting for
  space"
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=ca6334af06e40dd49c414bb1670df9ebad8f3abd
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=2e94c0487531375f514aaad827df3e4170b6989e
 
 This reverts commit "fs: jbd2: pull your plug when waiting for space".
 This was a duct-tape fix which shouldn't be needed since commit

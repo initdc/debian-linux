@@ -2,7 +2,7 @@ From: Yang Shi <yang.shi@windriver.com>
 Date: Tue, 23 Feb 2016 13:23:23 -0800
 Subject: [PATCH 051/347] trace: Use rcuidle version for preemptoff_hist trace
  point
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=cecba3fc9a5b51b0ab93b9b59a2f20015c8b0601
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=5d187992c6d71c82e5be8e49dcd4a8975dbf4b08
 
 When running -rt kernel with both PREEMPT_OFF_HIST and LOCKDEP enabled,
 the below error is reported:

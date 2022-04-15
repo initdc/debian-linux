@@ -185,6 +185,7 @@ linux (4.9.310-1) UNRELEASED; urgency=medium
 
   [ Ben Hutchings ]
   * Bump ABI to 19
+  * [rt] Update to 4.9.303-rt192
 
  -- Ben Hutchings <benh@debian.org>  Fri, 15 Apr 2022 14:09:07 +0200
 

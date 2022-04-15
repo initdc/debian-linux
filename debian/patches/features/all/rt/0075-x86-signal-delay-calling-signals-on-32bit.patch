@@ -1,7 +1,7 @@
 From: Yang Shi <yang.shi@linaro.org>
 Date: Thu, 10 Dec 2015 10:58:51 -0800
 Subject: [PATCH 075/347] x86/signal: delay calling signals on 32bit
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=554616761915d7eaeb5983d40e371f6ee4f82793
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=ab06926254391897639353780e6d65d647df031d
 
 When running some ptrace single step tests on x86-32 machine, the below problem
 is triggered:

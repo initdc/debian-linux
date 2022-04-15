@@ -2,7 +2,7 @@ From: Steven Rostedt <rostedt@goodmis.org>
 Date: Wed, 13 Feb 2013 09:26:05 -0500
 Subject: [PATCH 258/347] acpi/rt: Convert acpi_gbl_hardware lock back to a
  raw_spinlock_t
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=b83a3312c7633b2b4f445c8ea33257fb8d816bcf
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=c4ba68413106d9db0a65d0e51a6d2b3baecd06b9
 
 We hit the following bug with 3.6-rt:
 

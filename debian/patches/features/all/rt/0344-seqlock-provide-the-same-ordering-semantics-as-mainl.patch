@@ -2,7 +2,7 @@ From: Julia Cartwright <julia@ni.com>
 Date: Thu, 26 Apr 2018 15:02:03 -0500
 Subject: [PATCH 344/347] seqlock: provide the same ordering semantics as
  mainline
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=f533eb26a58cddb3134db76860a362b8e66a3c08
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=960660ff8af49fd7d4b1b68b58c9203ef6000623
 
 The mainline implementation of read_seqbegin() orders prior loads w.r.t.
 the read-side critical section.  Fixup the RT writer-boosting

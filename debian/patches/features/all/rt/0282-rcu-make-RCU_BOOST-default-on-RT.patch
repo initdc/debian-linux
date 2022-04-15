@@ -1,7 +1,7 @@
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Fri, 21 Mar 2014 20:19:05 +0100
 Subject: [PATCH 282/347] rcu: make RCU_BOOST default on RT
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=0051f25044a96241866c0b29f8dbca19567d38af
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=e9025e54cc4c1ffc917d3065e0ec131fab7e3250
 
 Since it is no longer invoked from the softirq people run into OOM more
 often if the priority of the RCU thread is too low. Making boosting
@@ -14,7 +14,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/init/Kconfig b/init/Kconfig
-index a83ce4754c82..00b66fb286e1 100644
+index 46827d97a6d7..2596abc5dace 100644
 --- a/init/Kconfig
 +++ b/init/Kconfig
 @@ -505,7 +505,7 @@ config TINY_RCU

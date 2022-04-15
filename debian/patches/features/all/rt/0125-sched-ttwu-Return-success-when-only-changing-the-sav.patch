@@ -2,7 +2,7 @@ From: Thomas Gleixner <tglx@linutronix.de>
 Date: Tue, 13 Dec 2011 21:42:19 +0100
 Subject: [PATCH 125/347] sched: ttwu: Return success when only changing the
  saved_state value
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=57b47767d0156f30864a04f5483b5e8c9a9dd576
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=41632fbc02c744aeedc98f3ff42e1036efcb8a6a
 
 When a task blocks on a rt lock, it saves the current state in
 p->saved_state, so a lock related wake up will not destroy the

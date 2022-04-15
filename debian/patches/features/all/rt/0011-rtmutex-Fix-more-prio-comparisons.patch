@@ -1,7 +1,7 @@
 From: Peter Zijlstra <peterz@infradead.org>
 Date: Thu, 23 Mar 2017 15:56:14 +0100
 Subject: [PATCH 011/347] rtmutex: Fix more prio comparisons
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=7f474199bc79e76c440ff89029a96728cc60b845
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=e509f8055c74b1888e6916aa60e926028a507379
 
 Upstream commit 19830e55247cddb3f46f1bf60b8e245593491bea
 

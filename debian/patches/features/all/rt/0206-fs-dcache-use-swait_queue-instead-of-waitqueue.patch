@@ -1,7 +1,7 @@
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Wed, 14 Sep 2016 14:35:49 +0200
 Subject: [PATCH 206/347] fs/dcache: use swait_queue instead of waitqueue
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=2f80d3d0a80569fd2137d04bc2d5f1f788994318
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=f9bf11c41bb1ad97458d54adf709629ef047fc99
 
 __d_lookup_done() invokes wake_up_all() while holding a hlist_bl_lock()
 which disables preemption. As a workaround convert it to swait.
@@ -84,10 +84,10 @@ index 035b2ab251f9..24f154017a4c 100644
  	hlist_bl_unlock(b);
  	INIT_HLIST_NODE(&dentry->d_u.d_alias);
 diff --git a/fs/fuse/dir.c b/fs/fuse/dir.c
-index b41cc537eb31..02281fa147dd 100644
+index c40bdfab0a85..25780052b034 100644
 --- a/fs/fuse/dir.c
 +++ b/fs/fuse/dir.c
-@@ -1202,7 +1202,7 @@ static int fuse_direntplus_link(struct file *file,
+@@ -1223,7 +1223,7 @@ static int fuse_direntplus_link(struct file *file,
  	struct inode *dir = d_inode(parent);
  	struct fuse_conn *fc;
  	struct inode *inode;
@@ -119,7 +119,7 @@ index 0953281430b1..b2254d025535 100644
  	if (unlikely(IS_DEADDIR(dir_inode)))
  		return -ENOENT;
 diff --git a/fs/nfs/dir.c b/fs/nfs/dir.c
-index 179965ae5164..b38fc00c323d 100644
+index 1fb1b9f41ef9..866047cbcdfe 100644
 --- a/fs/nfs/dir.c
 +++ b/fs/nfs/dir.c
 @@ -487,7 +487,7 @@ static

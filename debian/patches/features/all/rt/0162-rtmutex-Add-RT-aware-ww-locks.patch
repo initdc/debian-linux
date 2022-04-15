@@ -1,7 +1,7 @@
 From: Sebastian Andrzej Siewior <sebastian@breakpoint.cc>
 Date: Mon, 28 Oct 2013 09:36:37 +0100
 Subject: [PATCH 162/347] rtmutex: Add RT aware ww locks
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=eeb1055d76b925504e762ffee32510e7e099cc4c
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=cad8b0934333bcb5f84e10eae6fd37fc37a35844
 
 lockdep says:
 | --------------------------------------------------------------------------

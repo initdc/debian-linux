@@ -1,7 +1,7 @@
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Sun, 3 Apr 2011 11:57:29 +0200
 Subject: [PATCH 082/347] genirq: Force interrupt thread on RT
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=9abee7400dca9fa6c8d3912660c9d4eda6bbde82
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=d8d72ba0771f9ea2219b3ec8ea5d48f9f04c6a28
 
 Force threaded_irqs and optimize the code (force_irqthreads) in regard
 to this.

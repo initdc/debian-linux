@@ -1,7 +1,7 @@
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Tue, 21 Aug 2012 20:38:50 +0200
 Subject: [PATCH 260/347] random: Make it work on rt
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=a65140ac6ff2c63eb25f69bcbe0ffc7314d49b3f
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=eae6a69d9cb4520e42944808205153d9412d8eb4
 
 Delegate the random insertion to the forced threaded interrupt
 handler. Store the return IP of the hard interrupt handler in the irq
@@ -19,10 +19,10 @@ Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
  6 files changed, 24 insertions(+), 9 deletions(-)
 
 diff --git a/drivers/char/random.c b/drivers/char/random.c
-index 054498c604dc..75eb8eb0ffa2 100644
+index f52b4e0a8afc..c6d788192898 100644
 --- a/drivers/char/random.c
 +++ b/drivers/char/random.c
-@@ -1183,28 +1183,27 @@ static __u32 get_reg(struct fast_pool *f, struct pt_regs *regs)
+@@ -1188,28 +1188,27 @@ static __u32 get_reg(struct fast_pool *f, struct pt_regs *regs)
  	return *ptr;
  }
  

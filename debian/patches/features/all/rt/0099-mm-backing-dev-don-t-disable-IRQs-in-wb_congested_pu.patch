@@ -2,7 +2,7 @@ From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Fri, 5 Feb 2016 12:17:14 +0100
 Subject: [PATCH 099/347] mm: backing-dev: don't disable IRQs in
  wb_congested_put()
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=72ff8cf354908e8ef1997d15f1cbe708312aba0a
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=49573dccc60ed53957de15e116e3745aefbf74d7
 
 it triggers:
 |BUG: sleeping function called from invalid context at kernel/locking/rtmutex.c:930

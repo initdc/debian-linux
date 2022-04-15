@@ -1,7 +1,7 @@
 From: Peter Zijlstra <a.p.zijlstra@chello.nl>
 Date: Sat, 13 Aug 2011 00:23:17 +0200
 Subject: [PATCH 168/347] rcu: Frob softirq test
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=e119bb17f98a0964887726bc04483361508265b5
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=767caf81579e4bf4963a33ea557211db19e62429
 
 With RT_FULL we get the below wreckage:
 

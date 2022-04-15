@@ -1,7 +1,7 @@
 From: Peter Zijlstra <peterz@infradead.org>
 Date: Thu, 23 Mar 2017 15:56:11 +0100
 Subject: [PATCH 009/347] sched/rtmutex: Refactor rt_mutex_setprio()
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=24d868d426b55d665a53dfa6d6ff265dffddb796
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=a61c24a925ae89c25f46c07f687bc30ef6f393a8
 
 Upstream commit acd58620e415aee4a43a808d7d2fd87259ee0001
 

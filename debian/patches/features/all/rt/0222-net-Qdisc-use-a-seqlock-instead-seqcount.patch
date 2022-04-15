@@ -1,7 +1,7 @@
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Wed, 14 Sep 2016 17:36:35 +0200
 Subject: [PATCH 222/347] net/Qdisc: use a seqlock instead seqcount
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=96e221e6dc99789254f55cf9369010ea2fa79cbd
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=c330b8cb46cff5c2b8c03d5fe343b9c15b804de2
 
 The seqcount disables preemption on -RT while it is held which can't
 remove. Also we don't want the reader to spin for ages if the writer is
@@ -106,7 +106,7 @@ index 000000000000..a7034298a82a
 +
 +#endif
 diff --git a/include/net/sch_generic.h b/include/net/sch_generic.h
-index 5d5a137b9067..3a6860f0166d 100644
+index 7ec889291dc4..4585f6d78fc5 100644
 --- a/include/net/sch_generic.h
 +++ b/include/net/sch_generic.h
 @@ -10,6 +10,7 @@
@@ -256,7 +256,7 @@ index 98d88386d6d5..7afe72a37377 100644
  			err = -EOPNOTSUPP;
  			if (sch->flags & TCQ_F_MQROOT)
 diff --git a/net/sched/sch_generic.c b/net/sched/sch_generic.c
-index 5814a0af0a52..70342d37c89b 100644
+index 0152074308e9..251a94f9c67f 100644
 --- a/net/sched/sch_generic.c
 +++ b/net/sched/sch_generic.c
 @@ -426,7 +426,11 @@ struct Qdisc noop_qdisc = {

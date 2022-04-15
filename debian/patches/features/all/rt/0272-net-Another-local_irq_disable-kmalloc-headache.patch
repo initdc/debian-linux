@@ -1,7 +1,7 @@
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Wed, 26 Sep 2012 16:21:08 +0200
 Subject: [PATCH 272/347] net: Another local_irq_disable/kmalloc headache
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=3800c94a55f24d13c667db238613b60e0da29676
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=c74059b96e39d308bcfe7e2816075e7faabfa46a
 
 Replace it by a local lock. Though that's pretty inefficient :(
 

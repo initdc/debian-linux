@@ -1,7 +1,7 @@
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Fri, 8 Nov 2013 17:34:54 +0100
 Subject: [PATCH 070/347] usb: Use _nort in giveback function
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=f644a00bf5943bcdb7e5c1ff080b9caafae1a0ca
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=7bdc11072e2b3164d73a0b27361ea0795f5664d1
 
 Since commit 94dfd7ed ("USB: HCD: support giveback of URB in tasklet
 context") I see
@@ -43,10 +43,10 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/usb/core/hcd.c b/drivers/usb/core/hcd.c
-index 1dd4c65e9188..35220ce86815 100644
+index a4b231360799..e43d8df2d68c 100644
 --- a/drivers/usb/core/hcd.c
 +++ b/drivers/usb/core/hcd.c
-@@ -1764,9 +1764,9 @@ static void __usb_hcd_giveback_urb(struct urb *urb)
+@@ -1778,9 +1778,9 @@ static void __usb_hcd_giveback_urb(struct urb *urb)
  	 * and no one may trigger the above deadlock situation when
  	 * running complete() in tasklet.
  	 */

@@ -1,7 +1,7 @@
 From: Juri Lelli <juri.lelli@gmail.com>
 Date: Tue, 13 May 2014 15:30:20 +0200
 Subject: [PATCH 108/347] sched/deadline: dl_task_timer has to be irqsafe
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=1e6f9882a5827e1fd478bafa2f385754642cde16
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=e5e0be7981843c8d899692f314f7e8f526fd8291
 
 As for rt_period_timer, dl_task_timer has to be irqsafe.
 

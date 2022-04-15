@@ -2,7 +2,7 @@ From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Wed, 21 Feb 2018 10:39:54 +0100
 Subject: [PATCH 336/347] net: use task_struct instead of CPU number as the
  queue owner on -RT
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=843fb2215ca0bc74de6e0ba2c4084592ffafd299
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=0568c6ec2e9c69b9b1508e87b653c2ceb4806449
 
 In commit ("net: move xmit_recursion to per-task variable on -RT") the
 recursion level was changed to be per-task since we can get preempted in
@@ -22,7 +22,7 @@ Signed-off-by: Julia Cartwright <julia@ni.com>
  2 files changed, 53 insertions(+), 7 deletions(-)
 
 diff --git a/include/linux/netdevice.h b/include/linux/netdevice.h
-index daa9a766fc1e..b5e891aa9862 100644
+index 0c852f182324..de7bfe2fabea 100644
 --- a/include/linux/netdevice.h
 +++ b/include/linux/netdevice.h
 @@ -594,7 +594,11 @@ struct netdev_queue {
@@ -37,7 +37,7 @@ index daa9a766fc1e..b5e891aa9862 100644
  	/*
  	 * Time (in jiffies) of last Tx
  	 */
-@@ -3625,41 +3629,79 @@ static inline u32 netif_msg_init(int debug_value, int default_msg_enable_bits)
+@@ -3626,41 +3630,79 @@ static inline u32 netif_msg_init(int debug_value, int default_msg_enable_bits)
  	return (1U << debug_value) - 1;
  }
  

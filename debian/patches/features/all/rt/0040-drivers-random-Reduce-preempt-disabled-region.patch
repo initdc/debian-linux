@@ -1,7 +1,7 @@
 From: Ingo Molnar <mingo@elte.hu>
 Date: Fri, 3 Jul 2009 08:29:30 -0500
 Subject: [PATCH 040/347] drivers: random: Reduce preempt disabled region
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=b22eefd45fd03a72a2ba6fbd8a50b2a2d406f654
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=e85d4fa7b50c337fb3c3c53156133fa02894e528
 
 No need to keep preemption disabled across the whole function.
 
@@ -12,10 +12,10 @@ Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
  1 file changed, 3 deletions(-)
 
 diff --git a/drivers/char/random.c b/drivers/char/random.c
-index 2184d8762327..054498c604dc 100644
+index 70ee86e034fc..f52b4e0a8afc 100644
 --- a/drivers/char/random.c
 +++ b/drivers/char/random.c
-@@ -1087,8 +1087,6 @@ static void add_timer_randomness(struct timer_rand_state *state, unsigned num)
+@@ -1092,8 +1092,6 @@ static void add_timer_randomness(struct timer_rand_state *state, unsigned num)
  	} sample;
  	long delta, delta2, delta3;
  
@@ -24,7 +24,7 @@ index 2184d8762327..054498c604dc 100644
  	sample.jiffies = jiffies;
  	sample.cycles = random_get_entropy();
  	sample.num = num;
-@@ -1129,7 +1127,6 @@ static void add_timer_randomness(struct timer_rand_state *state, unsigned num)
+@@ -1134,7 +1132,6 @@ static void add_timer_randomness(struct timer_rand_state *state, unsigned num)
  		 */
  		credit_entropy_bits(r, min_t(int, fls(delta>>1), 11));
  	}

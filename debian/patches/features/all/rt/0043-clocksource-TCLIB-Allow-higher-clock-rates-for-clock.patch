@@ -5,7 +5,7 @@ Subject: [PATCH 043/347] clocksource: TCLIB: Allow higher clock rates for
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=04c2c6fc71c3d0463d65f68ec1b84e45da632b6d
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=dd4009606970b9cf1785cbc1c98eb97da6ee516e
 
 As default the TCLIB uses the 32KiHz base clock rate for clock events.
 Add a compile time selection to allow higher clock resulution.
