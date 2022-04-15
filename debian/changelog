@@ -1,3 +1,190 @@
+linux (4.9.310-1) UNRELEASED; urgency=medium
+
+  * New upstream stable update:
+    https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.9.304
+    - vhost/vsock: don't check owner in vhost_vsock_stop() while releasing
+    - sr9700: sanity check for packet length (CVE-2022-26966)
+    - USB: zaurus: support another broken Zaurus
+    - serial: 8250: fix error handling in of_platform_serial_probe()
+    - serial: 8250: of: Fix mapped region size when using reg-offset property
+    - net: __pskb_pull_tail() & pskb_carve_frag_list() drop_monitor friends
+    - gso: do not skip outer ip header in case of ipip and net_failover
+    - openvswitch: Fix setting ipv6 fields causing hw csum failure
+    - drm/edid: Always set RGB444
+    - net/mlx5e: Fix wrong return value on ioctl EEPROM query failure
+    - configfs: fix a race in configfs_{,un}register_subsystem()
+    - RDMA/ib_srp: Fix a deadlock
+    - [x86] ata: pata_hpt37x: disable primary channel on HPT371
+    - Revert "USB: serial: ch341: add new Product ID for CH341A"
+    - usb: gadget: rndis: add spinlock for rndis response list
+    - USB: gadget: validate endpoint index for xilinx udc (CVE-2022-27223)
+    - tracefs: Set the group ownership in apply_options() not parse_options()
+    - USB: serial: option: add support for DW5829e
+    - USB: serial: option: add Telit LE910R1 compositions
+    - [arm64,armhf] usb: dwc3: gadget: Let the interrupt handler disable bottom
+      halves.
+    - xhci: Prevent futile URB re-submissions due to incorrect return value.
+    - tty: n_gsm: fix encoding of control signal octet bit DV
+    - tty: n_gsm: fix proper link termination after failed open
+    - memblock: use kfree() to release kmalloced memblock regions
+    - fget: clarify and improve __fget_files() implementation
+    https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.9.305
+    - mac80211_hwsim: report NOACK frames in tx_status
+    - mac80211_hwsim: initialize ieee80211_tx_info at hw_scan_work
+    - [arm64,armhf] i2c: bcm2835: Avoid clock stretching timeouts
+    - Input: clear BTN_RIGHT/MIDDLE on buttonpads
+    - cifs: fix double free race when mount fails in cifs_get_root()
+    - [arm64] i2c: qup: allow COMPILE_TEST
+    - net: usb: cdc_mbim: avoid altsetting toggling for Telit FN990
+    - usb: gadget: don't release an existing dev->buf (CVE-2022-24958)
+    - usb: gadget: clear related members when goto fail (CVE-2022-24958)
+    - [x86] ata: pata_hpt37x: fix PCI clock detection
+    - ASoC: ops: Shift tested values in snd_soc_put_volsw() by +min
+    - xfrm: fix MTU regression
+    - netfilter: nf_queue: don't assume sk is full socket
+    - netfilter: nf_queue: fix possible use-after-free
+    - net: dcb: flush lingering app table entries for unregistered devices
+    - mac80211: fix forwarded mesh frames AC & queue selection
+    - [arm64,armhf] net: stmmac: fix return value of __setup handler
+    - [x86] net: arcnet: com20020: Fix null-ptr-deref in com20020pci_probe()
+    - efivars: Respect "block" flag in efivar_entry_set_safe()
+    - can: gs_usb: change active_channels's type from atomic_t to u8
+    - [armel,armhf] 9182/1: mmu: fix returns from early_param() and __setup()
+      functions
+    - net: chelsio: cxgb3: check the return value of pci_find_capability()
+    - Input: elan_i2c - move regulator_[en|dis]able() out of
+      elan_[en|dis]able_power()
+    - Input: elan_i2c - fix regulator enable count imbalance after
+      suspend/resume
+    - HID: add mapping for KEY_ALL_APPLICATIONS
+    - memfd: fix F_SEAL_WRITE after shmem huge page allocated
+    - net: dcb: disable softirqs in dcbnl_flush_dev()
+    https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.9.306
+    - [arm64,armhf] Provide a wrapper for SMCCC 1.1 calls
+    - [arm64,armhf] smccc/psci: add arm_smccc_1_1_get_conduit()
+    - [armel,armhf] Mitigate Spectre v2-type Branch History Buffer attacks
+      (CVE-2022-23960):
+      + report Spectre v2 status through sysfs
+      + early traps initialisation
+      + use LOADADDR() to get load address of sections
+      + Spectre-BHB workaround
+      + include unprivileged BPF status in Spectre V2 reporting
+      + fix build error when BPF_SYSCALL is disabled
+      + fix co-processor register typo
+      + fix build warning in proc-v7-bugs.c
+    - [x86] build: Fix compiler support check for CONFIG_RETPOLINE
+    - [x86] modpost: Replace last remnants of RETPOLINE with CONFIG_RETPOLINE
+    - xen/xenbus: don't let xenbus_grant_ring() remove grants in error case
+      (CVE-2022-23040)
+    - xen/grant-table: add gnttab_try_end_foreign_access()
+    - xen/blkfront: don't use gnttab_query_foreign_access() for mapped status
+      (CVE-2022-23036)
+    - xen/netfront: don't use gnttab_query_foreign_access() for mapped status
+      (CVE-2022-23037)
+    - xen/scsifront: don't use gnttab_query_foreign_access() for mapped status
+      (CVE-2022-23038)
+    - xen/gntalloc: don't use gnttab_query_foreign_access() (CVE-2022-23039)
+    - xen: remove gnttab_query_foreign_access()
+    - xen/gnttab: fix gnttab_end_foreign_access() without page specified
+      (CVE-2022-23041)
+    - xen/netfront: react properly to failing gnttab_end_foreign_access_ref()
+      (CVE-2022-23042)
+    https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.9.307
+    - net: qlogic: check the return value of dma_alloc_coherent() in
+      qed_vf_hw_prepare()
+    - qed: return status of qed_iov_get_link
+    - ax25: Fix NULL pointer dereference in ax25_kill_by_device (CVE-2022-1199)
+    - net/mlx5: Fix size field in bufferx_reg struct
+    - NFC: port100: fix use-after-free in port100_send_complete
+    - sctp: fix kernel-infoleak for SCTP sockets
+    - net-sysfs: add check for netdevice being present to speed_show
+    - Revert "xen-netback: Check for hotplug-status existence before watching"
+      (regression in 4.9.268)
+    - tracing: Ensure trace buffer is at least 4096 bytes large
+    - batman-adv: Request iflink once in batadv-on-batadv check
+    - batman-adv: Don't expect inter-netns unique iflink indices
+    - btrfs: unlock newly allocated extent buffer after error (CVE-2021-4149)
+    https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.9.308
+    - xfrm: Fix xfrm migrate issues when address family changes
+    - [armhf] dts: rockchip: fix a typo on rk3288 crypto-controller
+    - [x86] atm: firestream: check the return value of ioremap() in fs_init()
+    - nl80211: Update bss channel on channel switch for P2P_CLIENT
+    - tcp: make tcp_read_sock() more robust
+    - sfc: extend the locking on mcdi->seqno
+    - fs: sysfs_emit: Remove PAGE_SIZE alignment check
+    - net/packet: fix slab-out-of-bounds access in packet_recvmsg()
+    - [x86] atm: eni: Add check for dma_map_single
+    - usb: gadget: rndis: prevent integer overflow in rndis_set_response()
+    - usb: gadget: Fix use-after-free bug by not setting udc->dev.driver
+    - Input: aiptek - properly check endpoint type
+    https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.9.309
+    - nfc: st21nfca: Fix potential buffer overflows in EVT_TRANSACTION
+      (CVE-2022-26490)
+    - net: ipv6: fix skb_over_panic in __ip6_append_data
+    - llc: fix netdevice reference leaks in llc_ui_bind() (CVE-2022-28356)
+    - ALSA: pcm: Add stream lock during PCM reset ioctl operations
+    - ALSA: usb-audio: Add mute TLV for playback volumes on RODE NT-USB
+    - [x86] ALSA: cmipci: Restore aux vol on suspend/resume
+    - ALSA: pci: fix reading of swapped values from pcmreg in AC97 codec
+    - netfilter: nf_tables: initialize registers in nft_do_chain()
+      (CVE-2022-1016)
+    - [x86] ACPI / x86: Work around broken XSDT on Advantech DAC-BJ01 board
+    - [x86] ACPI: battery: Add device HID and quirk for Microsoft Surface Go 3
+    - [x86] ACPI: video: Force backlight native for Clevo NL5xRU and NL5xNU
+    - [x86] crypto: qat - disable registration of algorithms
+    - mac80211: fix potential double free on mesh join
+    - llc: only change llc->dev when bind() succeeds
+    https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.9.310
+    - [arm64] Preparation for mitigating Spectre-BHB:
+      + errata: Provide macro for major and minor cpu revisions
+      + Remove useless UAO IPI and describe how this gets enabled
+      + Add MIDR encoding for Arm Cortex-A55 and Cortex-A35
+      + capabilities: Update prototype for enable call back
+      + capabilities: Move errata work around check on boot CPU
+      + capabilities: Move errata processing code
+      + capabilities: Prepare for fine grained capabilities
+      + capabilities: Add flags to handle the conflicts on late CPU
+      + capabilities: Clean up midr range helpers
+      + Add helpers for checking CPU MIDR against a range
+      + capabilities: Add support for checks based on a list of MIDRs
+      + clocksource/drivers/arm_arch_timer: Remove fsl-a008585 parameter
+      + clocksource/drivers/arm_arch_timer: Introduce generic errata handling
+        infrastructure
+      + arch_timer: Add infrastructure for multiple erratum detection methods
+      + arch_timer: Add erratum handler for CPU-specific capability
+      + arch_timer: Add workaround for ARM erratum 1188873
+      + arch_timer: avoid unused function warning
+      + Add silicon-errata.txt entry for ARM erratum 1188873
+      + Make ARM64_ERRATUM_1188873 depend on COMPAT
+      + Add part number for Neoverse N1
+      + Add part number for Arm Cortex-A77
+      + Add Neoverse-N2, Cortex-A710 CPU part definition
+      + Add Cortex-X2 CPU part definition
+      + Add helper to decode register from instruction
+      + entry.S: Add ventry overflow sanity checks
+    - [arm64] Mitigate Spectre v2-type Branch History Buffer attacks
+      (CVE-2022-23960):
+      + entry: Make the trampoline cleanup optional
+      + entry: Free up another register on kpti's tramp_exit path
+      + entry: Move the trampoline data page before the text page
+      + entry: Allow tramp_alias to access symbols after the 4K boundary
+      + entry: Don't assume tramp_vectors is the start of the vectors
+      + entry: Move trampoline macros out of ifdef'd section
+      + entry: Make the kpti trampoline's kpti sequence optional
+      + entry: Allow the trampoline text to occupy multiple pages
+      + entry: Add non-kpti __bp_harden_el1_vectors for mitigations
+      + Move arm64_update_smccc_conduit() out of SSBD ifdef
+      + entry: Add vectors that have the bhb mitigation sequences
+      + entry: Add macro for reading symbol addresses from the trampoline
+      + Add percpu vectors for EL1
+      + KVM: arm64: Add templates for BHB mitigation sequences
+      + Mitigate spectre style branch history side channels
+      + KVM: arm64: Allow SMCCC_ARCH_WORKAROUND_3 to be discovered and migrated
+      + add ID_AA64ISAR2_EL1 sys register
+      + Use the clearbhb instruction in mitigations
+
+ -- Ben Hutchings <benh@debian.org>  Fri, 15 Apr 2022 14:09:07 +0200
+
 linux (4.9.303-1) stretch-security; urgency=high
 
   * New upstream stable update:

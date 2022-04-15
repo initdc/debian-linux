@@ -318,21 +318,5 @@ bugfix/all/net-sysfs-call-dev_hold-if-kobject_init_and_add-succ.patch
 bugfix/all/net-sysfs-fix-reference-count-leak-in-rx-netdev_queu.patch
 bugfix/all/net-sysfs-fix-netdev_queue_add_kobject-breakage.patch
 bugfix/all/net-sysfs-call-dev_hold-always-in-netdev_queue_add_k.patch
-bugfix/x86/bhb/x86-speculation-add-retpoline_amd-support-to-the-inl.patch
-bugfix/x86/bhb/x86-retpoline-make-config_retpoline-depend-on-compil.patch
-bugfix/x86/bhb/x86-retpoline-remove-minimal-retpoline-support.patch
-bugfix/x86/bhb/documentation-add-section-about-cpu-vulnerabilities-.patch
-bugfix/x86/bhb/documentation-add-swapgs-description-to-the-spectre-.patch
-bugfix/x86/bhb/documentation-refer-to-config-randomize_base-for-ker.patch
-bugfix/x86/bhb/0002-x86-speculation-Merge-one-test-in-spectre_v2_user_se.patch
-bugfix/x86/bhb/0003-x86-bugs-Unconditionally-allow-spectre_v2-retpoline-.patch
-bugfix/x86/bhb/0004-x86-speculation-Rename-RETPOLINE_AMD-to-RETPOLINE_LF.patch
-bugfix/x86/bhb/0005-x86-speculation-Add-eIBRS-Retpoline-options.patch
-bugfix/x86/bhb/0006-Documentation-hw-vuln-Update-spectre-doc.patch
-bugfix/x86/bhb/0007-x86-speculation-Include-unprivileged-eBPF-status-in-.patch
-bugfix/x86/bhb/0008-x86-speculation-Use-generic-retpoline-by-default-on-.patch
-bugfix/x86/bhb/0009-x86-speculation-Update-link-to-AMD-speculation-white.patch
-bugfix/x86/bhb/0010-x86-speculation-Warn-about-Spectre-v2-LFENCE-mitigat.patch
-bugfix/x86/bhb/0011-x86-speculation-Warn-about-eIBRS-LFENCE-Unprivileged.patch
 
 # ABI maintenance
