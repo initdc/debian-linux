@@ -193,6 +193,7 @@ linux (4.9.312-1) UNRELEASED; urgency=medium
     - iio: inkern: apply consumer scale on IIO_VAL_INT cases
     - iio: inkern: make a best effort on offset calculation
     - ptrace: Check PTRACE_O_SUSPEND_SECCOMP permission on PTRACE_SEIZE
+      (CVE-2022-30594)
     - SUNRPC: avoid race between mod_timer() and del_timer_sync()
     - NFSD: prevent underflow in nfssvc_decode_writeargs()
     - can: ems_usb: ems_usb_start_xmit(): fix double dev_kfree_skb() in error
