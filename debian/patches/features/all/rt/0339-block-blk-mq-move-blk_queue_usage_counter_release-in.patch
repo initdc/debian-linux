@@ -2,7 +2,7 @@ From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Tue, 13 Mar 2018 13:49:16 +0100
 Subject: [PATCH 339/347] block: blk-mq: move blk_queue_usage_counter_release()
  into process context
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=2e54e32400cbc71621320057e2b1a40b3473d609
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=2fd52aeb6a28135361b477c2468fdd12b681d87b
 
 | BUG: sleeping function called from invalid context at kernel/locking/rtmutex.c:914
 | in_atomic(): 1, irqs_disabled(): 0, pid: 255, name: kworker/u257:6
@@ -98,7 +98,7 @@ index 4a1d95a5863f..6371378388da 100644
  			sizeof(struct request), 0, SLAB_PANIC, NULL);
  
 diff --git a/include/linux/blkdev.h b/include/linux/blkdev.h
-index 2b8db8311171..caba9253957f 100644
+index 0d0eadfcb38c..555bf0c5946d 100644
 --- a/include/linux/blkdev.h
 +++ b/include/linux/blkdev.h
 @@ -24,6 +24,7 @@
@@ -109,7 +109,7 @@ index 2b8db8311171..caba9253957f 100644
  
  struct module;
  struct scsi_ioctl_command;
-@@ -475,6 +476,7 @@ struct request_queue {
+@@ -483,6 +484,7 @@ struct request_queue {
  #endif
  	struct rcu_head		rcu_head;
  	wait_queue_head_t	mq_freeze_wq;

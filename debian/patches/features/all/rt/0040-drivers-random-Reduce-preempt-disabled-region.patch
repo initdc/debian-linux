@@ -1,7 +1,7 @@
 From: Ingo Molnar <mingo@elte.hu>
 Date: Fri, 3 Jul 2009 08:29:30 -0500
 Subject: [PATCH 040/347] drivers: random: Reduce preempt disabled region
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=e85d4fa7b50c337fb3c3c53156133fa02894e528
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=64f46189fa24d5c7ea7d9c13666d392abf7997ee
 
 No need to keep preemption disabled across the whole function.
 

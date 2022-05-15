@@ -1,7 +1,7 @@
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 21 Sep 2017 14:39:56 +0200
 Subject: [PATCH 325/347] rt/locking: allow recursive local_trylock()
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=6181882744ba3a21572f56c9170c711b88c9696f
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=7a195fcbdb471461aaa118f9bbd38c3ac4f5f3d5
 
 required for following networking patch which does recursive try-lock.
 While at it, add the !RT version of it because it did not yet exist.

@@ -1,7 +1,7 @@
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Sat, 12 Nov 2011 14:00:48 +0100
 Subject: [PATCH 253/347] scsi/fcoe: Make RT aware.
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=d1d9dbad4c5aa9ec01f28899def9f1c0ae01d81d
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=2643db3757e5d7adfa5c3dc08a0ce5d98b3d4dde
 
 Do not disable preemption while taking sleeping locks. All user look safe
 for migrate_diable() only.
@@ -94,7 +94,7 @@ index f5f3a8113bc5..59ab3b40331c 100644
  	list_for_each_entry_safe(fcf, next, &del_list, list) {
  		/* Removes fcf from current list */
 diff --git a/drivers/scsi/libfc/fc_exch.c b/drivers/scsi/libfc/fc_exch.c
-index 59fd6101f188..aac9c648df0c 100644
+index 177e494b5e47..175713770068 100644
 --- a/drivers/scsi/libfc/fc_exch.c
 +++ b/drivers/scsi/libfc/fc_exch.c
 @@ -814,10 +814,10 @@ static struct fc_exch *fc_exch_em_alloc(struct fc_lport *lport,

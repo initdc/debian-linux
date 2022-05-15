@@ -1,7 +1,7 @@
 From: Carsten Emde <C.Emde@osadl.org>
 Date: Tue, 19 Jul 2011 13:51:17 +0100
 Subject: [PATCH 226/347] net: sysrq via icmp
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=b2bdfc93310f406ffedf1c2038ae6f7a4f07d029
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=56b4c7b0f7a14dfae86beb3954048917fa1c754a
 
 There are (probably rare) situations when a system crashed and the system
 console becomes unresponsive but the network icmp layer still is alive.

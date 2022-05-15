@@ -1,7 +1,7 @@
 From: Peter Zijlstra <peterz@infradead.org>
 Date: Wed, 23 Nov 2016 16:29:32 +0100
 Subject: [PATCH 182/347] locking/percpu-rwsem: Remove preempt_disable variants
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=4fa7b7f139d6bb3f535576d3e8d88110bcb4bbbe
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=363ef4b44aed541815a2acf5ea8f6022f9af94ca
 
 Effective revert commit:
 

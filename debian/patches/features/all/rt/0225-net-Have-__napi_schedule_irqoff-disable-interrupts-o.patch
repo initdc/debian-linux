@@ -2,7 +2,7 @@ From: Steven Rostedt <rostedt@goodmis.org>
 Date: Tue, 6 Dec 2016 17:50:30 -0500
 Subject: [PATCH 225/347] net: Have __napi_schedule_irqoff() disable interrupts
  on RT
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=4b7e283e206c8ccd729773a10b7128c4ad1e4784
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=b5543a3daa92018e98ec1829400ecb52f34e0890
 
 A customer hit a crash where the napi sd->poll_list became corrupted.
 The customer had the bnx2x driver, which does a
@@ -28,7 +28,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  2 files changed, 14 insertions(+)
 
 diff --git a/include/linux/netdevice.h b/include/linux/netdevice.h
-index 9d3927071692..0c852f182324 100644
+index 66acc2e24001..c0b7f955db53 100644
 --- a/include/linux/netdevice.h
 +++ b/include/linux/netdevice.h
 @@ -396,7 +396,19 @@ typedef enum rx_handler_result rx_handler_result_t;

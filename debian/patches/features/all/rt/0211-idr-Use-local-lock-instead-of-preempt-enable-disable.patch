@@ -1,7 +1,7 @@
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Tue, 14 Jul 2015 14:26:34 +0200
 Subject: [PATCH 211/347] idr: Use local lock instead of preempt enable/disable
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=3562b7a8585c9f3284a02bb1fea2996502c028db
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=28ec891c819f076a822da21398424f5b74784226
 
 We need to protect the per cpu variable and prevent migration.
 

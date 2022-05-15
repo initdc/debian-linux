@@ -2,7 +2,7 @@ From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Wed, 21 Aug 2013 17:48:46 +0200
 Subject: [PATCH 180/347] genirq: Do not invoke the affinity callback via a
  workqueue on RT
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=ec15079fbd8189ed3202230df93d770f6ee80ccc
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=c079d467f99149315391cae9646d1638a7ba9e01
 
 Joe Korty reported, that __irq_set_affinity_locked() schedules a
 workqueue while holding a rawlock which results in a might_sleep()
@@ -17,10 +17,10 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  3 files changed, 51 insertions(+), 8 deletions(-)
 
 diff --git a/drivers/scsi/qla2xxx/qla_isr.c b/drivers/scsi/qla2xxx/qla_isr.c
-index 17b1525d492b..6249c4b6f4be 100644
+index c41491472d44..15fcb148d175 100644
 --- a/drivers/scsi/qla2xxx/qla_isr.c
 +++ b/drivers/scsi/qla2xxx/qla_isr.c
-@@ -3127,7 +3127,11 @@ qla24xx_enable_msix(struct qla_hw_data *ha, struct rsp_que *rsp)
+@@ -3128,7 +3128,11 @@ qla24xx_enable_msix(struct qla_hw_data *ha, struct rsp_que *rsp)
  		* kref_put().
  		*/
  		kref_get(&qentry->irq_notify.kref);

@@ -2,7 +2,7 @@ From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Tue, 5 Sep 2017 14:11:41 +0200
 Subject: [PATCH 324/347] iommu/amd: Use raw_cpu_ptr() instead of get_cpu_ptr()
  for ->flush_queue
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=d39da3cdb52be53ddcd7794158b31804be608d57
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=ce0da5e9a8e336a5d607030f177cd60f63d4f7be
 
 get_cpu_ptr() disabled preemption and returns the ->flush_queue object
 of the current CPU. raw_cpu_ptr() does the same except that it not

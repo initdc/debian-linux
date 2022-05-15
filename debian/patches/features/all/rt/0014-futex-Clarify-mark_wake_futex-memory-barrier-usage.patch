@@ -1,7 +1,7 @@
 From: "Darren Hart (VMware)" <dvhart@infradead.org>
 Date: Fri, 14 Apr 2017 15:31:38 -0700
 Subject: [PATCH 014/347] futex: Clarify mark_wake_futex memory barrier usage
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=35cceb688b18bf15f2c1c665e76eceb216bb18db
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=9cda29090fb1aea622b36b83252ed91ccd8d2757
 
 Upstream commit 38fcd06e9b7f6855db1f3ebac5e18b8fdb467ffd
 

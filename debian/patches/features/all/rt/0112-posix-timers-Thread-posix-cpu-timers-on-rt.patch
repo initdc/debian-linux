@@ -1,7 +1,7 @@
 From: John Stultz <johnstul@us.ibm.com>
 Date: Fri, 3 Jul 2009 08:29:58 -0500
 Subject: [PATCH 112/347] posix-timers: Thread posix-cpu-timers on -rt
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=719064b3ababd3d2b16343d825bf014df17eb835
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=9cb350d7d608f4483fb7d6b86081816734550743
 
 posix-cpu-timer code takes non -rt safe locks in hard irq
 context. Move it to a thread.

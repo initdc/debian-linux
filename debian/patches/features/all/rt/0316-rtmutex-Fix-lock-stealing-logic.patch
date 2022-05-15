@@ -1,7 +1,7 @@
 From: Mike Galbraith <efault@gmx.de>
 Date: Fri, 23 Jun 2017 09:37:14 +0200
 Subject: [PATCH 316/347] rtmutex: Fix lock stealing logic
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=2a1384704323c898269f13fc4a267c35c01b4c70
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=8fa8423b37b5f679822ce34bd7dca12e602d1941
 
 1. When trying to acquire an rtmutex, we first try to grab it without
 queueing the waiter, and explicitly check for that initial attempt

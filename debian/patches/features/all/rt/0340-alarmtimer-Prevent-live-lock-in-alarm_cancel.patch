@@ -1,7 +1,7 @@
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Tue, 27 Mar 2018 15:58:16 +0200
 Subject: [PATCH 340/347] alarmtimer: Prevent live lock in alarm_cancel()
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=45b28b151ec93450551fec8d1b276c76daac5510
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=10d1ddf958d6595cb67829a3acc944b40b50628d
 
 If alarm_try_to_cancel() requires a retry, then depending on the
 priority setting the retry loop might prevent timer callback completion

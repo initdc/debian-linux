@@ -4,7 +4,7 @@ Subject: [PATCH 158/347] rbtree: don't include the rcu header
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=35d2609bc2a210177896a5adae81516cd84028e8
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=34949d02b5dc856121686ee458bea3fe98b140af
 
 The RCU header pulls in spinlock.h and fails due not yet defined types:
 

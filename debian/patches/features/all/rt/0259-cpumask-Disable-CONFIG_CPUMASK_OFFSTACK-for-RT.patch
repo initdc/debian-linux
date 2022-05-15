@@ -1,7 +1,7 @@
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Wed, 14 Dec 2011 01:03:49 +0100
 Subject: [PATCH 259/347] cpumask: Disable CONFIG_CPUMASK_OFFSTACK for RT
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=4c1d169dfb76a82ffa62e8503211de1103f90825
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=c715edf5e857eb51686c622c7d7bad46d8733da1
 
 There are "valid" GFP_ATOMIC allocations such as
 
@@ -46,10 +46,10 @@ Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
  2 files changed, 2 insertions(+), 1 deletion(-)
 
 diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
-index d13f53c45e64..bbd6b76a9584 100644
+index 7ffe069de72a..8dec1346ec4c 100644
 --- a/arch/x86/Kconfig
 +++ b/arch/x86/Kconfig
-@@ -916,7 +916,7 @@ config IOMMU_HELPER
+@@ -912,7 +912,7 @@ config IOMMU_HELPER
  config MAXSMP
  	bool "Enable Maximum number of SMP Processors and NUMA Nodes"
  	depends on X86_64 && SMP && DEBUG_KERNEL
@@ -59,10 +59,10 @@ index d13f53c45e64..bbd6b76a9584 100644
  	  Enable maximum number of CPUS and NUMA Nodes for this architecture.
  	  If unsure, say N.
 diff --git a/lib/Kconfig b/lib/Kconfig
-index 260a80e313b9..b06becb3f477 100644
+index 600759707ffe..b3b4f3045178 100644
 --- a/lib/Kconfig
 +++ b/lib/Kconfig
-@@ -400,6 +400,7 @@ config CHECK_SIGNATURE
+@@ -399,6 +399,7 @@ config CHECK_SIGNATURE
  
  config CPUMASK_OFFSTACK
  	bool "Force CPU masks off stack" if DEBUG_PER_CPU_MAPS

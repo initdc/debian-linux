@@ -1,7 +1,7 @@
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Thu, 15 Jul 2010 10:29:00 +0200
 Subject: [PATCH 044/347] suspend: Prevent might sleep splats
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=97163348dd81b05bec389b5a54429a4aaddc1c7e
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=ba086326ae86526796b8f278e07fb642ffbbac8e
 
 timekeeping suspend/resume calls read_persistant_clock() which takes
 rtc_lock. That results in might sleep warnings because at that point
@@ -36,7 +36,7 @@ index d83fc669eeac..52ce45f52793 100644
  
  #define TAINT_PROPRIETARY_MODULE	0
 diff --git a/kernel/power/hibernate.c b/kernel/power/hibernate.c
-index e938fd8db056..81611ddd5fb4 100644
+index c17b953f1294..55fd4cc5e243 100644
 --- a/kernel/power/hibernate.c
 +++ b/kernel/power/hibernate.c
 @@ -291,6 +291,8 @@ static int create_image(int platform_mode)

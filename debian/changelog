@@ -423,9 +423,9 @@ linux (4.9.314-1) UNRELEASED; urgency=medium
 
   [ Ben Hutchings ]
   * Bump ABI to 19
-  * [rt] Update to 4.9.303-rt192
   * debian/lib/python/debian_linux/debian.py: Fix deprecated import of
     MutableSet
+  * [rt] Update to 4.9.312-rt193
 
  -- Ben Hutchings <benh@debian.org>  Fri, 15 Apr 2022 14:09:07 +0200
 

@@ -1,7 +1,7 @@
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 4 Feb 2016 16:38:10 +0100
 Subject: [PATCH 279/347] kernel/perf: mark perf_cpu_context's timer as irqsafe
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=90e7ede774490b80f087c20ff8c500f968b73869
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=657c1acab8970f0429b7c3eecbeb641c99e4635e
 
 Otherwise we get a WARN_ON() backtrace and some events are reported as
 "not counted".
@@ -14,7 +14,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  1 file changed, 1 insertion(+)
 
 diff --git a/kernel/events/core.c b/kernel/events/core.c
-index 513c1e8f360d..6f3134158375 100644
+index 3891202ed3cd..fd1a6b82f557 100644
 --- a/kernel/events/core.c
 +++ b/kernel/events/core.c
 @@ -1067,6 +1067,7 @@ static void __perf_mux_hrtimer_init(struct perf_cpu_context *cpuctx, int cpu)

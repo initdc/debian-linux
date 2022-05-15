@@ -1,7 +1,7 @@
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Wed, 29 Jun 2011 11:01:51 +0200
 Subject: [PATCH 128/347] stop_machine: Use raw spinlocks
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=428268259f7e78f5cf3a22c2158adfb5aa2950cd
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=30dd10d9d63001b684bbb3522392b25f984ebc4b
 
 Use raw-locks in stomp_machine() to allow locking in irq-off regions.
 

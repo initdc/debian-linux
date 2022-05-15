@@ -1,7 +1,7 @@
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Mon, 21 Aug 2017 15:09:13 +0200
 Subject: [PATCH 320/347] net: take the tcp_sk_lock lock with BH disabled
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=960157d0465709c9611004c96c1072f62fe92433
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=97c97471af9d63d1cbbbf5eca69a499083929922
 
 Lockdep may complain about an unsafe locking scenario:
 |      CPU0                    CPU1

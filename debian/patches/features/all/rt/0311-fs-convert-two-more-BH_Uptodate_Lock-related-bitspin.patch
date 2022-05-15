@@ -2,7 +2,7 @@ From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Mon, 6 Nov 2017 18:45:30 +0100
 Subject: [PATCH 311/347] fs: convert two more BH_Uptodate_Lock related
  bitspinlocks
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=4ed7500973306b6e08efdefe609b27efba71e09d
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=a28e07876bc46c3b6bde59f03742e203103e92ba
 
 We convert all BH_Uptodate_Lock based bit-spinlocks to use
 bh_uptodate_lock_irqsave() instead. Those two were introduced after the

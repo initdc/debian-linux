@@ -1,7 +1,7 @@
 From: Ingo Molnar <mingo@elte.hu>
 Date: Fri, 3 Jul 2009 08:29:37 -0500
 Subject: [PATCH 084/347] mm: page_alloc: rt-friendly per-cpu pages
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=265feffaa3a6d36aff445667a3b02663289ef031
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=26df7acb4675f7e05dd681561cd016caa23ab0af
 
 rt-friendly per-cpu pages: convert the irqs-off per-cpu locking
 method into a preemptible, explicit-per-cpu-locks method.
@@ -17,7 +17,7 @@ Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
  1 file changed, 41 insertions(+), 16 deletions(-)
 
 diff --git a/mm/page_alloc.c b/mm/page_alloc.c
-index babcbd8b94ea..f63be6231e76 100644
+index a6e682569e5b..ae31f8600f81 100644
 --- a/mm/page_alloc.c
 +++ b/mm/page_alloc.c
 @@ -61,6 +61,7 @@
@@ -178,7 +178,7 @@ index babcbd8b94ea..f63be6231e76 100644
  	return NULL;
  }
  
-@@ -6581,6 +6605,7 @@ static int page_alloc_cpu_notify(struct notifier_block *self,
+@@ -6588,6 +6612,7 @@ static int page_alloc_cpu_notify(struct notifier_block *self,
  void __init page_alloc_init(void)
  {
  	hotcpu_notifier(page_alloc_cpu_notify, 0);
@@ -186,7 +186,7 @@ index babcbd8b94ea..f63be6231e76 100644
  }
  
  /*
-@@ -7418,7 +7443,7 @@ void zone_pcp_reset(struct zone *zone)
+@@ -7425,7 +7450,7 @@ void zone_pcp_reset(struct zone *zone)
  	struct per_cpu_pageset *pset;
  
  	/* avoid races with drain_pages()  */
@@ -195,7 +195,7 @@ index babcbd8b94ea..f63be6231e76 100644
  	if (zone->pageset != &boot_pageset) {
  		for_each_online_cpu(cpu) {
  			pset = per_cpu_ptr(zone->pageset, cpu);
-@@ -7427,7 +7452,7 @@ void zone_pcp_reset(struct zone *zone)
+@@ -7434,7 +7459,7 @@ void zone_pcp_reset(struct zone *zone)
  		free_percpu(zone->pageset);
  		zone->pageset = &boot_pageset;
  	}

@@ -1,7 +1,7 @@
 From: Steven Rostedt <rostedt@goodmis.org>
 Date: Thu, 5 Dec 2013 09:16:52 -0500
 Subject: [PATCH 264/347] cpu hotplug: Document why PREEMPT_RT uses a spinlock
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=04604917ad34afac13e6206428152c608c3a2809
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=7e60fd7f8491df45806b524a5177b465bb06742c
 
 The patch:
 

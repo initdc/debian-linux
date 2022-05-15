@@ -2,7 +2,7 @@ From: Peter Zijlstra <peterz@infradead.org>
 Date: Fri, 2 Sep 2011 14:41:29 +0200
 Subject: [PATCH 053/347] printk: Add "force_early_printk" boot param to help
  with debugging
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=df72f25465fab943d224e8f96e5053bd0e568acc
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=626981e86094b9c0a913d8ba9b66f723fa3f8fe3
 
 Gives me an option to screw printk and actually see what the machine
 says.
@@ -16,10 +16,10 @@ Link: http://lkml.kernel.org/n/tip-ykb97nsfmobq44xketrxs977@git.kernel.org
  1 file changed, 7 insertions(+)
 
 diff --git a/kernel/printk/printk.c b/kernel/printk/printk.c
-index a589a9b4cd79..59b0f537f464 100644
+index e1683cd10028..82850cbf4f46 100644
 --- a/kernel/printk/printk.c
 +++ b/kernel/printk/printk.c
-@@ -381,6 +381,13 @@ asmlinkage void early_printk(const char *fmt, ...)
+@@ -383,6 +383,13 @@ asmlinkage void early_printk(const char *fmt, ...)
   */
  static bool __read_mostly printk_killswitch;
  

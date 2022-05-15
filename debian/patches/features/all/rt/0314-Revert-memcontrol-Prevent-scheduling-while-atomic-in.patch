@@ -2,7 +2,7 @@ From: "Steven Rostedt (VMware)" <rostedt@goodmis.org>
 Date: Wed, 22 Nov 2017 07:31:19 -0500
 Subject: [PATCH 314/347] Revert "memcontrol: Prevent scheduling while atomic
  in cgroup code"
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=e084a19a6fcb6b05cef2bed776193b93d3c3ee3c
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=4a4518eca492ffd07cfbbda31131391d9948adcc
 
 The commit "memcontrol: Prevent scheduling while atomic in cgroup code"
 fixed this issue:
@@ -38,7 +38,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  1 file changed, 6 insertions(+), 7 deletions(-)
 
 diff --git a/mm/memcontrol.c b/mm/memcontrol.c
-index 1aa9ad52b349..701c4aff44ad 100644
+index 0dfcfcfb6a5f..6fa15f7a5532 100644
 --- a/mm/memcontrol.c
 +++ b/mm/memcontrol.c
 @@ -1736,7 +1736,6 @@ struct memcg_stock_pcp {

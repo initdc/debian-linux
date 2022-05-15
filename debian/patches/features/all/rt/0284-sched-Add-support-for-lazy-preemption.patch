@@ -1,7 +1,7 @@
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Fri, 26 Oct 2012 18:50:54 +0100
 Subject: [PATCH 284/347] sched: Add support for lazy preemption
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=a9c5dafd59cf099d9dd5b3823bca3a228360db67
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=7d5b47a3514dc92c8d02716d6f17da35432b3a14
 
 It has become an obsession to mitigate the determinism vs. throughput
 loss of RT. Looking at the mainline semantics of preemption points
@@ -478,10 +478,10 @@ index 72e161f6b9b8..2a1da77b9989 100644
  extern void init_rt_bandwidth(struct rt_bandwidth *rt_b, u64 period, u64 runtime);
  
 diff --git a/kernel/trace/trace.c b/kernel/trace/trace.c
-index 59011f205c46..010a71c7a374 100644
+index 8497dfbac6fe..7466d72b68ff 100644
 --- a/kernel/trace/trace.c
 +++ b/kernel/trace/trace.c
-@@ -1897,6 +1897,7 @@ tracing_generic_entry_update(struct trace_entry *entry, unsigned long flags,
+@@ -1899,6 +1899,7 @@ tracing_generic_entry_update(struct trace_entry *entry, unsigned long flags,
  	struct task_struct *tsk = current;
  
  	entry->preempt_count		= pc & 0xff;
@@ -489,7 +489,7 @@ index 59011f205c46..010a71c7a374 100644
  	entry->pid			= (tsk) ? tsk->pid : 0;
  	entry->flags =
  #ifdef CONFIG_TRACE_IRQFLAGS_SUPPORT
-@@ -1907,7 +1908,8 @@ tracing_generic_entry_update(struct trace_entry *entry, unsigned long flags,
+@@ -1909,7 +1910,8 @@ tracing_generic_entry_update(struct trace_entry *entry, unsigned long flags,
  		((pc & NMI_MASK    ) ? TRACE_FLAG_NMI     : 0) |
  		((pc & HARDIRQ_MASK) ? TRACE_FLAG_HARDIRQ : 0) |
  		((pc & SOFTIRQ_OFFSET) ? TRACE_FLAG_SOFTIRQ : 0) |
@@ -499,7 +499,7 @@ index 59011f205c46..010a71c7a374 100644
  		(test_preempt_need_resched() ? TRACE_FLAG_PREEMPT_RESCHED : 0);
  
  	entry->migrate_disable = (tsk) ? __migrate_disabled(tsk) & 0xFF : 0;
-@@ -2904,15 +2906,17 @@ get_total_entries(struct trace_buffer *buf,
+@@ -2906,15 +2908,17 @@ get_total_entries(struct trace_buffer *buf,
  
  static void print_lat_help_header(struct seq_file *m)
  {
@@ -526,7 +526,7 @@ index 59011f205c46..010a71c7a374 100644
  }
  
  static void print_event_info(struct trace_buffer *buf, struct seq_file *m)
-@@ -2938,11 +2942,14 @@ static void print_func_help_header_irq(struct trace_buffer *buf, struct seq_file
+@@ -2940,11 +2944,14 @@ static void print_func_help_header_irq(struct trace_buffer *buf, struct seq_file
  	print_event_info(buf, m);
  	seq_puts(m, "#                              _-----=> irqs-off\n"
  		    "#                             / _----=> need-resched\n"

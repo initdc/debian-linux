@@ -2,7 +2,7 @@ From: Mike Galbraith <efault@gmx.de>
 Date: Sun, 3 Sep 2017 04:48:10 +0200
 Subject: [PATCH 322/347] kernel/hrtimer/hotplug: don't wake ktimersoftd while
  holding the hrtimer base lock
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=9b6d4a142dd20a7da5a6b8b5ac9592b5af011f40
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=c49b8046d0a68a9255145a18f4a2ad8908f911a8
 
 kernel/hrtimer: don't wakeup a process while holding the hrtimer base lock
 missed a path, namely hrtimers_dead_cpu() -> migrate_hrtimer_list().  Defer

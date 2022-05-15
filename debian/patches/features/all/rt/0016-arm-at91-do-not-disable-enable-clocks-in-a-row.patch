@@ -1,7 +1,7 @@
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Wed, 9 Mar 2016 10:51:06 +0100
 Subject: [PATCH 016/347] arm: at91: do not disable/enable clocks in a row
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=554c357203e6fb625418e61f662f3a9911ad5ebf
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=0c950251be983954ea5f6b453a9ad2725cc9586f
 
 Currently the driver will disable the clock and enable it one line later
 if it is switching from periodic mode into one shot.

@@ -1,7 +1,7 @@
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Fri, 13 Feb 2015 11:01:26 +0100
 Subject: [PATCH 202/347] block: blk-mq: Use swait
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=f5577500bef95e9ab66cf90101c7c60d4234089f
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=6eae35c95b9ccfe6a64e1d07ecea15ef67e4677a
 
 | BUG: sleeping function called from invalid context at kernel/locking/rtmutex.c:914
 | in_atomic(): 1, irqs_disabled(): 0, pid: 255, name: kworker/u257:6
@@ -111,10 +111,10 @@ index 5c9f74785f9e..e08cbead8773 100644
  
  bool blk_mq_can_queue(struct blk_mq_hw_ctx *hctx)
 diff --git a/include/linux/blkdev.h b/include/linux/blkdev.h
-index 2b8db8311171..e61f2bdb2461 100644
+index 0d0eadfcb38c..b0b8c18d36e4 100644
 --- a/include/linux/blkdev.h
 +++ b/include/linux/blkdev.h
-@@ -474,7 +474,7 @@ struct request_queue {
+@@ -482,7 +482,7 @@ struct request_queue {
  	struct throtl_data *td;
  #endif
  	struct rcu_head		rcu_head;

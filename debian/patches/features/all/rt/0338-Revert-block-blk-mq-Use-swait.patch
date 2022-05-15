@@ -1,7 +1,7 @@
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Tue, 13 Mar 2018 11:31:09 +0100
 Subject: [PATCH 338/347] Revert "block: blk-mq: Use swait"
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=37c52bfc703573ab58a4ebc9cd420727ce81b8e9
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=e448dcd346d792416a8f71b2932bbd442cc63411
 
 This reverts commit "block: blk-mq: Use swait". The issue remains but
 will be fixed differently.
@@ -83,10 +83,10 @@ index e08cbead8773..5c9f74785f9e 100644
  
  bool blk_mq_can_queue(struct blk_mq_hw_ctx *hctx)
 diff --git a/include/linux/blkdev.h b/include/linux/blkdev.h
-index e61f2bdb2461..2b8db8311171 100644
+index b0b8c18d36e4..0d0eadfcb38c 100644
 --- a/include/linux/blkdev.h
 +++ b/include/linux/blkdev.h
-@@ -474,7 +474,7 @@ struct request_queue {
+@@ -482,7 +482,7 @@ struct request_queue {
  	struct throtl_data *td;
  #endif
  	struct rcu_head		rcu_head;

@@ -2,7 +2,7 @@ From: Thomas Gleixner <tglx@linutronix.de>
 Date: Fri, 17 Feb 2017 19:44:39 +0100
 Subject: [PATCH 002/347] lockdep: Handle statically initialized PER_CPU locks
  proper
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=67bf5da246c33124d2ebacb822e8d402eecc9e57
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=084976b25555658c795eba547fc30ce688571961
 
 If a PER_CPU struct which contains a spin_lock is statically initialized
 via:
@@ -45,7 +45,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  5 files changed, 67 insertions(+), 36 deletions(-)
 
 diff --git a/include/linux/module.h b/include/linux/module.h
-index 99f330ae13da..5436efe5c766 100644
+index be4a3a9fd89c..938e79a45d3f 100644
 --- a/include/linux/module.h
 +++ b/include/linux/module.h
 @@ -496,6 +496,7 @@ static inline int module_is_live(struct module *mod)

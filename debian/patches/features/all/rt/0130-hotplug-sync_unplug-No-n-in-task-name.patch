@@ -1,7 +1,7 @@
 From: Yong Zhang <yong.zhang0@gmail.com>
 Date: Sun, 16 Oct 2011 18:56:43 +0800
 Subject: [PATCH 130/347] hotplug: sync_unplug: No "\n" in task name
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=c460448537baf2979ad639d87cfceb863975d213
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=90fd907d12cafec3c7bdb9502ed47f1ab32c0155
 
 Otherwise the output will look a little odd.
 

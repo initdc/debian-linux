@@ -1,7 +1,7 @@
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Wed, 19 Sep 2012 14:50:37 +0200
 Subject: [PATCH 230/347] printk: Make rt aware
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=6db0fd88c5749674010b558b7357825bd71abdf4
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=fbe3fd0d4c92a699da5f721be415c0dc64e7cf84
 
 Drop the lock before calling the console driver and do not disable
 interrupts while printing to a serial console.
@@ -12,10 +12,10 @@ Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
  1 file changed, 23 insertions(+), 2 deletions(-)
 
 diff --git a/kernel/printk/printk.c b/kernel/printk/printk.c
-index 59b0f537f464..696970800418 100644
+index 82850cbf4f46..1b31a673e17b 100644
 --- a/kernel/printk/printk.c
 +++ b/kernel/printk/printk.c
-@@ -1591,6 +1591,7 @@ static void call_console_drivers(int level,
+@@ -1593,6 +1593,7 @@ static void call_console_drivers(int level,
  	if (!console_drivers)
  		return;
  
@@ -23,7 +23,7 @@ index 59b0f537f464..696970800418 100644
  	for_each_console(con) {
  		if (exclusive_console && con != exclusive_console)
  			continue;
-@@ -1606,6 +1607,7 @@ static void call_console_drivers(int level,
+@@ -1608,6 +1609,7 @@ static void call_console_drivers(int level,
  		else
  			con->write(con, text, len);
  	}
@@ -31,7 +31,7 @@ index 59b0f537f464..696970800418 100644
  }
  
  /*
-@@ -1914,13 +1916,23 @@ asmlinkage int vprintk_emit(int facility, int level,
+@@ -1916,13 +1918,23 @@ asmlinkage int vprintk_emit(int facility, int level,
  
  	/* If called from the scheduler, we can not call up(). */
  	if (!in_sched) {
@@ -56,7 +56,7 @@ index 59b0f537f464..696970800418 100644
  			console_unlock();
  		lockdep_on();
  	}
-@@ -2320,11 +2332,16 @@ static void console_cont_flush(char *text, size_t size)
+@@ -2322,11 +2334,16 @@ static void console_cont_flush(char *text, size_t size)
  		goto out;
  
  	len = cont_print_text(text, size);
@@ -73,7 +73,7 @@ index 59b0f537f464..696970800418 100644
  	return;
  out:
  	raw_spin_unlock_irqrestore(&logbuf_lock, flags);
-@@ -2448,13 +2465,17 @@ void console_unlock(void)
+@@ -2450,13 +2467,17 @@ void console_unlock(void)
  		}
  		console_idx = log_next(console_idx);
  		console_seq++;

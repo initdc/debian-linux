@@ -2,7 +2,7 @@ From: Josh Cartwright <joshc@ni.com>
 Date: Thu, 11 Feb 2016 11:54:01 -0600
 Subject: [PATCH 239/347] KVM: arm/arm64: downgrade preempt_disable()d region
  to migrate_disable()
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=55c654a3cfef980e679602489cee1a40552ffe33
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=90fa9daa67188957990d5a87bb218d8ae86e3ac9
 
 kvm_arch_vcpu_ioctl_run() disables the use of preemption when updating
 the vgic and timer states to prevent the calling task from migrating to

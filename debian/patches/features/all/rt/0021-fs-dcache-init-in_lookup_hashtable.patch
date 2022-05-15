@@ -1,7 +1,7 @@
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Wed, 14 Sep 2016 17:57:03 +0200
 Subject: [PATCH 021/347] fs/dcache: init in_lookup_hashtable
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=17066d9c096117c9c203d27b845fd8e2b7f8833f
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=a0ec0ea55c419792eaeb213fa9bf88fb35c28d58
 
 in_lookup_hashtable was introduced in commit 94bdd655caba ("parallel
 lookups machinery, part 3") and never initialized but since it is in

@@ -2,7 +2,7 @@ From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 15 Sep 2016 17:16:44 +0200
 Subject: [PATCH 023/347] iommu/vt-d: don't disable preemption while accessing
  deferred_flush()
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=62fd251b1af3b66bc4f2f75640120853b7ceb939
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=616550d8388a4776ec92d2ff2354e0f50895c8ff
 
 get_cpu() disables preemption and returns the current CPU number. The
 CPU number is later only used once while retrieving the address of the

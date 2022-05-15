@@ -1,7 +1,7 @@
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Fri, 17 Jun 2011 15:42:38 +0200
 Subject: [PATCH 061/347] Intrduce migrate_disable() + cpu_light()
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=88bd63771fc32d5df7e25123c9f5d583cdf1ab92
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=944b47097d075f84249e99c1f656fb9b099bc480
 
 Introduce migrate_disable(). The task can't be pushed to another CPU but can
 be preempted.
@@ -253,7 +253,7 @@ index 7510b7849af6..33e016e259b2 100644
   * Pick up the highest-prio task:
   */
 diff --git a/kernel/sched/debug.c b/kernel/sched/debug.c
-index fa178b62ea79..935224123441 100644
+index 69c3252d151b..5237566f2bad 100644
 --- a/kernel/sched/debug.c
 +++ b/kernel/sched/debug.c
 @@ -558,6 +558,9 @@ void print_rt_rq(struct seq_file *m, int cpu, struct rt_rq *rt_rq)
@@ -266,7 +266,7 @@ index fa178b62ea79..935224123441 100644
  
  #undef PN
  #undef P
-@@ -953,6 +956,10 @@ void proc_sched_show_task(struct task_struct *p, struct seq_file *m)
+@@ -943,6 +946,10 @@ void proc_sched_show_task(struct task_struct *p, struct seq_file *m)
  #endif
  	P(policy);
  	P(prio);

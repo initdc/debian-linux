@@ -1,7 +1,7 @@
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Fri, 8 Nov 2013 17:34:54 +0100
 Subject: [PATCH 070/347] usb: Use _nort in giveback function
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=7bdc11072e2b3164d73a0b27361ea0795f5664d1
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=51f983c07ba675c853dde0e4e0bdbed748919a10
 
 Since commit 94dfd7ed ("USB: HCD: support giveback of URB in tasklet
 context") I see

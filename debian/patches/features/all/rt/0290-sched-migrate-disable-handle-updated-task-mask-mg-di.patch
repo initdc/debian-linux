@@ -2,7 +2,7 @@ From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Mon, 19 Jun 2017 09:55:47 +0200
 Subject: [PATCH 290/347] sched/migrate disable: handle updated task-mask
  mg-dis section
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=fe5b4859d3f8aa28bdfef48f83fdb8c18fc78521
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=e5df0d09b9a2291a74017f549940c7ca9a78322f
 
 If task's cpumask changes while in the task is in a migrate_disable()
 section then we don't react on it after a migrate_enable(). It matters

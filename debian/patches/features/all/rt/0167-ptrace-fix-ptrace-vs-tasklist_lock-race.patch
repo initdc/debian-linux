@@ -1,7 +1,7 @@
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 29 Aug 2013 18:21:04 +0200
 Subject: [PATCH 167/347] ptrace: fix ptrace vs tasklist_lock race
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=b8ce52e83b5d4273194b945ffc86a8ab528a29de
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=2355fc8315a120aecd83a3102d8b41ff0fc097bc
 
 As explained by Alexander Fyodorov <halcy@yandex.ru>:
 
@@ -98,7 +98,7 @@ index c5d4f5d9391c..fd078d5646d9 100644
   * cond_resched() and cond_resched_lock(): latency reduction via
   * explicit rescheduling in places that are safe. The return
 diff --git a/kernel/ptrace.c b/kernel/ptrace.c
-index 4f10223bc7b0..cd869b487adc 100644
+index 2b59212ddcc6..f05758043065 100644
 --- a/kernel/ptrace.c
 +++ b/kernel/ptrace.c
 @@ -186,7 +186,14 @@ static bool ptrace_freeze_traced(struct task_struct *task)

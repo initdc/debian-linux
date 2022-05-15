@@ -1,7 +1,7 @@
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 4 Feb 2016 14:08:06 +0100
 Subject: [PATCH 047/347] latencyhist: disable jump-labels
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=2e7f76d679296303886a21c80c36cc9b87d2a195
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=ebd4fb94b5ab800294250e8e3a076085f135de38
 
 Atleast on X86 we die a recursive death
 

@@ -2,7 +2,7 @@ From: Ingo Molnar <mingo@elte.hu>
 Date: Fri, 3 Jul 2009 08:30:27 -0500
 Subject: [PATCH 127/347] stop_machine: convert stop_machine_run() to
  PREEMPT_RT
-Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=cb5df62de70a82c399cd2461680530711e4f5ed0
+Origin: https://git.kernel.org/cgit/linux/kernel/git/rt/linux-stable-rt.git/commit?id=9602f95db8a6216d1f3f1d6dd2e7ec65d1da3cda
 
 Instead of playing with non-preemption, introduce explicit
 startup serialization. This is more robust and cleaner as
