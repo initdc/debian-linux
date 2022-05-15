@@ -1,4 +1,4 @@
-linux (4.9.312-1) UNRELEASED; urgency=medium
+linux (4.9.314-1) UNRELEASED; urgency=medium
 
   * New upstream stable update:
     https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.9.304
@@ -326,8 +326,6 @@ linux (4.9.312-1) UNRELEASED; urgency=medium
     - mm: don't skip swap entry even if zap_details specified
     - xfrm: policy: match with both mark and mask on user interfaces
     - veth: Ensure eth header is in skb's linear part
-    - [armhf] net: ethernet: stmmac: fix altr_tse_pcs function when using a
-      fixed-link
     - nfc: nci: add flush_workqueue to prevent uaf
     - cifs: potential buffer overflow in handling symlinks
     - [amd64] drm/amdkfd: Check for potential null return of kmalloc_array()
@@ -355,6 +353,73 @@ linux (4.9.312-1) UNRELEASED; urgency=medium
     - ext4: fix overhead calculation to account for the reserved gdt blocks
     - ext4: force overhead calculation if the s_overhead_cluster makes no sense
     - block/compat_ioctl: fix range check in BLKGETSIZE
+    https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.9.313
+    - floppy: disable FDRAWCMD by default
+    - lightnvm: disable the subsystem
+    - USB: quirks: add a Realtek card reader
+    - USB: quirks: add STRING quirk for VCOM device
+    - USB: serial: whiteheat: fix heap overflow in WHITEHEAT_GET_DTR_RTS
+    - USB: serial: cp210x: add PIDs for Kamstrup USB Meter Reader
+    - USB: serial: option: add support for Cinterion MV32-WA/MV32-WB
+    - USB: serial: option: add Telit 0x1057, 0x1058, 0x1075 compositions
+    - xhci: stop polling roothubs after shutdown
+    - [x86] iio: magnetometer: ak8975: Fix the error handling in
+      ak8975_power_on()
+    - [x86] usb: misc: fix improper handling of refcount in uss720_probe()
+    - usb: gadget: uvc: Fix crash when encoding data for usb request
+    - usb: gadget: configfs: clear deactivation flag in
+      configfs_composite_unbind()
+    - serial: 8250: Also set sticky MCR bits in console restoration
+    - serial: 8250: Correct the clock for EndRun PTP/1588 PCIe device
+    - hex2bin: make the function hex_to_bin constant-time
+    - hex2bin: fix access beyond string end
+    - [armhf] dts: imx6qdl-apalis: Fix sgtl5000 detection issue
+    - [armhf] phy: samsung: Fix missing of_node_put() in exynos_sata_phy_probe
+    - [armhf] phy: samsung: exynos5250-sata: fix missing device put in probe
+      error paths
+    - [armhf] OMAP2+: Fix refcount leak in omap_gic_of_init
+    - [armhf] dts: Fix mmc order for omap3-gta04
+    - ip_gre: Make o_seqno start from 0 in native mode
+    - tcp: fix potential xmit stalls caused by TCP_NOTSENT_LOWAT
+    - [armhf] bus: sunxi-rsb: Fix the return value of sunxi_rsb_device_create()
+    - [armhf] clk: sunxi: sun9i-mmc: check return value after calling
+      platform_get_resource()
+    - bnx2x: fix napi API usage sequence
+    - [x86] drivers: net: hippi: Fix deadlock in rr_close()
+    - [x86] cpu: Load microcode during restore_processor_state()
+    - tty: n_gsm: fix wrong signal octet encoding in convergence layer type 2
+    - tty: n_gsm: fix malformed counter for out of frame data
+    - tty: n_gsm: fix insufficient txframe size
+    - tty: n_gsm: fix missing explicit ldisc flush
+    - tty: n_gsm: fix wrong command retry handling
+    - tty: n_gsm: fix wrong command frame length field encoding
+    - tty: n_gsm: fix incorrect UA handling
+    - ALSA: fireworks: fix wrong return count shorter than expected by 4 bytes
+    - Revert "SUNRPC: attempt AF_LOCAL connect on setup"
+    - firewire: fix potential uaf in outbound_phy_packet_callback()
+    - firewire: remove check of list iterator against head past the loop body
+    - firewire: core: extend card->lock in fw_core_handle_bus_reset
+    - nfc: replace improper check device_is_registered() in netlink related
+      functions
+    - NFC: netlink: fix sleep in atomic bug when firmware download timeout
+    - hwmon: (adt7470) Fix warning on module removal
+    - ASoC: dmaengine: Restore NULL prepare_slave_config() callback
+    - [arm64,armhf] smsc911x: allow using IRQ0
+    - btrfs: always log symlinks in full mode
+    - net: igmp: respect RCU rules in ip_mc_source() and ip_mc_msfilter()
+    - [x86] kvm: x86/cpuid: Only provide CPUID leaf 0xA if host has
+      architectural PMU
+    - net: sched: prevent UAF on tc_ctl_tfilter when temporarily dropping
+      rtnl_lock (CVE-2021-39713)
+    - net: ipv6: ensure we call ipv6_mc_down() at most once
+    - dm: fix mempool NULL pointer race when completing IO
+    - dm: interlock pending dm_io and dm_wait_for_bios_completion
+    https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.9.314
+    - block: drbd: drbd_nl: Make conversion to 'enum drbd_ret_code' explicit
+    - Bluetooth: Fix the creation of hdev->name
+    - mmc: rtsx: add 74 Clocks in power on flow
+    - mm: userfaultfd: fix missing cache flush in mcopy_atomic_pte() and
+      __mcopy_atomic()
 
   [ Ben Hutchings ]
   * Bump ABI to 19
