@@ -188,7 +188,7 @@ linux (4.9.312-1) UNRELEASED; urgency=medium
     - virtio_console: break out of buf poll on remove
     - ethernet: sun: Free the coherent when failing in probing
     - af_key: add __GFP_ZERO flag for compose_sadb_supported in function
-      pfkey_register
+      pfkey_register (CVE-2022-1353)
     - virtio-blk: Use blk_validate_block_size() to validate block size
     - iio: inkern: apply consumer scale on IIO_VAL_INT cases
     - iio: inkern: make a best effort on offset calculation
@@ -197,7 +197,7 @@ linux (4.9.312-1) UNRELEASED; urgency=medium
     - SUNRPC: avoid race between mod_timer() and del_timer_sync()
     - NFSD: prevent underflow in nfssvc_decode_writeargs()
     - can: ems_usb: ems_usb_start_xmit(): fix double dev_kfree_skb() in error
-      path
+      path (CVE-2022-28390)
     - jffs2: fix use-after-free in jffs2_clear_xattr_subsystem
     - jffs2: fix memory leak in jffs2_do_mount_fs
     - jffs2: fix memory leak in jffs2_scan_medium
