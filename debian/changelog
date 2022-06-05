@@ -400,7 +400,7 @@ linux (4.9.314-1) UNRELEASED; urgency=medium
     - firewire: remove check of list iterator against head past the loop body
     - firewire: core: extend card->lock in fw_core_handle_bus_reset
     - nfc: replace improper check device_is_registered() in netlink related
-      functions
+      functions (CVE-2022-1974)
     - NFC: netlink: fix sleep in atomic bug when firmware download timeout
       (CVE-2022-1975)
     - hwmon: (adt7470) Fix warning on module removal
