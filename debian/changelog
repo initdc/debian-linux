@@ -402,6 +402,7 @@ linux (4.9.314-1) UNRELEASED; urgency=medium
     - nfc: replace improper check device_is_registered() in netlink related
       functions
     - NFC: netlink: fix sleep in atomic bug when firmware download timeout
+      (CVE-2022-1975)
     - hwmon: (adt7470) Fix warning on module removal
     - ASoC: dmaengine: Restore NULL prepare_slave_config() callback
     - [arm64,armhf] smsc911x: allow using IRQ0
