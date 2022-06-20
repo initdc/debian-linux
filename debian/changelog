@@ -354,7 +354,7 @@ linux (4.9.314-1) UNRELEASED; urgency=medium
     - ext4: force overhead calculation if the s_overhead_cluster makes no sense
     - block/compat_ioctl: fix range check in BLKGETSIZE
     https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.9.313
-    - floppy: disable FDRAWCMD by default (CVE-2022-1836)
+    - floppy: disable FDRAWCMD by default (CVE-2022-33981)
     - lightnvm: disable the subsystem
     - USB: quirks: add a Realtek card reader
     - USB: quirks: add STRING quirk for VCOM device
