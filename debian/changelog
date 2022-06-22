@@ -290,7 +290,7 @@ linux (4.9.314-1) UNRELEASED; urgency=medium
     - ASoC: topology: Allow TLV control to be either read or write
     - openvswitch: Fixed nd target mask field in the flow dump.
     - [x86] KVM: x86: Forbid VMM to set SYNIC/STIMER MSRs when SynIC wasn't
-      activated
+      activated (CVE-2022-2153)
     - rtc: wm8350: Handle error for wm8350_register_irq
     - [x86] KVM: x86/svm: Clear reserved bits written to PerfEvtSeln MSRs
     - ath5k: fix OOB in ath5k_eeprom_read_pcal_info_5111
