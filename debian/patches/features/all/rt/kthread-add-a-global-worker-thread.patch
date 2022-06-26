@@ -13,11 +13,9 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  kernel/kthread.c        | 13 +++++++++++++
  3 files changed, 20 insertions(+)
 
-diff --git a/include/linux/kthread.h b/include/linux/kthread.h
-index d7d248602a0eb..994cfa5ef0449 100644
 --- a/include/linux/kthread.h
 +++ b/include/linux/kthread.h
-@@ -196,5 +196,11 @@ bool kthread_cancel_work_sync(struct kthread_work *work);
+@@ -196,5 +196,11 @@ bool kthread_cancel_work_sync(struct kth
  bool kthread_cancel_delayed_work_sync(struct kthread_delayed_work *work);
  
  void kthread_destroy_worker(struct kthread_worker *worker);
@@ -29,23 +27,19 @@ index d7d248602a0eb..994cfa5ef0449 100644
 +}
  
  #endif /* _LINUX_KTHREAD_H */
-diff --git a/init/main.c b/init/main.c
-index e8f68be18f692..0d5dbdf500998 100644
 --- a/init/main.c
 +++ b/init/main.c
-@@ -1008,6 +1008,7 @@ static noinline void __init kernel_init_freeable(void)
+@@ -1034,6 +1034,7 @@ static noinline void __init kernel_init_
  
- 	smp_prepare_cpus(setup_max_cpus);
+ 	workqueue_init();
  
 +	kthread_init_global_worker();
  	do_pre_smp_initcalls();
  	lockup_detector_init();
  
-diff --git a/kernel/kthread.c b/kernel/kthread.c
-index d6e8f65cbae90..826e2c8c62d46 100644
 --- a/kernel/kthread.c
 +++ b/kernel/kthread.c
-@@ -1159,3 +1159,16 @@ void kthread_destroy_worker(struct kthread_worker *worker)
+@@ -1185,3 +1185,16 @@ void kthread_destroy_worker(struct kthre
  	kfree(worker);
  }
  EXPORT_SYMBOL(kthread_destroy_worker);
@@ -62,6 +56,3 @@ index d6e8f65cbae90..826e2c8c62d46 100644
 +		return;
 +	wake_up_process(kthread_global_worker.task);
 +}
--- 
-2.20.1
-

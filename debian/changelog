@@ -1,4 +1,4 @@
-linux (4.9.319-1) UNRELEASED; urgency=medium
+linux (4.9.320-1) UNRELEASED; urgency=medium
 
   * New upstream stable update:
     https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.9.304
@@ -616,12 +616,114 @@ linux (4.9.319-1) UNRELEASED; urgency=medium
       + x86/speculation/mmio: Reuse SRBDS mitigation for SBDS
       + KVM: x86/speculation: Disable Fill buffer clear within guests
       + x86/speculation/mmio: Print SMT warning
+    https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.9.320
+    - 9p: missing chunk of "fs/9p: Don't update file type when updating file
+      attributes"
+    - crypto: chacha20 - Fix keystream alignment for chacha20_block()
+    - crypto: blake2s - generic C library implementation and selftest
+    - lib/crypto: blake2s: move hmac construction into wireguard
+    - lib/crypto: sha1: re-roll loops to reduce code size
+    - crypto: chacha20 - Fix chacha20_block() keystream alignment (again)
+    - workqueue: make workqueue available early during boot
+    - hwrng: use rng source with best quality
+    - hwrng: remember rng chosen by user
+    - random: Backport from 5.19, fixing several weaknesses and
+      peformance issues, including:
+      + random: invalidate batched entropy after crng init
+      + random: warn when kernel uses unseeded randomness
+      + random: do not ignore early device randomness
+      + random: set up the NUMA crng instances after the CRNG is fully
+        initialized (CVE-2018-1108)
+      + random: optimize add_interrupt_randomness
+      + random: add a config option to trust the CPU's hwrng
+      + random: make CPU trust a boot parameter
+      + random: only read from /dev/random after its pool has received 128 bits
+      + fdt: add support for rng-seed
+      + random: add GRND_INSECURE to return best-effort non-cryptographic bytes
+      + random: ignore GRND_RANDOM in getentropy(2)
+      + random: make /dev/random be almost like /dev/urandom
+      + random: use BLAKE2s instead of SHA1 in extraction
+      + random: avoid superfluous call to RDRAND in CRNG extraction
+      + random: continually use hwgenerator randomness
+      + random: use computational hash for entropy extraction
+      + random: use RDSEED instead of RDRAND in entropy extraction
+      + random: ensure early RDSEED goes through mixer on init
+      + random: do not xor RDRAND when writing into /dev/random
+      + random: absorb fast pool into input pool after fast load
+      + random: use hash function for crng_slow_load()
+      + random: zero buffer after reading entropy from userspace
+      + random: defer fast pool mixing to worker
+      + random: do crng pre-init loading in worker rather than irq
+      + random: don't let 644 read-only sysctls be written to
+      + random: use SipHash as interrupt entropy accumulator
+      + random: reseed more often immediately after booting
+      + random: check for signal and try earlier when generating entropy
+      + random: treat bootloader trust toggle the same way as cpu trust toggle
+      + random: do not allow user to keep crng key around on stack
+      + random: check for signal_pending() outside of need_resched() check
+      + random: check for signals every PAGE_SIZE chunk of /dev/[u]random
+      + init: call time_init() before rand_initialize()
+      + timekeeping: Add raw clock fallback for random_get_entropy()
+      + arm: use fallback for random_get_entropy() instead of zero
+      + [x86] tsc: Use fallback for random_get_entropy() instead of zero
+      + random: do not use batches when !crng_ready()
+      + random: do not pretend to handle premature next security model
+      + random: do not use input pool from hard IRQs
+      + random: avoid initializing twice in credit race
+      + random: wire up fops->splice_{read,write}_iter()
+      + random: check for signals after page of pool writes
+      + random: credit cpu and bootloader seeds by default
+    - uapi: rename ext2_swab() to swab() and share globally in swab.h
+    - crypto: drbg - add FIPS 140-2 CTRNG for noise source
+    - crypto: drbg - always seeded with SP800-90B compliant noise source
+    - crypto: drbg - prepare for more fine-grained tracking of seeding state
+    - crypto: drbg - track whether DRBG was seeded with !rng_is_initialized()
+    - crypto: drbg - move dynamic ->reseed_threshold adjustments to
+      __drbg_seed()
+    - crypto: drbg - always try to free Jitter RNG instance
+    - crypto: drbg - make reseeding from get_random_bytes() synchronous
+    - ata: libata-core: fix NULL pointer deref in ata_host_alloc_pinfo()
+    - [x86] scsi: vmw_pvscsi: Expand vcpuHint to 16 bits
+    - scsi: lpfc: Fix port stuck in bypassed state after LIP in PT2PT topology
+    - virtio-mmio: fix missing put_device() when vm_cmdline_parent registration
+      failed
+    - ipv6: Fix signed integer overflow in l2tp_ip6_sendmsg
+    - pNFS: Don't keep retrying if the server replied NFS4ERR_LAYOUTUNAVAILABLE
+    - [arm64,armhf] irqchip/gic-v3: Iterate over possible CPUs by
+      for_each_possible_cpu()
+    - [x86] comedi: vmk80xx: fix expression for tx buffer size
+    - USB: serial: option: add support for Cinterion MV31 with new baseline
+    - USB: serial: io_ti: add Agilent E5805A support
+    - serial: 8250: Store to lsr_save_flags after lsr read
+    - ext4: fix bug_on ext4_mb_use_inode_pa
+    - ext4: make variable "count" signed
+    - ext4: add reserved GDT blocks check
+    - l2tp: don't use inet_shutdown on ppp session destroy
+    - l2tp: fix race in pppol2tp_release with session object destroy
+    - xprtrdma: fix incorrect header size calculations
+    - swiotlb: fix info leak with DMA_FROM_DEVICE (CVE-2022-0812)
+    - Reinstate some of "swiotlb: rework "fix info leak with DMA_FROM_DEVICE""
+      (CVE-2022-0812)
+    - fuse: fix pipe buffer lifetime for direct_io (CVE-2022-1011)
+    - tcp: Improve source port randomisation (CVE-2022-1012, CVE-2022-32296):
+      + tcp: change source port randomizarion at connect() time
+      + tcp: add some entropy in __inet_hash_connect()
+      + secure_seq: use the 64 bits of the siphash for port offset calculation
+      + tcp: use different parts of the port_offset for index and offset
+      + tcp: add small random increments to the source port
+      + tcp: dynamically allocate the perturb table used by source ports
+      + tcp: increase source port perturb table to 2^16
+      + tcp: drop the hash_32() part from the index calculation
 
   [ Ben Hutchings ]
   * Bump ABI to 19
   * debian/lib/python/debian_linux/debian.py: Fix deprecated import of
     MutableSet
   * [rt] Update to 4.9.312-rt193
+  * Drop "random: Make getranndom() ready earlier", since bug #897599 is now
+    properly fixed upstream (CVE-2018-1108)
+  * [rt] Drop all patches to the random driver, since the upstream version is
+    now RT-aware
 
  -- Ben Hutchings <benh@debian.org>  Fri, 15 Apr 2022 14:09:07 +0200
 

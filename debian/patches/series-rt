@@ -37,7 +37,6 @@ features/all/rt/0036-signal-Revert-ptrace-preempt-magic.patch
 features/all/rt/0037-arm-Convert-arm-boot_lock-to-raw.patch
 features/all/rt/0038-posix-timers-Prevent-broadcast-signals.patch
 features/all/rt/0039-signals-Allow-rt-tasks-to-cache-one-sigqueue-struct.patch
-features/all/rt/0040-drivers-random-Reduce-preempt-disabled-region.patch
 features/all/rt/0041-ARM-AT91-PIT-Remove-irq-handler-when-clock-event-is-.patch
 features/all/rt/0042-clockevents-drivers-timer-atmel-pit-fix-double-free_.patch
 features/all/rt/0043-clocksource-TCLIB-Allow-higher-clock-rates-for-clock.patch
@@ -257,8 +256,6 @@ features/all/rt/0256-crypto-Reduce-preempt-disabled-regions-more-algos.patch
 features/all/rt/0257-dm-Make-rt-aware.patch
 features/all/rt/0258-acpi-rt-Convert-acpi_gbl_hardware-lock-back-to-a-raw.patch
 features/all/rt/0259-cpumask-Disable-CONFIG_CPUMASK_OFFSTACK-for-RT.patch
-features/all/rt/0260-random-Make-it-work-on-rt.patch
-features/all/rt/0261-random-avoid-preempt_disable-ed-section.patch
 features/all/rt/0262-cpu-Make-hotplug.lock-a-sleeping-spinlock-on-RT.patch
 features/all/rt/0263-cpu-rt-Rework-cpu-down-for-PREEMPT_RT.patch
 features/all/rt/0264-cpu-hotplug-Document-why-PREEMPT_RT-uses-a-spinlock.patch
@@ -348,6 +345,5 @@ features/all/rt/0347-Linux-4.9.312-rt193-REBASE.patch
 features/all/rt/kthread-convert-worker-lock-to-raw-spinlock.patch
 features/all/rt/kthread-add-a-global-worker-thread.patch
 features/all/rt/genirq-convert-affinity_notify-swork-to-kthread.patch
-features/all/rt/random-always-use-batched-entropy-for-get_random_u-3.patch
 features/all/rt/mm-page_alloc-restore-fix-core-hung-in-free_pcppages_bulk.patch
 features/all/rt/net-restore-use-of-tofree_queue-in-flush_backlog.patch
