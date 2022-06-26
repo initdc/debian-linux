@@ -546,7 +546,7 @@ linux (4.9.319-1) UNRELEASED; urgency=medium
     - [armhf] drm/bridge: analogix_dp: Grab runtime PM reference for DP-AUX
     - md: fix an incorrect NULL check in does_sb_need_changing
     - md: fix an incorrect NULL check in md_reload_sb
-    - RDMA/hfi1: Fix potential integer multiplication overflow errors
+    - [amd64] RDMA/hfi1: Fix potential integer multiplication overflow errors
     - [armhf] irqchip/armada-370-xp: Do not touch Performance Counter Overflow
       on A375, A38x, A39x
     - mac80211: upgrade passive scan to active scan on DFS channels after
@@ -554,7 +554,7 @@ linux (4.9.319-1) UNRELEASED; urgency=medium
     - hugetlb: fix huge_pmd_unshare address update
     - rtl818x: Prevent using not initialized queues
     - carl9170: tx: fix an incorrect use of list iterator
-    - gma500: fix an incorrect NULL check on list iterator
+    - [x86] gma500: fix an incorrect NULL check on list iterator
     - RDMA/rxe: Generate a completion for unsupported/invalid opcode
     - netfilter: nf_tables: disallow non-stateful expression in sets earlier
       (CVE-2022-32250)
