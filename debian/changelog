@@ -724,6 +724,9 @@ linux (4.9.320-1) UNRELEASED; urgency=medium
     properly fixed upstream (CVE-2018-1108)
   * [rt] Drop all patches to the random driver, since the upstream version is
     now RT-aware
+  * random: Enable RANDOM_TRUST_BOOTLOADER and RANDOM_TRUST_CPU. These can be
+    reverted using the kernel parameters: random.trust_bootloader=off
+    random.trust_cpu=off
 
  -- Ben Hutchings <benh@debian.org>  Fri, 15 Apr 2022 14:09:07 +0200
 
