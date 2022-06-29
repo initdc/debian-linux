@@ -729,6 +729,12 @@ linux (4.9.320-1) UNRELEASED; urgency=medium
     random.trust_cpu=off
   * [rt] signal: Prevent double-free of user struct
   * [armhf] Enable KERNEL_MODE_NEON (Closes: #922204)
+  * [armel,armhf] crypto: Enable optimised implementations (see #922204):
+    - Enable ARM_CRYPTO
+    - Enable CRYPTO_SHA1_ARM, CRYPTO_SHA256_ARM, CRYPTO_SHA512_ARM,
+      CRYPTO_AES_ARM as modules
+    - [armhf] Enable SHA1_ARM_NEON, CRYPTO_SHA1_ARM_CE, CRYPTO_SHA2_ARM_CE,
+      CRYPTO_AES_ARM_BS, CRYPTO_AES_ARM_CE, CRYPTO_GHASH_ARM_CE as modules
 
  -- Ben Hutchings <benh@debian.org>  Fri, 15 Apr 2022 14:09:07 +0200
 
