@@ -727,6 +727,7 @@ linux (4.9.320-1) UNRELEASED; urgency=medium
   * random: Enable RANDOM_TRUST_BOOTLOADER and RANDOM_TRUST_CPU. These can be
     reverted using the kernel parameters: random.trust_bootloader=off
     random.trust_cpu=off
+  * [rt] signal: Prevent double-free of user struct
 
  -- Ben Hutchings <benh@debian.org>  Fri, 15 Apr 2022 14:09:07 +0200
 
