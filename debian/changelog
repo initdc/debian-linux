@@ -1,3 +1,9 @@
+linux (4.9.320-2) stretch-security; urgency=medium
+
+  * Correct some CVE IDs for 4.9.320-1
+
+ -- Ben Hutchings <benh@debian.org>  Thu, 30 Jun 2022 20:26:10 +0200
+
 linux (4.9.320-1) stretch-security; urgency=high
 
   * New upstream stable update:
@@ -700,10 +706,10 @@ linux (4.9.320-1) stretch-security; urgency=high
     - ext4: add reserved GDT blocks check
     - l2tp: don't use inet_shutdown on ppp session destroy
     - l2tp: fix race in pppol2tp_release with session object destroy
-    - xprtrdma: fix incorrect header size calculations
-    - swiotlb: fix info leak with DMA_FROM_DEVICE (CVE-2022-0812)
+    - xprtrdma: fix incorrect header size calculations (CVE-2022-0812)
+    - swiotlb: fix info leak with DMA_FROM_DEVICE (CVE-2022-0854)
     - Reinstate some of "swiotlb: rework "fix info leak with DMA_FROM_DEVICE""
-      (CVE-2022-0812)
+      (CVE-2022-0854)
     - fuse: fix pipe buffer lifetime for direct_io (CVE-2022-1011)
     - tcp: Improve source port randomisation (CVE-2022-1012, CVE-2022-32296):
       + tcp: change source port randomizarion at connect() time
