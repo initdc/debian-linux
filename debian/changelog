@@ -1,6 +1,7 @@
 linux-5.10 (5.10.127-2~deb10u1) UNRELEASED; urgency=medium
 
-  * Rebuild for buster
+  * Rebuild for buster:
+    - Disable building linux-libc-dev and unversioned tools packages
 
  -- Ben Hutchings <benh@debian.org>  Thu, 28 Jul 2022 19:16:19 +0200
 
