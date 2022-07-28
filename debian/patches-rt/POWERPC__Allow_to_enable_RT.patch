@@ -1,7 +1,7 @@
 Subject: POWERPC: Allow to enable RT
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Fri Oct 11 13:14:41 2019 +0200
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/5.18/older/patches-5.18-rt10.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/5.18/older/patches-5.18-rt11.tar.xz
 
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 
@@ -25,9 +25,9 @@ Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
  	select ARCH_USE_BUILTIN_BSWAP
  	select ARCH_USE_CMPXCHG_LOCKREF		if PPC64
  	select ARCH_USE_MEMTEST
-@@ -220,6 +221,7 @@ config PPC
+@@ -219,6 +220,7 @@ config PPC
+ 	select HAVE_HW_BREAKPOINT		if PERF_EVENTS && (PPC_BOOK3S || PPC_8xx)
  	select HAVE_IOREMAP_PROT
- 	select HAVE_IRQ_EXIT_ON_IRQ_STACK
  	select HAVE_IRQ_TIME_ACCOUNTING
 +	select HAVE_POSIX_CPU_TIMERS_TASK_WORK	if !KVM
  	select HAVE_KERNEL_GZIP
