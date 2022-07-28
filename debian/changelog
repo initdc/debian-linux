@@ -4,6 +4,7 @@ linux-5.10 (5.10.127-2~deb10u1) UNRELEASED; urgency=medium
     - Disable building linux-libc-dev and unversioned tools packages
     - Disable building installer udebs and remove build-dependency on
       kernel-wedge
+    - Disable building linux-compiler-gcc-8-*
 
  -- Ben Hutchings <benh@debian.org>  Thu, 28 Jul 2022 19:16:19 +0200
 
