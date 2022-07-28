@@ -165,6 +165,7 @@ breaks: wireless-regdb (<< 2019.06.03-1~)
 recommends: apparmor
 
 [packages]
+installer: false
 libc-dev: false
 tools-unversioned: false
 
