@@ -1,4 +1,4 @@
-linux-5.10 (5.10.136-1~deb10u1) UNRELEASED; urgency=medium
+linux-5.10 (5.10.136-1~deb10u1) buster-security; urgency=high
 
   [ Ben Hutchings ]
   * Rebuild for buster:
@@ -11,7 +11,7 @@ linux-5.10 (5.10.136-1~deb10u1) UNRELEASED; urgency=medium
   [ Bastian Blank ]
   * Build signed template if versioned package name
 
- -- Ben Hutchings <benh@debian.org>  Thu, 28 Jul 2022 19:16:19 +0200
+ -- Ben Hutchings <benh@debian.org>  Thu, 18 Aug 2022 22:52:22 +0200
 
 linux (5.10.136-1) bullseye-security; urgency=high
 
