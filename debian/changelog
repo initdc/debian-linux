@@ -5,6 +5,7 @@ linux-5.10 (5.10.136-1~deb10u1) UNRELEASED; urgency=medium
     - Disable building installer udebs and remove build-dependency on
       kernel-wedge
     - Disable building linux-compiler-gcc-8-*
+    - Revert "Enable BTF for amd64, arm64"
 
  -- Ben Hutchings <benh@debian.org>  Thu, 28 Jul 2022 19:16:19 +0200
 
