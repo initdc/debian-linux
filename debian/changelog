@@ -1,3 +1,11 @@
+linux-5.10 (5.10.136-1~deb10u3) UNRELEASED; urgency=medium
+
+  [ Salvatore Bonaccorso ]
+  * certs: Rotate to use the "Debian Secure Boot Signer 2022 - linux"
+    certificate (Closes: #1018752)
+
+ -- Ben Hutchings <ben@decadent.org.uk>  Tue, 06 Sep 2022 19:34:59 +0200
+
 linux-5.10 (5.10.136-1~deb10u2) buster-security; urgency=high
 
   [ Bastian Blank ]
