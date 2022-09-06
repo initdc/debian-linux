@@ -4,6 +4,9 @@ linux-5.10 (5.10.136-1~deb10u3) UNRELEASED; urgency=medium
   * certs: Rotate to use the "Debian Secure Boot Signer 2022 - linux"
     certificate (Closes: #1018752)
 
+  [ Ben Hutchings ]
+  * d/bin/gencontrol_signed.py: Fix source package name in Built-Using field
+
  -- Ben Hutchings <ben@decadent.org.uk>  Tue, 06 Sep 2022 19:34:59 +0200
 
 linux-5.10 (5.10.136-1~deb10u2) buster-security; urgency=high
